@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="rbw1tvvv">
+  <resources>
+    <component id="lrn42z" name="HomeScreen.xml" path="/" exported="true"/>
+    <sound id="qb2nqa" name="sfx_pop.mp3" path="/Sounds/" exported="true"/>
+    <image id="hqs5qp" name="frame_bet_2.png" path="/Images/9Path/" scale="9grid" scale9grid="30,30,11,12" smoothing="false"/>
+    <image id="hqs5qq" name="frame_dialog.png" path="/Images/9Path/" scale="9grid" scale9grid="40,40,7,13" smoothing="false"/>
+  </resources>
+  <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
+    <atlas name="默认" index="0"/>
+  </publish>
+</packageDescription>

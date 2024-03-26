@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,960">
+  <displayList>
+    <loader id="n44_v6gh" name="Bg" xy="99,158" pivot="0.5,0.5" size="401,642" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <graph id="n47_hqs5" name="Holder" xy="200,380" pivot="0.5,0.5" size="200,200" type="rect">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </graph>
+  </displayList>
+</component>
