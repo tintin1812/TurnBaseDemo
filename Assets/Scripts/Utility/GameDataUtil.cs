@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using Data;
 using Newtonsoft.Json.Linq;
-using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Networking;
 
