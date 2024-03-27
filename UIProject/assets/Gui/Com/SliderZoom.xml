@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="272,29" extention="Slider">
+  <displayList>
+    <image id="n0_kz17" name="n0" src="kvjqqx" fileName="Images/Slider/slider_container.png" xy="0,0" size="272,29">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_kz17" name="bar" src="kvjqqy" fileName="Images/Slider/slider_body.png" xy="4,3" size="263,23"/>
+    <component id="n3_kz17" name="grip" src="tsj8r0" fileName="Com/SliderGrip.xml" xy="215,-42">
+      <relation target="n1_kz17" sidePair="right-right"/>
+    </component>
+  </displayList>
+  <Slider wholeNumbers="true"/>
+</component>

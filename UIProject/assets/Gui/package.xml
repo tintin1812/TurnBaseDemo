@@ -9,6 +9,12 @@
     <component id="x1hkqt" name="Button.xml" path="/Com/"/>
     <image id="x1hkqu" name="TilesetForest1.png" path="/Images/Title/" scale="tile" smoothing="false" atlas="alone"/>
     <component id="x1hkqv" name="Map.xml" path="/Com/"/>
+    <component id="kvjqqw" name="SliderZoom.xml" path="/Com/"/>
+    <image id="kvjqqx" name="slider_container.png" path="/Images/Slider/" scale="9grid" scale9grid="6,6,260,17" smoothing="false"/>
+    <image id="kvjqqy" name="slider_body.png" path="/Images/Slider/" scale="9grid" scale9grid="6,6,197,11" smoothing="false"/>
+    <image id="kvjqqz" name="arrow_direction.png" path="/Images/Slider/" smoothing="false"/>
+    <component id="tsj8r0" name="SliderGrip.xml" path="/Com/"/>
+    <component id="tsj8r1" name="MapContent.xml" path="/Com/"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

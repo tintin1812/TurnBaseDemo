@@ -7,8 +7,7 @@ namespace Gui
 {
     public partial class Map : GComponent
     {
-        public GLoader Bg;
-        public GList ListSlot;
+        public MapContent Content;
         public const string URL = "ui://rbw1tvvvx1hkqv";
 
         public static Map CreateInstance()
@@ -20,8 +19,7 @@ namespace Gui
         {
             base.ConstructFromXML(xml);
 
-            Bg = (GLoader)GetChildAt(0);
-            ListSlot = (GList)GetChildAt(1);
+            Content = (MapContent)GetChildAt(0);
         }
     }
 }

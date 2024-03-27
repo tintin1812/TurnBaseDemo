@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="640,640" overflow="hidden">
+  <displayList>
+    <loader id="n49_x1hk" name="Bg" xy="-680,-680" pivot="0.5,0.5" size="2000,2000" url="ui://rbw1tvvvx1hkqu" align="center" vAlign="middle" fill="scaleFree">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+    <list id="n48_imzn" name="ListSlot" xy="35,78" size="570,483" layout="flow_hz" lineItemCount="5" defaultItem="ui://rbw1tvvvimznqs" align="center" vAlign="middle">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>
