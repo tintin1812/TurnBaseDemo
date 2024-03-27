@@ -8,7 +8,7 @@ namespace Genes
     public class FakeAxie512
     {
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem("Test/Fake Genes")]
+        // [UnityEditor.MenuItem("Test/Fake Genes")]
         static void TestFakeGenes()
         {
 

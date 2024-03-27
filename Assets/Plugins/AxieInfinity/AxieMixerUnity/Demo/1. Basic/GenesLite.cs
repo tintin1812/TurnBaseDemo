@@ -56,7 +56,7 @@ public class GenesLite : MonoBehaviour
         }
     }
 
-    [UnityEditor.MenuItem("Test/Decode Genes")]
+    // [UnityEditor.MenuItem("Test/Decode Genes")]
     static void TestDecodeGenes()
     {
         string colorStr = @"[

@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/HomeScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/HomeScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
-    </list>
+    <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="10509000" />
+      <workItem from="1711435991709" duration="10889000" />
     </task>
     <servers />
   </component>
