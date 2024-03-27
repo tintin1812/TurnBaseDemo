@@ -5,6 +5,8 @@
     <sound id="qb2nqa" name="sfx_pop.mp3" path="/Sounds/" exported="true"/>
     <image id="hqs5qp" name="frame_bet_2.png" path="/Images/9Path/" scale="9grid" scale9grid="30,30,11,12" smoothing="false"/>
     <image id="hqs5qq" name="frame_dialog.png" path="/Images/9Path/" scale="9grid" scale9grid="40,40,7,13" smoothing="false"/>
+    <component id="imznqs" name="SlotAxie.xml" path="/Com/"/>
+    <component id="x1hkqt" name="Button.xml" path="/Com/"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

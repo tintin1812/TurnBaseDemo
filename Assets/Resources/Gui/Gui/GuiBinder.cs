@@ -8,6 +8,7 @@ namespace Gui
     {
         public static void BindAll()
         {
+            UIObjectFactory.SetPackageItemExtension(SlotAxie.URL, typeof(SlotAxie));
             UIObjectFactory.SetPackageItemExtension(HomeScreen.URL, typeof(HomeScreen));
         }
     }

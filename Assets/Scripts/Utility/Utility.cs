@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using FairyGUI;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -31,6 +32,12 @@ namespace Utility
             }
 
             return "";
+        }
+
+        public static void setOnClick(this GButton bt, EventCallback0 callback)
+        {
+            bt.onClick.Clear();
+            bt.onClick.Add(callback);
         }
     }
 }

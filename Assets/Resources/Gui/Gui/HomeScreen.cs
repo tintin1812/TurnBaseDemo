@@ -8,7 +8,7 @@ namespace Gui
     public partial class HomeScreen : GComponent
     {
         public GLoader Bg;
-        public GGraph Holder;
+        public GList ListSlot;
         public const string URL = "ui://rbw1tvvvlrn42z";
 
         public static HomeScreen CreateInstance()
@@ -21,7 +21,7 @@ namespace Gui
             base.ConstructFromXML(xml);
 
             Bg = (GLoader)GetChildAt(0);
-            Holder = (GGraph)GetChildAt(1);
+            ListSlot = (GList)GetChildAt(1);
         }
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="80,80" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="1"/>
+  <displayList>
+    <graph id="n47_hqs5" name="Bg" xy="5,5" pivot="0.5,0.5" size="70,70" type="rect" lineSize="4" lineColor="#ff00ff99" fillColor="#00333333" corner="10">
+      <gearDisplay controller="button" pages="1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n48_imzn" name="Image" xy="15,15" pivot="0.5,1" size="50,50" visible="false" type="rect">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+  </displayList>
+  <Button/>
+</component>
