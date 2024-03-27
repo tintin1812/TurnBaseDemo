@@ -19,7 +19,7 @@ namespace Gui
             _homeScreen = HomeScreen.CreateInstance();
             _homeScreen.MakeFullScreen();
             GRoot.inst.AddChild(_homeScreen);
-            var listSlot = _homeScreen.ListSlot;
+            var listSlot = _homeScreen.Map.ListSlot;
             for (var idx = 0; idx < listSlot.numChildren; idx++)
             {
                 var slot = (SlotAxie)listSlot.GetChildAt(idx);
@@ -30,6 +30,16 @@ namespace Gui
                     Debug.Log($"OnClick at {idxC}"); //
                 });
             }
+
+            _homeScreen.Map.draggable = true;
+
+            var gesture = new PinchGesture(_homeScreen.Map);
+            gesture.onAction.Add(() =>
+            {
+                // Debug.Log("PinchGesture Action"); //
+                var scaleTo = _homeScreen.Map.scaleX + gesture.delta;
+                _homeScreen.Map.SetScale(scaleTo, scaleTo);
+            });
         }
     }
 }

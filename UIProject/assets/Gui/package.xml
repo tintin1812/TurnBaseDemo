@@ -7,6 +7,8 @@
     <image id="hqs5qq" name="frame_dialog.png" path="/Images/9Path/" scale="9grid" scale9grid="40,40,7,13" smoothing="false"/>
     <component id="imznqs" name="SlotAxie.xml" path="/Com/"/>
     <component id="x1hkqt" name="Button.xml" path="/Com/"/>
+    <image id="x1hkqu" name="TilesetForest1.png" path="/Images/Title/" scale="tile" smoothing="false" atlas="alone"/>
+    <component id="x1hkqv" name="Map.xml" path="/Com/"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

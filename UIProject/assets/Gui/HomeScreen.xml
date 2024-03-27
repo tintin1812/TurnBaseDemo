@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="960,640">
   <displayList>
-    <loader id="n44_v6gh" name="Bg" xy="68,69" pivot="0.5,0.5" size="823,500" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
+    <component id="n48_imzn" name="Map" src="x1hkqv" fileName="Com/Map.xml" xy="195,78"/>
+    <loader id="n44_v6gh" name="Bg" xy="0,69" pivot="0.5,0.5" size="189,500" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
-    <list id="n48_imzn" name="ListSlot" xy="195,78" size="570,483" layout="flow_hz" lineItemCount="5" defaultItem="ui://rbw1tvvvimznqs" align="center" vAlign="middle">
-      <relation target="" sidePair="center-center,middle-middle"/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-    </list>
   </displayList>
 </component>

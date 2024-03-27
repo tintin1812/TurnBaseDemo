@@ -10,6 +10,7 @@ namespace Gui
         {
             UIObjectFactory.SetPackageItemExtension(SlotAxie.URL, typeof(SlotAxie));
             UIObjectFactory.SetPackageItemExtension(HomeScreen.URL, typeof(HomeScreen));
+            UIObjectFactory.SetPackageItemExtension(Map.URL, typeof(Map));
         }
     }
 }
