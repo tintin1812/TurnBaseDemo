@@ -12,6 +12,7 @@ namespace Gui
             UIObjectFactory.SetPackageItemExtension(HomeScreen.URL, typeof(HomeScreen));
             UIObjectFactory.SetPackageItemExtension(SliderGrip.URL, typeof(SliderGrip));
             UIObjectFactory.SetPackageItemExtension(MapContent.URL, typeof(MapContent));
+            UIObjectFactory.SetPackageItemExtension(Button.URL, typeof(Button));
             UIObjectFactory.SetPackageItemExtension(Map.URL, typeof(Map));
         }
     }
