@@ -4,16 +4,7 @@
     <loader id="n49_x1hk" name="Bg" xy="-680,-680" pivot="0.5,0.5" size="2000,2000" url="ui://rbw1tvvvx1hkqu" align="center" vAlign="middle" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
-    <list id="n48_imzn" name="ListSlot" xy="0,0" pivot="0.5,0.5" size="640,640" layout="flow_hz" overflow="scroll" scroll="both" scrollBarFlags="2" scrollBar="visible" lineItemCount="10" defaultItem="ui://rbw1tvvvimznqs" align="center" vAlign="middle" autoClearItems="true">
-      <relation target="" sidePair="width-width,height-height"/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
+    <list id="n48_imzn" name="ListSlot" xy="120,120" pivot="0.5,0.5" size="400,400" layout="flow_hz" scroll="both" defaultItem="ui://rbw1tvvvimznqs" autoClearItems="true">
       <item/>
       <item/>
       <item/>

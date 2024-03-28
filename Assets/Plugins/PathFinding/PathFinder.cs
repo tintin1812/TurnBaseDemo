@@ -360,7 +360,7 @@ namespace Plugins.PathFinding
 
         public override void Execute()
         {
-            _tile.SetColor(TileGrid.TileColorStart);
+            // _tile.SetColor(TileGrid.TileColorStart);
         }
     }
 
@@ -372,7 +372,7 @@ namespace Plugins.PathFinding
 
         public override void Execute()
         {
-            _tile.SetColor(TileGrid.TileColorEnd);
+            // _tile.SetColor(TileGrid.TileColorEnd);
         }
     }
 
@@ -384,7 +384,7 @@ namespace Plugins.PathFinding
 
         public override void Execute()
         {
-            _tile.SetColor(TileGrid.TileColorPath);
+            // _tile.SetColor(TileGrid.TileColorPath);
         }
     }
 
@@ -399,8 +399,8 @@ namespace Plugins.PathFinding
 
         public override void Execute()
         {
-            _tile.SetColor(TileGrid.TileColorFrontier);
-            _tile.SetText(_cost != 0 ? _cost.ToString() : "");
+            // _tile.SetColor(TileGrid.TileColorFrontier);
+            // _tile.SetText(_cost != 0 ? _cost.ToString() : "");
         }
     }
 
@@ -412,7 +412,7 @@ namespace Plugins.PathFinding
 
         public override void Execute()
         {
-            _tile.SetColor(TileGrid.TileColorVisited);
+            // _tile.SetColor(TileGrid.TileColorVisited);
         }
     }
 }

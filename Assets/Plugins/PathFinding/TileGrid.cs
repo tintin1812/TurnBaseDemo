@@ -7,7 +7,7 @@ namespace Plugins.PathFinding
     public class TileGrid
     {
         private const int TileWeightDefault = 1;
-        private const int TileWeightExpensive = 50;
+        public int TileWeightExpensive { set; get; }
         private const int TileWeightInfinity = int.MaxValue;
         public int Rows { get; private set; }
         public int Cols { get; private set; }
@@ -28,10 +28,13 @@ namespace Plugins.PathFinding
                 }
             }
 
-
-            CreateExpensiveArea(3, 3, 9, 1, TileWeightExpensive);
-            CreateExpensiveArea(3, 11, 1, 9, TileWeightExpensive);
+            TileWeightExpensive = rows * cols;
             ResetGrid();
+        }
+
+        public void CreateExpensiveArea(int row, int col, int width, int height)
+        {
+            CreateExpensiveArea(row, col, width, height, TileWeightExpensive);
         }
 
         private void CreateExpensiveArea(int row, int col, int width, int height, int weight)
@@ -55,20 +58,6 @@ namespace Plugins.PathFinding
             {
                 tile.Cost = 0;
                 tile.PrevTile = null;
-                tile.SetText("");
-
-                switch (tile.Weight)
-                {
-                    case TileWeightDefault:
-                        // tile.SetColor(TileColor_Default);
-                        break;
-                    case TileWeightExpensive:
-                        // tile.SetColor(TileColor_Expensive);
-                        break;
-                    case TileWeightInfinity:
-                        // tile.SetColor(TileColor_Infinity);
-                        break;
-                }
             }
         }
 
@@ -130,7 +119,7 @@ namespace Plugins.PathFinding
             return rowInRange && colInRange;
         }
 
-        private int GetTileIndex(int row, int col)
+        public int GetTileIndex(int row, int col)
         {
             return row * Cols + col;
         }

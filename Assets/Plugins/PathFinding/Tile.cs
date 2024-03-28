@@ -4,7 +4,6 @@ namespace Plugins.PathFinding
 {
     public class Tile
     {
-        // public TileGrid Grid { get; private set; }
         public int Row { get; private set; }
         public int Col { get; private set; }
         public int Weight { get; set; }
@@ -16,16 +15,6 @@ namespace Plugins.PathFinding
             Row = row;
             Col = col;
             Weight = weight;
-        }
-
-        public void SetColor(Color color)
-        {
-            // TODO:
-        }
-
-        public void SetText(string text)
-        {
-            // TODO:
         }
 
         public Vector2 ToVector2()

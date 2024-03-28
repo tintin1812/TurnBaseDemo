@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FairyGUI
 {
@@ -18,10 +16,12 @@ namespace FairyGUI
         /// 当两个手指开始呈捏手势时派发该事件。
         /// </summary>
         public EventListener onBegin { get; private set; }
+
         /// <summary>
         /// 当其中一个手指离开屏幕时派发该事件。
         /// </summary>
         public EventListener onEnd { get; private set; }
+
         /// <summary>
         /// 当手势动作时派发该事件。
         /// </summary>

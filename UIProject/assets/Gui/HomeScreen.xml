@@ -4,15 +4,16 @@
     <component id="n48_imzn" name="Map" src="x1hkqv" fileName="Com/Map.xml" xy="0,0" pivot="0.5,0.5" size="640,960">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <loader id="n44_v6gh" name="Bar" xy="25,840" pivot="0.5,0.5" size="590,60" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
+    <loader id="n44_v6gh" name="Bar" xy="25,840" pivot="0.5,0.5" size="590,60" visible="false" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
       <relation target="" sidePair="width-width,center-center,bottom-bottom"/>
     </loader>
-    <component id="n49_tsj8" name="SliderZoom" src="kvjqqw" fileName="Com/SliderZoom.xml" xy="423,799" scale="0.7,0.7">
+    <component id="n49_tsj8" name="SliderZoom" src="kvjqqw" fileName="Com/SliderZoom.xml" xy="423,869" scale="0.7,0.7">
       <relation target="" sidePair="right-right,bottom-bottom"/>
       <Slider value="50" max="100"/>
     </component>
-    <component id="n50_tsj8" name="BtTest" src="x1hkqt" fileName="Com/Button.xml" xy="33,749">
+    <component id="n50_tsj8" name="BtTest" src="x1hkqt" fileName="Com/Button.xml" xy="33,839" visible="false">
       <relation target="" sidePair="left-left,bottom-bottom"/>
+      <Button title="Reset"/>
     </component>
   </displayList>
 </component>

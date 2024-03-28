@@ -1,11 +1,11 @@
 ﻿using System;
-
 using UnityEngine;
-
 using FairyGUI.Utils;
 
-namespace FairyGUI {
-    public class GObject : EventDispatcher {
+namespace FairyGUI
+{
+    public class GObject : EventDispatcher
+    {
         /// <summary>
         /// GObject的id，仅作为内部使用。与name不同，id值是不会相同的。
         /// id is for internal use only.
@@ -113,9 +113,7 @@ namespace FairyGUI {
         private int _sortingOrder;
         private string _tooltips;
         private GGroup _group;
-
         private GearBase[] _gears;
-
         private EventListener _onClick;
         private EventListener _onRightClick;
         private EventListener _onTouchBegin;
@@ -135,7 +133,6 @@ namespace FairyGUI {
         private EventListener _onGearStop;
         private EventListener _onFocusIn;
         private EventListener _onFocusOut;
-
         internal protected bool underConstruct;
         internal float _width;
         internal float _height;
@@ -145,10 +142,10 @@ namespace FairyGUI {
         internal float _sizePercentInGroup;
         internal bool _disposed;
         internal GTreeNode _treeNode;
-
         internal static uint _gInstanceCounter;
 
-        public GObject() {
+        public GObject()
+        {
             _width = 0;
             _height = 0;
             _alpha = 1;
@@ -169,140 +166,160 @@ namespace FairyGUI {
         /// <summary>
         /// Dispatched when the object or its child was clicked.
         /// </summary>
-        public EventListener onClick {
+        public EventListener onClick
+        {
             get { return _onClick ?? (_onClick = new EventListener(this, "onClick")); }
         }
 
         /// <summary>
         /// Dispatched when the object or its child was clicked by right mouse button. Web only.
         /// </summary>
-        public EventListener onRightClick {
+        public EventListener onRightClick
+        {
             get { return _onRightClick ?? (_onRightClick = new EventListener(this, "onRightClick")); }
         }
 
         /// <summary>
         /// Dispatched when the finger touched the object or its child just now.
         /// </summary>
-        public EventListener onTouchBegin {
+        public EventListener onTouchBegin
+        {
             get { return _onTouchBegin ?? (_onTouchBegin = new EventListener(this, "onTouchBegin")); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public EventListener onTouchMove {
+        public EventListener onTouchMove
+        {
             get { return _onTouchMove ?? (_onTouchMove = new EventListener(this, "onTouchMove")); }
         }
 
         /// <summary>
         /// Dispatched when the finger was lifted from the screen or from the mouse button. 
         /// </summary>
-        public EventListener onTouchEnd {
+        public EventListener onTouchEnd
+        {
             get { return _onTouchEnd ?? (_onTouchEnd = new EventListener(this, "onTouchEnd")); }
         }
 
         /// <summary>
         /// The cursor or finger hovers over an object.
         /// </summary>
-        public EventListener onRollOver {
+        public EventListener onRollOver
+        {
             get { return _onRollOver ?? (_onRollOver = new EventListener(this, "onRollOver")); }
         }
 
         /// <summary>
         /// The cursor or finger leave an object.
         /// </summary>
-        public EventListener onRollOut {
+        public EventListener onRollOut
+        {
             get { return _onRollOut ?? (_onRollOut = new EventListener(this, "onRollOut")); }
         }
 
         /// <summary>
         /// Dispatched when the object was added to the stage.
         /// </summary>
-        public EventListener onAddedToStage {
+        public EventListener onAddedToStage
+        {
             get { return _onAddedToStage ?? (_onAddedToStage = new EventListener(this, "onAddedToStage")); }
         }
 
         /// <summary>
         /// Dispatched when the object was removed from the stage.
         /// </summary>
-        public EventListener onRemovedFromStage {
+        public EventListener onRemovedFromStage
+        {
             get { return _onRemovedFromStage ?? (_onRemovedFromStage = new EventListener(this, "onRemovedFromStage")); }
         }
 
         /// <summary>
         /// Dispatched on key pressed when the object is in focus.
         /// </summary>
-        public EventListener onKeyDown {
+        public EventListener onKeyDown
+        {
             get { return _onKeyDown ?? (_onKeyDown = new EventListener(this, "onKeyDown")); }
         }
 
         /// <summary>
         /// Dispatched when links in the object or its child was clicked.
         /// </summary>
-        public EventListener onClickLink {
+        public EventListener onClickLink
+        {
             get { return _onClickLink ?? (_onClickLink = new EventListener(this, "onClickLink")); }
         }
 
         /// <summary>
         /// Dispatched when the object was moved.
         /// </summary>
-        public EventListener onPositionChanged {
+        public EventListener onPositionChanged
+        {
             get { return _onPositionChanged ?? (_onPositionChanged = new EventListener(this, "onPositionChanged")); }
         }
 
         /// <summary>
         /// Dispatched when the object was resized.
         /// </summary>
-        public EventListener onSizeChanged {
+        public EventListener onSizeChanged
+        {
             get { return _onSizeChanged ?? (_onSizeChanged = new EventListener(this, "onSizeChanged")); }
         }
 
         /// <summary>
         /// Dispatched when drag start. 
         /// </summary>
-        public EventListener onDragStart {
+        public EventListener onDragStart
+        {
             get { return _onDragStart ?? (_onDragStart = new EventListener(this, "onDragStart")); }
         }
 
         /// <summary>
         /// Dispatched when dragging.
         /// </summary>
-        public EventListener onDragMove {
+        public EventListener onDragMove
+        {
             get { return _onDragMove ?? (_onDragMove = new EventListener(this, "onDragMove")); }
         }
 
         /// <summary>
         /// Dispatched when drag end.
         /// </summary>
-        public EventListener onDragEnd {
+        public EventListener onDragEnd
+        {
             get { return _onDragEnd ?? (_onDragEnd = new EventListener(this, "onDragEnd")); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public EventListener onGearStop {
+        public EventListener onGearStop
+        {
             get { return _onGearStop ?? (_onGearStop = new EventListener(this, "onGearStop")); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public EventListener onFocusIn {
+        public EventListener onFocusIn
+        {
             get { return _onFocusIn ?? (_onFocusIn = new EventListener(this, "onFocusIn")); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public EventListener onFocusOut {
+        public EventListener onFocusOut
+        {
             get { return _onFocusOut ?? (_onFocusOut = new EventListener(this, "onFocusOut")); }
         }
 
         /// <summary>
         /// The x coordinate of the object relative to the local coordinates of the parent.
         /// </summary>
-        public float x {
+        public float x
+        {
             get { return _x; }
             set { SetPosition(value, _y, _z); }
         }
@@ -310,7 +327,8 @@ namespace FairyGUI {
         /// <summary>
         /// The y coordinate of the object relative to the local coordinates of the parent.
         /// </summary>
-        public float y {
+        public float y
+        {
             get { return _y; }
             set { SetPosition(_x, value, _z); }
         }
@@ -318,7 +336,8 @@ namespace FairyGUI {
         /// <summary>
         /// The z coordinate of the object relative to the local coordinates of the parent.
         /// </summary>
-        public float z {
+        public float z
+        {
             get { return _z; }
             set { SetPosition(_x, _y, value); }
         }
@@ -326,7 +345,8 @@ namespace FairyGUI {
         /// <summary>
         /// The x and y coordinates of the object relative to the local coordinates of the parent.
         /// </summary>
-        public Vector2 xy {
+        public Vector2 xy
+        {
             get { return new Vector2(_x, _y); }
             set { SetPosition(value.x, value.y, _z); }
         }
@@ -334,7 +354,8 @@ namespace FairyGUI {
         /// <summary>
         /// The x,y,z coordinates of the object relative to the local coordinates of the parent.
         /// </summary>
-        public Vector3 position {
+        public Vector3 position
+        {
             get { return new Vector3(_x, _y, _z); }
             set { SetPosition(value.x, value.y, value.z); }
         }
@@ -344,7 +365,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="xv">x value.</param>
         /// <param name="yv">y value.</param>
-        public void SetXY(float xv, float yv) {
+        public void SetXY(float xv, float yv)
+        {
             SetPosition(xv, yv, _z);
         }
 
@@ -354,10 +376,14 @@ namespace FairyGUI {
         /// <param name="xv"></param>
         /// <param name="yv"></param>
         /// <param name="topLeft"></param>
-        public void SetXY(float xv, float yv, bool topLeftValue) {
-            if (_pivotAsAnchor) {
+        public void SetXY(float xv, float yv, bool topLeftValue)
+        {
+            if (_pivotAsAnchor)
+            {
                 SetPosition(xv + _pivotX * _width, yv + _pivotY * _height, _z);
-            } else {
+            }
+            else
+            {
                 SetPosition(xv, yv, _z);
             }
         }
@@ -368,8 +394,10 @@ namespace FairyGUI {
         /// <param name="xv">x value.</param>
         /// <param name="yv">y value.</param>
         /// <param name="zv">z value.</param>
-        public void SetPosition(float xv, float yv, float zv) {
-            if (_x != xv || _y != yv || _z != zv) {
+        public void SetPosition(float xv, float yv, float zv)
+        {
+            if (_x != xv || _y != yv || _z != zv)
+            {
                 var dx = xv - _x;
                 var dy = yv - _y;
                 _x = xv;
@@ -378,28 +406,34 @@ namespace FairyGUI {
 
                 HandlePositionChanged();
 
-                if (this is GGroup) {
-                    ((GGroup) this).MoveChildren(dx, dy);
+                if (this is GGroup)
+                {
+                    ((GGroup)this).MoveChildren(dx, dy);
                 }
 
                 UpdateGear(1);
 
-                if (parent != null && !(parent is GList)) {
+                if (parent != null && !(parent is GList))
+                {
                     parent.SetBoundsChangedFlag();
-                    if (_group != null) {
+                    if (_group != null)
+                    {
                         _group.SetBoundsChangedFlag(true);
                     }
+
                     DispatchEvent("onPositionChanged", null);
                 }
 
-                if (draggingObject == this && !sUpdateInDragging) {
+                if (draggingObject == this && !sUpdateInDragging)
+                {
                     sGlobalRect = LocalToGlobal(new Rect(0, 0, width, height));
                 }
             }
         }
 
         [Obsolete("Use UIConfig.makePixelPerfect or DisplayObject.pixelPerfect")]
-        public bool pixelSnapping {
+        public bool pixelSnapping
+        {
             get { return false; }
             set { }
         }
@@ -407,7 +441,8 @@ namespace FairyGUI {
         /// <summary>
         /// Set the object in middle of the parent or GRoot if the parent is not set.
         /// </summary>
-        public void Center() {
+        public void Center()
+        {
             Center(false);
         }
 
@@ -415,16 +450,21 @@ namespace FairyGUI {
         /// Set the object in middle of the parent or GRoot if the parent is not set.
         /// </summary>
         /// <param name="restraint">Add relations to maintain the center state.</param>
-        public void Center(bool restraint) {
+        public void Center(bool restraint)
+        {
             GComponent r;
-            if (parent != null) {
+            if (parent != null)
+            {
                 r = parent;
-            } else {
+            }
+            else
+            {
                 r = root;
             }
 
-            SetXY((int) ((r.width - width) / 2), (int) ((r.height - height) / 2), true);
-            if (restraint) {
+            SetXY((int)((r.width - width) / 2), (int)((r.height - height) / 2), true);
+            if (restraint)
+            {
                 AddRelation(r, RelationType.Center_Center);
                 AddRelation(r, RelationType.Middle_Middle);
             }
@@ -433,14 +473,16 @@ namespace FairyGUI {
         /// <summary>
         /// 设置对象为全屏大小（逻辑屏幕）。
         /// </summary>
-        public void MakeFullScreen() {
+        public void MakeFullScreen()
+        {
             SetSize(GRoot.inst.width, GRoot.inst.height);
         }
 
         /// <summary>
         /// The width of the object in pixels.
         /// </summary>
-        public float width {
+        public float width
+        {
             get { return _width; }
             set { SetSize(value, _rawHeight); }
         }
@@ -448,7 +490,8 @@ namespace FairyGUI {
         /// <summary>
         /// The height of the object in pixels.
         /// </summary>
-        public float height {
+        public float height
+        {
             get { return _height; }
             set { SetSize(_rawWidth, value); }
         }
@@ -456,7 +499,8 @@ namespace FairyGUI {
         /// <summary>
         /// The size of the object in pixels.
         /// </summary>
-        public Vector2 size {
+        public Vector2 size
+        {
             get { return new Vector2(width, height); }
             set { SetSize(value.x, value.y); }
         }
@@ -464,14 +508,16 @@ namespace FairyGUI {
         /// <summary>
         /// actualWidth = width * scalex
         /// </summary>
-        public float actualWidth {
+        public float actualWidth
+        {
             get { return width * _scaleX; }
         }
 
         /// <summary>
         /// actualHeight = height * scaleY
         /// </summary>
-        public float actualHeight {
+        public float actualHeight
+        {
             get { return height * _scaleY; }
         }
 
@@ -480,7 +526,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="wv">Width value.</param>
         /// <param name="hv">Height value.</param>
-        public void SetSize(float wv, float hv) {
+        public void SetSize(float wv, float hv)
+        {
             SetSize(wv, hv, false);
         }
 
@@ -490,20 +537,30 @@ namespace FairyGUI {
         /// <param name="wv">Width value.</param>
         /// <param name="hv">Height value.</param>
         /// <param name="ignorePivot">If pivot is set, the object's positon will change when its size change. Set ignorePivot=true to keep the position.</param>
-        public void SetSize(float wv, float hv, bool ignorePivot) {
-            if (_rawWidth != wv || _rawHeight != hv) {
+        public void SetSize(float wv, float hv, bool ignorePivot)
+        {
+            if (_rawWidth != wv || _rawHeight != hv)
+            {
                 _rawWidth = wv;
                 _rawHeight = hv;
-                if (wv < minWidth) {
+                if (wv < minWidth)
+                {
                     wv = minWidth;
-                } else if (maxWidth > 0 && wv > maxWidth) {
+                }
+                else if (maxWidth > 0 && wv > maxWidth)
+                {
                     wv = maxWidth;
                 }
-                if (hv < minHeight) {
+
+                if (hv < minHeight)
+                {
                     hv = minHeight;
-                } else if (maxHeight > 0 && hv > maxHeight) {
+                }
+                else if (maxHeight > 0 && hv > maxHeight)
+                {
                     hv = maxHeight;
                 }
+
                 var dWidth = wv - _width;
                 var dHeight = hv - _height;
                 _width = wv;
@@ -511,28 +568,38 @@ namespace FairyGUI {
 
                 HandleSizeChanged();
 
-                if (_pivotX != 0 || _pivotY != 0) {
-                    if (!_pivotAsAnchor) {
-                        if (!ignorePivot) {
+                if (_pivotX != 0 || _pivotY != 0)
+                {
+                    if (!_pivotAsAnchor)
+                    {
+                        if (!ignorePivot)
+                        {
                             SetXY(_x - _pivotX * dWidth, _y - _pivotY * dHeight);
-                        } else {
+                        }
+                        else
+                        {
                             HandlePositionChanged();
                         }
-                    } else {
+                    }
+                    else
+                    {
                         HandlePositionChanged();
                     }
                 }
 
-                if (this is GGroup) {
-                    ((GGroup) this).ResizeChildren(dWidth, dHeight);
+                if (this is GGroup)
+                {
+                    ((GGroup)this).ResizeChildren(dWidth, dHeight);
                 }
 
                 UpdateGear(2);
 
-                if (parent != null) {
+                if (parent != null)
+                {
                     relations.OnOwnerSizeChanged(dWidth, dHeight, _pivotAsAnchor || !ignorePivot);
                     parent.SetBoundsChangedFlag();
-                    if (_group != null) {
+                    if (_group != null)
+                    {
                         _group.SetBoundsChangedFlag();
                     }
                 }
@@ -541,15 +608,20 @@ namespace FairyGUI {
             }
         }
 
-        protected void SetSizeDirectly(float wv, float hv) {
+        protected void SetSizeDirectly(float wv, float hv)
+        {
             _rawWidth = wv;
             _rawHeight = hv;
-            if (wv < 0) {
+            if (wv < 0)
+            {
                 wv = 0;
             }
-            if (hv < 0) {
+
+            if (hv < 0)
+            {
                 hv = 0;
             }
+
             _width = wv;
             _height = hv;
         }
@@ -557,12 +629,17 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public float xMin {
+        public float xMin
+        {
             get { return _pivotAsAnchor ? (_x - _width * _pivotX) : _x; }
-            set {
-                if (_pivotAsAnchor) {
+            set
+            {
+                if (_pivotAsAnchor)
+                {
                     SetPosition(value + _width * _pivotX, _y, _z);
-                } else {
+                }
+                else
+                {
                     SetPosition(value, _y, _z);
                 }
             }
@@ -571,12 +648,17 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public float yMin {
+        public float yMin
+        {
             get { return _pivotAsAnchor ? (_y - _height * _pivotY) : _y; }
-            set {
-                if (_pivotAsAnchor) {
+            set
+            {
+                if (_pivotAsAnchor)
+                {
                     SetPosition(_x, value + _height * _pivotY, _z);
-                } else {
+                }
+                else
+                {
                     SetPosition(_x, value, _z);
                 }
             }
@@ -585,7 +667,8 @@ namespace FairyGUI {
         /// <summary>
         /// The horizontal scale factor. '1' means no scale, cannt be negative.
         /// </summary>
-        public float scaleX {
+        public float scaleX
+        {
             get { return _scaleX; }
             set { SetScale(value, _scaleY); }
         }
@@ -593,7 +676,8 @@ namespace FairyGUI {
         /// <summary>
         /// The vertical scale factor. '1' means no scale, cannt be negative.
         /// </summary>
-        public float scaleY {
+        public float scaleY
+        {
             get { return _scaleY; }
             set { SetScale(_scaleX, value); }
         }
@@ -601,7 +685,8 @@ namespace FairyGUI {
         /// <summary>
         /// The scale factor.
         /// </summary>
-        public Vector2 scale {
+        public Vector2 scale
+        {
             get { return new Vector2(_scaleX, _scaleY); }
             set { SetScale(value.x, value.y); }
         }
@@ -611,8 +696,10 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="wv">The horizontal scale factor.</param>
         /// <param name="hv">The vertical scale factor</param>
-        public void SetScale(float wv, float hv) {
-            if (_scaleX != wv || _scaleY != hv) {
+        public void SetScale(float wv, float hv)
+        {
+            if (_scaleX != wv || _scaleY != hv)
+            {
                 _scaleX = wv;
                 _scaleY = hv;
                 HandleScaleChanged();
@@ -624,17 +711,23 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public Vector2 skew {
-            get {
-                if (displayObject != null) {
+        public Vector2 skew
+        {
+            get
+            {
+                if (displayObject != null)
+                {
                     return displayObject.skew;
-                } else {
+                }
+                else
+                {
                     return Vector2.zero;
                 }
             }
-
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.skew = value;
                 }
             }
@@ -643,7 +736,8 @@ namespace FairyGUI {
         /// <summary>
         /// The x coordinate of the object's origin in its own coordinate space.
         /// </summary>
-        public float pivotX {
+        public float pivotX
+        {
             get { return _pivotX; }
             set { SetPivot(value, _pivotY, _pivotAsAnchor); }
         }
@@ -651,7 +745,8 @@ namespace FairyGUI {
         /// <summary>
         /// The y coordinate of the object's origin in its own coordinate space.
         /// </summary>
-        public float pivotY {
+        public float pivotY
+        {
             get { return _pivotY; }
             set { SetPivot(_pivotX, value, _pivotAsAnchor); }
         }
@@ -659,12 +754,14 @@ namespace FairyGUI {
         /// <summary>
         /// The x and y coordinates of the object's origin in its own coordinate space.
         /// </summary>
-        public Vector2 pivot {
+        public Vector2 pivot
+        {
             get { return new Vector2(_pivotX, _pivotY); }
             set { SetPivot(value.x, value.y, _pivotAsAnchor); }
         }
 
-        public bool pivotAsAnchor {
+        public bool pivotAsAnchor
+        {
             get { return _pivotAsAnchor; }
             set { SetPivot(_pivotX, _pivotY, value); }
         }
@@ -674,7 +771,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="xv">x value in ratio</param>
         /// <param name="yv">y value in ratio</param>
-        public void SetPivot(float xv, float yv) {
+        public void SetPivot(float xv, float yv)
+        {
             SetPivot(xv, yv, false);
         }
 
@@ -684,14 +782,18 @@ namespace FairyGUI {
         /// <param name="xv">x value in ratio</param>
         /// <param name="yv">y value in ratio</param>
         /// <param name="asAnchor">If use the pivot as the anchor position</param>
-        public void SetPivot(float xv, float yv, bool asAnchor) {
-            if (_pivotX != xv || _pivotY != yv || _pivotAsAnchor != asAnchor) {
+        public void SetPivot(float xv, float yv, bool asAnchor)
+        {
+            if (_pivotX != xv || _pivotY != yv || _pivotAsAnchor != asAnchor)
+            {
                 _pivotX = xv;
                 _pivotY = yv;
                 _pivotAsAnchor = asAnchor;
-                if (displayObject != null) {
+                if (displayObject != null)
+                {
                     displayObject.pivot = new Vector2(_pivotX, _pivotY);
                 }
+
                 HandlePositionChanged();
             }
         }
@@ -699,14 +801,18 @@ namespace FairyGUI {
         /// <summary>
         /// If the object can touch or click. GImage/GTextField is not touchable even it is true.
         /// </summary>
-        public bool touchable {
+        public bool touchable
+        {
             get { return _touchable; }
-            set {
-                if (_touchable != value) {
+            set
+            {
+                if (_touchable != value)
+                {
                     _touchable = value;
                     UpdateGear(3);
 
-                    if (displayObject != null) {
+                    if (displayObject != null)
+                    {
                         displayObject.touchable = _touchable;
                     }
                 }
@@ -716,10 +822,13 @@ namespace FairyGUI {
         /// <summary>
         /// If true, apply a grayed effect on this object.
         /// </summary>
-        public bool grayed {
+        public bool grayed
+        {
             get { return _grayed; }
-            set {
-                if (_grayed != value) {
+            set
+            {
+                if (_grayed != value)
+                {
                     _grayed = value;
                     HandleGrayedChanged();
                     UpdateGear(3);
@@ -730,9 +839,11 @@ namespace FairyGUI {
         /// <summary>
         /// Enabled is shortcut for grayed and !touchable combination.
         /// </summary>
-        public bool enabled {
+        public bool enabled
+        {
             get { return !_grayed && _touchable; }
-            set {
+            set
+            {
                 grayed = !value;
                 touchable = value;
             }
@@ -741,13 +852,17 @@ namespace FairyGUI {
         /// <summary>
         /// The rotation around the z axis of the object in degrees.
         /// </summary>
-        public float rotation {
+        public float rotation
+        {
             get { return _rotation; }
-            set {
+            set
+            {
                 _rotation = value;
-                if (displayObject != null) {
+                if (displayObject != null)
+                {
                     displayObject.rotation = _rotation;
                 }
+
                 UpdateGear(3);
             }
         }
@@ -755,11 +870,14 @@ namespace FairyGUI {
         /// <summary>
         /// The rotation around the x axis of the object in degrees.
         /// </summary>
-        public float rotationX {
+        public float rotationX
+        {
             get { return _rotationX; }
-            set {
+            set
+            {
                 _rotationX = value;
-                if (displayObject != null) {
+                if (displayObject != null)
+                {
                     displayObject.rotationX = _rotationX;
                 }
             }
@@ -768,11 +886,14 @@ namespace FairyGUI {
         /// <summary>
         /// The rotation around the y axis of the object in degrees.
         /// </summary>
-        public float rotationY {
+        public float rotationY
+        {
             get { return _rotationY; }
-            set {
+            set
+            {
                 _rotationY = value;
-                if (displayObject != null) {
+                if (displayObject != null)
+                {
                     displayObject.rotationY = _rotationY;
                 }
             }
@@ -781,10 +902,11 @@ namespace FairyGUI {
         /// <summary>
         /// The opacity of the object. 0 = transparent, 1 = opaque.
         /// </summary>
-        public float alpha {
+        public float alpha
+        {
             get { return _alpha; }
-
-            set {
+            set
+            {
                 _alpha = value;
                 HandleAlphaChanged();
                 UpdateGear(3);
@@ -794,32 +916,40 @@ namespace FairyGUI {
         /// <summary>
         /// The visibility of the object. An invisible object will be untouchable.
         /// </summary>
-        public bool visible {
+        public bool visible
+        {
             get { return _visible; }
-
-            set {
-                if (_visible != value) {
+            set
+            {
+                if (_visible != value)
+                {
                     _visible = value;
                     HandleVisibleChanged();
-                    if (parent != null) {
+                    if (parent != null)
+                    {
                         parent.SetBoundsChangedFlag();
                     }
-                    if (_group != null && _group.excludeInvisibles) {
+
+                    if (_group != null && _group.excludeInvisibles)
+                    {
                         _group.SetBoundsChangedFlag();
                     }
                 }
             }
         }
 
-        internal bool internalVisible {
+        internal bool internalVisible
+        {
             get { return _internalVisible && (group == null || group.internalVisible); }
         }
 
-        internal bool internalVisible2 {
+        internal bool internalVisible2
+        {
             get { return _visible && (group == null || group.internalVisible2); }
         }
 
-        internal bool internalVisible3 {
+        internal bool internalVisible3
+        {
             get { return _visible && _internalVisible; }
         }
 
@@ -827,16 +957,22 @@ namespace FairyGUI {
         /// By default(when sortingOrder==0), object added to component is arrange by the added roder. 
         /// The bigger is the sorting order, the object is more in front.
         /// </summary>
-        public int sortingOrder {
+        public int sortingOrder
+        {
             get { return _sortingOrder; }
-            set {
-                if (value < 0) {
+            set
+            {
+                if (value < 0)
+                {
                     value = 0;
                 }
-                if (_sortingOrder != value) {
+
+                if (_sortingOrder != value)
+                {
                     var old = _sortingOrder;
                     _sortingOrder = value;
-                    if (parent != null) {
+                    if (parent != null)
+                    {
                         parent.ChildSortingOrderChanged(this, old, _sortingOrder);
                     }
                 }
@@ -846,10 +982,13 @@ namespace FairyGUI {
         /// <summary>
         /// If the object can be focused?
         /// </summary>
-        public bool focusable {
+        public bool focusable
+        {
             get { return displayObject != null && displayObject.focusable; }
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.focusable = value;
                 }
             }
@@ -858,10 +997,13 @@ namespace FairyGUI {
         /// <summary>
         /// If the object can be navigated by TAB?
         /// </summary>
-        public bool tabStop {
+        public bool tabStop
+        {
             get { return displayObject != null && displayObject.tabStop; }
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.tabStop = value;
                 }
             }
@@ -870,15 +1012,18 @@ namespace FairyGUI {
         /// <summary>
         /// If the object is focused. 
         /// </summary>
-        public bool focused {
+        public bool focused
+        {
             get { return displayObject != null && displayObject.focused; }
         }
 
         /// <summary>
         /// Request focus on this object.
         /// </summary>
-        public void RequestFocus() {
-            if (displayObject != null) {
+        public void RequestFocus()
+        {
+            if (displayObject != null)
+            {
                 Stage.inst.SetFocus(displayObject, false);
             }
         }
@@ -886,8 +1031,10 @@ namespace FairyGUI {
         /// <summary>
         /// Request focus on this object.
         /// </summary>
-        public void RequestFocus(bool byKey) {
-            if (displayObject != null) {
+        public void RequestFocus(bool byKey)
+        {
+            if (displayObject != null)
+            {
                 Stage.inst.SetFocus(displayObject, byKey);
             }
         }
@@ -895,16 +1042,20 @@ namespace FairyGUI {
         /// <summary>
         /// Tooltips of this object. UIConfig.tooltipsWin must be set first.
         /// </summary>
-        public string tooltips {
+        public string tooltips
+        {
             get { return _tooltips; }
-            set {
-                if (!string.IsNullOrEmpty(_tooltips)) {
+            set
+            {
+                if (!string.IsNullOrEmpty(_tooltips))
+                {
                     onRollOver.Remove(__rollOver);
                     onRollOut.Remove(__rollOut);
                 }
 
                 _tooltips = value;
-                if (!string.IsNullOrEmpty(_tooltips)) {
+                if (!string.IsNullOrEmpty(_tooltips))
+                {
                     onRollOver.Add(__rollOver);
                     onRollOut.Add(__rollOut);
                 }
@@ -915,30 +1066,38 @@ namespace FairyGUI {
         /// 
         /// </summary>
         /// <value></value>
-        public string cursor {
+        public string cursor
+        {
             get { return displayObject != null ? displayObject.cursor : null; }
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.cursor = value;
                 }
             }
         }
 
-        private void __rollOver() {
+        private void __rollOver()
+        {
             root.ShowTooltips(tooltips);
         }
 
-        private void __rollOut() {
+        private void __rollOut()
+        {
             root.HideTooltips();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        virtual public IFilter filter {
+        virtual public IFilter filter
+        {
             get { return displayObject != null ? displayObject.filter : null; }
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.filter = value;
                 }
             }
@@ -947,10 +1106,13 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        virtual public BlendMode blendMode {
+        virtual public BlendMode blendMode
+        {
             get { return displayObject != null ? displayObject.blendMode : BlendMode.None; }
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.blendMode = value;
                 }
             }
@@ -959,17 +1121,23 @@ namespace FairyGUI {
         /// <summary>
         /// 设定GameObject的名称
         /// </summary>
-        public string gameObjectName {
-            get {
-                if (displayObject != null) {
+        public string gameObjectName
+        {
+            get
+            {
+                if (displayObject != null)
+                {
                     return displayObject.gameObject.name;
-                } else {
+                }
+                else
+                {
                     return null;
                 }
             }
-
-            set {
-                if (displayObject != null) {
+            set
+            {
+                if (displayObject != null)
+                {
                     displayObject.gameObject.name = value;
                 }
             }
@@ -979,8 +1147,10 @@ namespace FairyGUI {
         /// 
         /// </summary>
         /// <param name="obj"></param>
-        public void SetHome(GObject obj) {
-            if (obj != null && displayObject != null && obj.displayObject != null) {
+        public void SetHome(GObject obj)
+        {
+            if (obj != null && displayObject != null && obj.displayObject != null)
+            {
                 displayObject.home = obj.displayObject.cachedTransform;
             }
         }
@@ -988,25 +1158,32 @@ namespace FairyGUI {
         /// <summary>
         /// If the object has lowlevel displayobject and the displayobject has a container parent?
         /// </summary>
-        public bool inContainer {
+        public bool inContainer
+        {
             get { return displayObject != null && displayObject.parent != null; }
         }
 
         /// <summary>
         /// If the object is on stage.
         /// </summary>
-        public bool onStage {
+        public bool onStage
+        {
             get { return displayObject != null && displayObject.stage != null; }
         }
 
         /// <summary>
         /// Resource url of this object.
         /// </summary>
-        public string resourceURL {
-            get {
-                if (packageItem != null) {
+        public string resourceURL
+        {
+            get
+            {
+                if (packageItem != null)
+                {
                     return UIPackage.URL_PREFIX + packageItem.owner.id + packageItem.id;
-                } else {
+                }
+                else
+                {
                     return null;
                 }
             }
@@ -1015,28 +1192,34 @@ namespace FairyGUI {
         /// <summary>
         /// Gear to xy controller.
         /// </summary>
-        public GearXY gearXY {
-            get { return (GearXY) GetGear(1); }
+        public GearXY gearXY
+        {
+            get { return (GearXY)GetGear(1); }
         }
 
         /// <summary>
         /// Gear to size controller.
         /// </summary>
-        public GearSize gearSize {
-            get { return (GearSize) GetGear(2); }
+        public GearSize gearSize
+        {
+            get { return (GearSize)GetGear(2); }
         }
 
         /// <summary>
         /// Gear to look controller.
         /// </summary>
-        public GearLook gearLook {
-            get { return (GearLook) GetGear(3); }
+        public GearLook gearLook
+        {
+            get { return (GearLook)GetGear(3); }
         }
 
-        public GearBase GetGear(int index) {
+        public GearBase GetGear(int index)
+        {
             var gear = _gears[index];
-            if (gear == null) {
-                switch (index) {
+            if (gear == null)
+            {
+                switch (index)
+                {
                     case 0:
                         gear = new GearDisplay(this);
                         break;
@@ -1070,68 +1253,89 @@ namespace FairyGUI {
                     default:
                         throw new Exception("FairyGUI: invalid gear index!");
                 }
+
                 _gears[index] = gear;
             }
+
             return gear;
         }
 
-        protected void UpdateGear(int index) {
-            if (underConstruct || _gearLocked) {
+        protected void UpdateGear(int index)
+        {
+            if (underConstruct || _gearLocked)
+            {
                 return;
             }
 
             var gear = _gears[index];
-            if (gear != null && gear.controller != null) {
+            if (gear != null && gear.controller != null)
+            {
                 gear.UpdateState();
             }
         }
 
-        internal bool CheckGearController(int index, Controller c) {
+        internal bool CheckGearController(int index, Controller c)
+        {
             return _gears[index] != null && _gears[index].controller == c;
         }
 
-        internal void UpdateGearFromRelations(int index, float dx, float dy) {
-            if (_gears[index] != null) {
+        internal void UpdateGearFromRelations(int index, float dx, float dy)
+        {
+            if (_gears[index] != null)
+            {
                 _gears[index].UpdateFromRelations(dx, dy);
             }
         }
 
-        internal uint AddDisplayLock() {
-            var gearDisplay = (GearDisplay) _gears[0];
-            if (gearDisplay != null && gearDisplay.controller != null) {
+        internal uint AddDisplayLock()
+        {
+            var gearDisplay = (GearDisplay)_gears[0];
+            if (gearDisplay != null && gearDisplay.controller != null)
+            {
                 var ret = gearDisplay.AddLock();
                 CheckGearDisplay();
 
                 return ret;
-            } else {
+            }
+            else
+            {
                 return 0;
             }
         }
 
-        internal void ReleaseDisplayLock(uint token) {
-            var gearDisplay = (GearDisplay) _gears[0];
-            if (gearDisplay != null && gearDisplay.controller != null) {
+        internal void ReleaseDisplayLock(uint token)
+        {
+            var gearDisplay = (GearDisplay)_gears[0];
+            if (gearDisplay != null && gearDisplay.controller != null)
+            {
                 gearDisplay.ReleaseLock(token);
                 CheckGearDisplay();
             }
         }
 
-        private void CheckGearDisplay() {
-            if (_handlingController) {
+        private void CheckGearDisplay()
+        {
+            if (_handlingController)
+            {
                 return;
             }
 
-            var connected = _gears[0] == null || ((GearDisplay) _gears[0]).connected;
-            if (_gears[8] != null) {
-                connected = ((GearDisplay2) _gears[8]).Evaluate(connected);
+            var connected = _gears[0] == null || ((GearDisplay)_gears[0]).connected;
+            if (_gears[8] != null)
+            {
+                connected = ((GearDisplay2)_gears[8]).Evaluate(connected);
             }
 
-            if (connected != _internalVisible) {
+            if (connected != _internalVisible)
+            {
                 _internalVisible = connected;
-                if (parent != null) {
+                if (parent != null)
+                {
                     parent.ChildStateChanged(this);
                 }
-                if (_group != null && _group.excludeInvisibles) {
+
+                if (_group != null && _group.excludeInvisibles)
+                {
                     _group.SetBoundsChangedFlag();
                 }
             }
@@ -1140,22 +1344,30 @@ namespace FairyGUI {
         /// <summary>
         /// Mark the fairy batching state is invalid. 
         /// </summary>
-        public void InvalidateBatchingState() {
-            if (displayObject != null) {
+        public void InvalidateBatchingState()
+        {
+            if (displayObject != null)
+            {
                 displayObject.InvalidateBatchingState();
-            } else if ((this is GGroup) && parent != null) {
+            }
+            else if ((this is GGroup) && parent != null)
+            {
                 parent.container.InvalidateBatchingState(true);
             }
         }
 
-        virtual public void HandleControllerChanged(Controller c) {
+        virtual public void HandleControllerChanged(Controller c)
+        {
             _handlingController = true;
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 10; i++)
+            {
                 var gear = _gears[i];
-                if (gear != null && gear.controller == c) {
+                if (gear != null && gear.controller == c)
+                {
                     gear.Apply();
                 }
             }
+
             _handlingController = false;
 
             CheckGearDisplay();
@@ -1166,7 +1378,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="target"></param>
         /// <param name="relationType"></param>
-        public void AddRelation(GObject target, RelationType relationType) {
+        public void AddRelation(GObject target, RelationType relationType)
+        {
             AddRelation(target, relationType, false);
         }
 
@@ -1176,7 +1389,8 @@ namespace FairyGUI {
         /// <param name="target"></param>
         /// <param name="relationType"></param>
         /// <param name="usePercent"></param>
-        public void AddRelation(GObject target, RelationType relationType, bool usePercent) {
+        public void AddRelation(GObject target, RelationType relationType, bool usePercent)
+        {
             relations.Add(target, relationType, usePercent);
         }
 
@@ -1185,15 +1399,18 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="target"></param>
         /// <param name="relationType"></param>
-        public void RemoveRelation(GObject target, RelationType relationType) {
+        public void RemoveRelation(GObject target, RelationType relationType)
+        {
             relations.Remove(target, relationType);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void RemoveFromParent() {
-            if (parent != null) {
+        public void RemoveFromParent()
+        {
+            if (parent != null)
+            {
                 parent.RemoveChild(this);
             }
         }
@@ -1201,19 +1418,27 @@ namespace FairyGUI {
         /// <summary>
         ///  Group belonging to.
         /// </summary>
-        public GGroup group {
+        public GGroup group
+        {
             get { return _group; }
-            set {
-                if (_group != value) {
-                    if (_group != null) {
+            set
+            {
+                if (_group != value)
+                {
+                    if (_group != null)
+                    {
                         _group.SetBoundsChangedFlag();
                     }
+
                     _group = value;
-                    if (_group != null) {
+                    if (_group != null)
+                    {
                         _group.SetBoundsChangedFlag();
                     }
+
                     HandleVisibleChanged();
-                    if (parent != null) {
+                    if (parent != null)
+                    {
                         parent.ChildStateChanged(this);
                     }
                 }
@@ -1223,21 +1448,27 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public GRoot root {
-            get {
+        public GRoot root
+        {
+            get
+            {
                 var p = this;
-                while (p.parent != null) {
+                while (p.parent != null)
+                {
                     p = p.parent;
                 }
 
-                if (p is GRoot) {
-                    return (GRoot) p;
+                if (p is GRoot)
+                {
+                    return (GRoot)p;
                 }
 
-                if (p.displayObject != null && p.displayObject.parent != null) {
+                if (p.displayObject != null && p.displayObject.parent != null)
+                {
                     var d = p.displayObject.parent.GetChild("GRoot");
-                    if (d != null && (d.gOwner is GRoot)) {
-                        return (GRoot) d.gOwner;
+                    if (d != null && (d.gOwner is GRoot))
+                    {
+                        return (GRoot)d.gOwner;
                     }
                 }
 
@@ -1248,28 +1479,37 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        virtual public string text {
+        virtual public string text
+        {
             get { return null; }
-            set { /*override in child*/
+            set
+            {
+                /*override in child*/
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        virtual public string icon {
+        virtual public string icon
+        {
             get { return null; }
-            set { /*override in child*/
+            set
+            {
+                /*override in child*/
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public bool draggable {
+        public bool draggable
+        {
             get { return _draggable; }
-            set {
-                if (_draggable != value) {
+            set
+            {
+                if (_draggable != value)
+                {
                     _draggable = value;
                     InitDrag();
                 }
@@ -1279,7 +1519,8 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public void StartDrag() {
+        public void StartDrag()
+        {
             StartDrag(-1);
         }
 
@@ -1287,8 +1528,10 @@ namespace FairyGUI {
         /// 
         /// </summary>
         /// <param name="touchId"></param>
-        public void StartDrag(int touchId) {
-            if (displayObject.stage == null) {
+        public void StartDrag(int touchId)
+        {
+            if (displayObject.stage == null)
+            {
                 return;
             }
 
@@ -1298,14 +1541,16 @@ namespace FairyGUI {
         /// <summary>
         /// 
         /// </summary>
-        public void StopDrag() {
+        public void StopDrag()
+        {
             DragEnd();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public bool dragging {
+        public bool dragging
+        {
             get { return draggingObject == this; }
         }
 
@@ -1314,11 +1559,14 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="pt"></param>
         /// <returns></returns>
-        public Vector2 LocalToGlobal(Vector2 pt) {
-            if (_pivotAsAnchor) {
+        public Vector2 LocalToGlobal(Vector2 pt)
+        {
+            if (_pivotAsAnchor)
+            {
                 pt.x += _width * _pivotX;
                 pt.y += _height * _pivotY;
             }
+
             return displayObject.LocalToGlobal(pt);
         }
 
@@ -1327,12 +1575,15 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="pt"></param>
         /// <returns></returns>
-        public Vector2 GlobalToLocal(Vector2 pt) {
+        public Vector2 GlobalToLocal(Vector2 pt)
+        {
             pt = displayObject.GlobalToLocal(pt);
-            if (_pivotAsAnchor) {
+            if (_pivotAsAnchor)
+            {
                 pt.x -= _width * _pivotX;
                 pt.y -= _height * _pivotY;
             }
+
             return pt;
         }
 
@@ -1341,7 +1592,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="rect"></param>
         /// <returns></returns>
-        public Rect LocalToGlobal(Rect rect) {
+        public Rect LocalToGlobal(Rect rect)
+        {
             var ret = new Rect();
             var v = LocalToGlobal(new Vector2(rect.xMin, rect.yMin));
             ret.xMin = v.x;
@@ -1357,7 +1609,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="rect"></param>
         /// <returns></returns>
-        public Rect GlobalToLocal(Rect rect) {
+        public Rect GlobalToLocal(Rect rect)
+        {
             var ret = new Rect();
             var v = GlobalToLocal(new Vector2(rect.xMin, rect.yMin));
             ret.xMin = v.x;
@@ -1374,14 +1627,18 @@ namespace FairyGUI {
         /// <param name="pt"></param>
         /// <param name="r"></param>
         /// <returns></returns>
-        public Vector2 LocalToRoot(Vector2 pt, GRoot r) {
+        public Vector2 LocalToRoot(Vector2 pt, GRoot r)
+        {
             pt = LocalToGlobal(pt);
-            if (r == null || r == GRoot.inst) {
+            if (r == null || r == GRoot.inst)
+            {
                 //fast
                 pt.x /= UIContentScaler.scaleFactor;
                 pt.y /= UIContentScaler.scaleFactor;
                 return pt;
-            } else {
+            }
+            else
+            {
                 return r.GlobalToLocal(pt);
             }
         }
@@ -1392,14 +1649,19 @@ namespace FairyGUI {
         /// <param name="pt"></param>
         /// <param name="r"></param>
         /// <returns></returns>
-        public Vector2 RootToLocal(Vector2 pt, GRoot r) {
-            if (r == null || r == GRoot.inst) {
+        public Vector2 RootToLocal(Vector2 pt, GRoot r)
+        {
+            if (r == null || r == GRoot.inst)
+            {
                 //fast
                 pt.x *= UIContentScaler.scaleFactor;
                 pt.y *= UIContentScaler.scaleFactor;
-            } else {
+            }
+            else
+            {
                 pt = r.LocalToGlobal(pt);
             }
+
             return GlobalToLocal(pt);
         }
 
@@ -1408,7 +1670,8 @@ namespace FairyGUI {
         /// </summary>
         /// <param name="pt"></param>
         /// <returns></returns>
-        public Vector2 WorldToLocal(Vector3 pt) {
+        public Vector2 WorldToLocal(Vector3 pt)
+        {
             return WorldToLocal(pt, HitTestContext.cachedMainCamera);
         }
 
@@ -1418,7 +1681,8 @@ namespace FairyGUI {
         /// <param name="pt"></param>
         /// <param name="camera"></param>
         /// <returns></returns>
-        public Vector2 WorldToLocal(Vector3 pt, Camera camera) {
+        public Vector2 WorldToLocal(Vector3 pt, Camera camera)
+        {
             var v = camera.WorldToScreenPoint(pt);
             v.y = Screen.height - v.y;
             v.z = 0;
@@ -1431,11 +1695,14 @@ namespace FairyGUI {
         /// <param name="point"></param>
         /// <param name="targetSpace"></param>
         /// <returns></returns>
-        public Vector2 TransformPoint(Vector2 pt, GObject targetSpace) {
-            if (_pivotAsAnchor) {
+        public Vector2 TransformPoint(Vector2 pt, GObject targetSpace)
+        {
+            if (_pivotAsAnchor)
+            {
                 pt.x += _width * _pivotX;
                 pt.y += _height * _pivotY;
             }
+
             return displayObject.TransformPoint(pt, targetSpace != null ? targetSpace.displayObject : Stage.inst);
         }
 
@@ -1445,26 +1712,32 @@ namespace FairyGUI {
         /// <param name="rect"></param>
         /// <param name="targetSpace"></param>
         /// <returns></returns>
-        public Rect TransformRect(Rect rect, GObject targetSpace) {
-            if (_pivotAsAnchor) {
+        public Rect TransformRect(Rect rect, GObject targetSpace)
+        {
+            if (_pivotAsAnchor)
+            {
                 rect.x += _width * _pivotX;
                 rect.y += _height * _pivotY;
             }
+
             return displayObject.TransformRect(rect, targetSpace != null ? targetSpace.displayObject : Stage.inst);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public bool isDisposed {
+        public bool isDisposed
+        {
             get { return _disposed; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        virtual public void Dispose() {
-            if (_disposed) {
+        virtual public void Dispose()
+        {
+            if (_disposed)
+            {
                 return;
             }
 
@@ -1474,196 +1747,239 @@ namespace FairyGUI {
             RemoveEventListeners();
             relations.Dispose();
             relations = null;
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 10; i++)
+            {
                 var gear = _gears[i];
-                if (gear != null) {
+                if (gear != null)
+                {
                     gear.Dispose();
                 }
             }
-            if (displayObject != null) {
+
+            if (displayObject != null)
+            {
                 displayObject.gOwner = null;
                 displayObject.Dispose();
             }
+
             data = null;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GImage asImage {
+        public GImage asImage
+        {
             get { return this as GImage; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GComponent asCom {
+        public GComponent asCom
+        {
             get { return this as GComponent; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GButton asButton {
+        public GButton asButton
+        {
             get { return this as GButton; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GLabel asLabel {
+        public GLabel asLabel
+        {
             get { return this as GLabel; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GProgressBar asProgress {
+        public GProgressBar asProgress
+        {
             get { return this as GProgressBar; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GSlider asSlider {
+        public GSlider asSlider
+        {
             get { return this as GSlider; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GComboBox asComboBox {
+        public GComboBox asComboBox
+        {
             get { return this as GComboBox; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GTextField asTextField {
+        public GTextField asTextField
+        {
             get { return this as GTextField; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GRichTextField asRichTextField {
+        public GRichTextField asRichTextField
+        {
             get { return this as GRichTextField; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GTextInput asTextInput {
+        public GTextInput asTextInput
+        {
             get { return this as GTextInput; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GLoader asLoader {
+        public GLoader asLoader
+        {
             get { return this as GLoader; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GLoader3D asLoader3D {
+        public GLoader3D asLoader3D
+        {
             get { return this as GLoader3D; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GList asList {
+        public GList asList
+        {
             get { return this as GList; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GGraph asGraph {
+        public GGraph asGraph
+        {
             get { return this as GGraph; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GGroup asGroup {
+        public GGroup asGroup
+        {
             get { return this as GGroup; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GMovieClip asMovieClip {
+        public GMovieClip asMovieClip
+        {
             get { return this as GMovieClip; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GTree asTree {
+        public GTree asTree
+        {
             get { return this as GTree; }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public GTreeNode treeNode {
+        public GTreeNode treeNode
+        {
             get { return _treeNode; }
         }
 
-        virtual protected void CreateDisplayObject() { }
+        virtual protected void CreateDisplayObject()
+        {
+        }
 
-        internal void InternalSetParent(GComponent value) {
+        internal void InternalSetParent(GComponent value)
+        {
             parent = value;
         }
 
-        virtual protected void HandlePositionChanged() {
-            if (displayObject != null) {
+        virtual protected void HandlePositionChanged()
+        {
+            if (displayObject != null)
+            {
                 var xv = _x;
                 var yv = _y;
-                if (!_pivotAsAnchor) {
+                if (!_pivotAsAnchor)
+                {
                     xv += _width * _pivotX;
                     yv += _height * _pivotY;
                 }
+
                 displayObject.location = new Vector3(xv, yv, _z);
             }
         }
 
-        virtual protected void HandleSizeChanged() {
-            if (displayObject != null) {
+        virtual protected void HandleSizeChanged()
+        {
+            if (displayObject != null)
+            {
                 displayObject.SetSize(_width, _height);
             }
         }
 
-        virtual protected void HandleScaleChanged() {
-            if (displayObject != null) {
+        virtual protected void HandleScaleChanged()
+        {
+            if (displayObject != null)
+            {
                 displayObject.SetScale(_scaleX, _scaleY);
             }
         }
 
-        virtual protected void HandleGrayedChanged() {
-            if (displayObject != null) {
+        virtual protected void HandleGrayedChanged()
+        {
+            if (displayObject != null)
+            {
                 displayObject.grayed = _grayed;
             }
         }
 
-        virtual protected void HandleAlphaChanged() {
-            if (displayObject != null) {
+        virtual protected void HandleAlphaChanged()
+        {
+            if (displayObject != null)
+            {
                 displayObject.alpha = _alpha;
             }
         }
 
-        virtual internal protected void HandleVisibleChanged() {
-            if (displayObject != null) {
+        virtual internal protected void HandleVisibleChanged()
+        {
+            if (displayObject != null)
+            {
                 displayObject.visible = internalVisible2;
             }
         }
 
-        virtual public void ConstructFromResource() { }
+        virtual public void ConstructFromResource()
+        {
+        }
 
-        virtual public void Setup_BeforeAdd(ByteBuffer buffer, int beginPos) {
+        virtual public void Setup_BeforeAdd(ByteBuffer buffer, int beginPos)
+        {
             buffer.Seek(beginPos, 0);
             buffer.Skip(5);
 
@@ -1673,60 +1989,74 @@ namespace FairyGUI {
             float f2 = buffer.ReadInt();
             SetXY(f1, f2);
 
-            if (buffer.ReadBool()) {
+            if (buffer.ReadBool())
+            {
                 initWidth = buffer.ReadInt();
                 initHeight = buffer.ReadInt();
                 SetSize(initWidth, initHeight, true);
             }
 
-            if (buffer.ReadBool()) {
+            if (buffer.ReadBool())
+            {
                 minWidth = buffer.ReadInt();
                 maxWidth = buffer.ReadInt();
                 minHeight = buffer.ReadInt();
                 maxHeight = buffer.ReadInt();
             }
 
-            if (buffer.ReadBool()) {
+            if (buffer.ReadBool())
+            {
                 f1 = buffer.ReadFloat();
                 f2 = buffer.ReadFloat();
                 SetScale(f1, f2);
             }
 
-            if (buffer.ReadBool()) {
+            if (buffer.ReadBool())
+            {
                 f1 = buffer.ReadFloat();
                 f2 = buffer.ReadFloat();
                 skew = new Vector2(f1, f2);
             }
 
-            if (buffer.ReadBool()) {
+            if (buffer.ReadBool())
+            {
                 f1 = buffer.ReadFloat();
                 f2 = buffer.ReadFloat();
                 SetPivot(f1, f2, buffer.ReadBool());
             }
 
             f1 = buffer.ReadFloat();
-            if (f1 != 1) {
+            if (f1 != 1)
+            {
                 alpha = f1;
             }
 
             f1 = buffer.ReadFloat();
-            if (f1 != 0) {
+            if (f1 != 0)
+            {
                 rotation = f1;
             }
 
-            if (!buffer.ReadBool()) {
+            if (!buffer.ReadBool())
+            {
                 visible = false;
             }
-            if (!buffer.ReadBool()) {
+
+            if (!buffer.ReadBool())
+            {
                 touchable = false;
             }
-            if (buffer.ReadBool()) {
+
+            if (buffer.ReadBool())
+            {
                 grayed = true;
             }
-            blendMode = (BlendMode) buffer.ReadByte();
+
+            blendMode = (BlendMode)buffer.ReadByte();
 
             int filter = buffer.ReadByte();
-            if (filter == 1) {
+            if (filter == 1)
+            {
                 var cf = new ColorFilter();
                 this.filter = cf;
 
@@ -1737,28 +2067,33 @@ namespace FairyGUI {
             }
 
             var str = buffer.ReadS();
-            if (str != null) {
+            if (str != null)
+            {
                 data = str;
             }
         }
 
-        virtual public void Setup_AfterAdd(ByteBuffer buffer, int beginPos) {
+        virtual public void Setup_AfterAdd(ByteBuffer buffer, int beginPos)
+        {
             buffer.Seek(beginPos, 1);
 
             var str = buffer.ReadS();
-            if (str != null) {
+            if (str != null)
+            {
                 tooltips = str;
             }
 
             int groupId = buffer.ReadShort();
-            if (groupId >= 0) {
+            if (groupId >= 0)
+            {
                 group = parent.GetChildAt(groupId) as GGroup;
             }
 
             buffer.Seek(beginPos, 2);
 
             int cnt = buffer.ReadShort();
-            for (var i = 0; i < cnt; i++) {
+            for (var i = 0; i < cnt; i++)
+            {
                 int nextPos = buffer.ReadUshort();
                 nextPos += buffer.position;
 
@@ -1771,31 +2106,38 @@ namespace FairyGUI {
 
         #region Drag support
 
+        private int _touchIdDrag = -1;
         private Vector2 _dragTouchStartPos;
         private bool _dragTesting;
-
         private static Vector2 sGlobalDragStart = new Vector2();
         private static Rect sGlobalRect = new Rect();
         private static bool sUpdateInDragging = false;
 
-        private void InitDrag() {
-            if (_draggable) {
+        private void InitDrag()
+        {
+            if (_draggable)
+            {
                 onTouchBegin.Add(__touchBegin);
                 onTouchMove.Add(__touchMove);
                 onTouchEnd.Add(__touchEnd);
-            } else {
+            }
+            else
+            {
                 onTouchBegin.Remove(__touchBegin);
                 onTouchMove.Remove(__touchMove);
                 onTouchEnd.Remove(__touchEnd);
             }
         }
 
-        private void DragBegin(int touchId) {
-            if (DispatchEvent("onDragStart", touchId)) {
+        private void DragBegin(int touchId)
+        {
+            if (DispatchEvent("onDragStart", touchId))
+            {
                 return;
             }
 
-            if (draggingObject != null) {
+            if (draggingObject != null)
+            {
                 var tmp = draggingObject;
                 draggingObject.StopDrag();
                 draggingObject = null;
@@ -1813,36 +2155,54 @@ namespace FairyGUI {
             Stage.inst.AddTouchMonitor(touchId, this);
         }
 
-        private void DragEnd() {
-            if (draggingObject == this) {
+        private void DragEnd()
+        {
+            if (draggingObject == this)
+            {
                 _dragTesting = false;
                 draggingObject = null;
             }
         }
 
-        private void __touchBegin(EventContext context) {
-            if ((Stage.inst.focus is InputTextField) && ((InputTextField) Stage.inst.focus).editable) {
+        private void __touchBegin(EventContext context)
+        {
+            if (_touchIdDrag != -1)
+            {
+                return;
+            }
+
+            if ((Stage.inst.focus is InputTextField) && ((InputTextField)Stage.inst.focus).editable)
+            {
                 _dragTesting = false;
                 return;
             }
 
             var evt = context.inputEvent;
+            _touchIdDrag = evt.touchId;
             _dragTouchStartPos = evt.position;
             _dragTesting = true;
             context.CaptureTouch();
         }
 
-        private void __touchMove(EventContext context) {
+        private void __touchMove(EventContext context)
+        {
             var evt = context.inputEvent;
+            if (_touchIdDrag != evt.touchId) return;
 
-            if (_dragTesting && draggingObject != this) {
+            if (_dragTesting && draggingObject != this)
+            {
                 int sensitivity;
-                if (Stage.touchScreen) {
+                if (Stage.touchScreen)
+                {
                     sensitivity = UIConfig.touchDragSensitivity;
-                } else {
+                }
+                else
+                {
                     sensitivity = UIConfig.clickDragSensitivity;
                 }
-                if (Mathf.Abs(_dragTouchStartPos.x - evt.x) < sensitivity && Mathf.Abs(_dragTouchStartPos.y - evt.y) < sensitivity) {
+
+                if (Mathf.Abs(_dragTouchStartPos.x - evt.x) < sensitivity && Mathf.Abs(_dragTouchStartPos.y - evt.y) < sensitivity)
+                {
                     return;
                 }
 
@@ -1850,33 +2210,44 @@ namespace FairyGUI {
                 DragBegin(evt.touchId);
             }
 
-            if (draggingObject == this) {
+            if (draggingObject == this)
+            {
                 var xx = evt.x - sGlobalDragStart.x + sGlobalRect.x;
                 var yy = evt.y - sGlobalDragStart.y + sGlobalRect.y;
 
-                if (dragBounds != null) {
-                    var rect = GRoot.inst.LocalToGlobal((Rect) dragBounds);
-                    if (xx < rect.x) {
+                if (dragBounds != null)
+                {
+                    var rect = GRoot.inst.LocalToGlobal((Rect)dragBounds);
+                    if (xx < rect.x)
+                    {
                         xx = rect.x;
-                    } else if (xx + sGlobalRect.width > rect.xMax) {
+                    }
+                    else if (xx + sGlobalRect.width > rect.xMax)
+                    {
                         xx = rect.xMax - sGlobalRect.width;
-                        if (xx < rect.x) {
+                        if (xx < rect.x)
+                        {
                             xx = rect.x;
                         }
                     }
 
-                    if (yy < rect.y) {
+                    if (yy < rect.y)
+                    {
                         yy = rect.y;
-                    } else if (yy + sGlobalRect.height > rect.yMax) {
+                    }
+                    else if (yy + sGlobalRect.height > rect.yMax)
+                    {
                         yy = rect.yMax - sGlobalRect.height;
-                        if (yy < rect.y) {
+                        if (yy < rect.y)
+                        {
                             yy = rect.y;
                         }
                     }
                 }
 
                 var pt = parent.GlobalToLocal(new Vector2(xx, yy));
-                if (float.IsNaN(pt.x)) {
+                if (float.IsNaN(pt.x))
+                {
                     return;
                 }
 
@@ -1888,53 +2259,68 @@ namespace FairyGUI {
             }
         }
 
-        private void __touchEnd(EventContext context) {
-            if (draggingObject == this) {
+        private void __touchEnd(EventContext context)
+        {
+            if (_touchIdDrag != context.inputEvent.touchId) return;
+            if (draggingObject == this)
+            {
                 draggingObject = null;
                 DispatchEvent("onDragEnd", null);
             }
+
+            _touchIdDrag = -1;
         }
 
         #endregion
 
         #region Tween Helpers
 
-        public GTweener TweenMove(Vector2 endValue, float duration) {
+        public GTweener TweenMove(Vector2 endValue, float duration)
+        {
             return GTween.To(xy, endValue, duration).SetTarget(this, TweenPropType.XY);
         }
 
-        public GTweener TweenMoveX(float endValue, float duration) {
+        public GTweener TweenMoveX(float endValue, float duration)
+        {
             return GTween.To(_x, endValue, duration).SetTarget(this, TweenPropType.X);
         }
 
-        public GTweener TweenMoveY(float endValue, float duration) {
+        public GTweener TweenMoveY(float endValue, float duration)
+        {
             return GTween.To(_y, endValue, duration).SetTarget(this, TweenPropType.Y);
         }
 
-        public GTweener TweenScale(Vector2 endValue, float duration) {
+        public GTweener TweenScale(Vector2 endValue, float duration)
+        {
             return GTween.To(scale, endValue, duration).SetTarget(this, TweenPropType.Scale);
         }
 
-        public GTweener TweenScaleX(float endValue, float duration) {
+        public GTweener TweenScaleX(float endValue, float duration)
+        {
             return GTween.To(_scaleX, endValue, duration).SetTarget(this, TweenPropType.ScaleX);
         }
 
-        public GTweener TweenScaleY(float endValue, float duration) {
+        public GTweener TweenScaleY(float endValue, float duration)
+        {
             return GTween.To(_scaleY, endValue, duration).SetTarget(this, TweenPropType.ScaleY);
         }
 
-        public GTweener TweenResize(Vector2 endValue, float duration) {
+        public GTweener TweenResize(Vector2 endValue, float duration)
+        {
             return GTween.To(size, endValue, duration).SetTarget(this, TweenPropType.Size);
         }
 
-        public GTweener TweenFade(float endValue, float duration) {
+        public GTweener TweenFade(float endValue, float duration)
+        {
             return GTween.To(_alpha, endValue, duration).SetTarget(this, TweenPropType.Alpha);
         }
 
-        public GTweener TweenRotate(float endValue, float duration) {
+        public GTweener TweenRotate(float endValue, float duration)
+        {
             return GTween.To(_rotation, endValue, duration).SetTarget(this, TweenPropType.Rotation);
         }
 
         #endregion
+
     }
 }

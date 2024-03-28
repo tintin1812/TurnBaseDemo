@@ -7,8 +7,10 @@ namespace Gui
 {
     public partial class SlotAxie : GButton
     {
+        public GGraph Hightlight;
         public GGraph Bg;
         public GGraph Image;
+        public GTextField Number;
         public const string URL = "ui://rbw1tvvvimznqs";
 
         public static SlotAxie CreateInstance()
@@ -20,8 +22,10 @@ namespace Gui
         {
             base.ConstructFromXML(xml);
 
-            Bg = (GGraph)GetChildAt(0);
-            Image = (GGraph)GetChildAt(1);
+            Hightlight = (GGraph)GetChildAt(0);
+            Bg = (GGraph)GetChildAt(1);
+            Image = (GGraph)GetChildAt(2);
+            Number = (GTextField)GetChildAt(3);
         }
     }
 }

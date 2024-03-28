@@ -6,58 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/.idea/.idea.0. Loading Screen.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/.idea/.idea.0. Loading Screen.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/.idea/.idea.0. Loading Screen.dir/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/Loading.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/Loading.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/LoadingScene.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/LoadingScene.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/LoadingSettings.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/0. Loading Screen/LoadingSettings.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/AxieMixerPlayground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/AxieMixerPlayground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/DemoMixer.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/DemoMixer.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/FakeAxie512.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/FakeAxie512.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/GenesLite.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/1. Basic/GenesLite.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/FlappyAxie.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/FlappyAxie.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/FlappyAxieSettings.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/FlappyAxieSettings.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Prefabs/Obstacle.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Prefabs/Obstacle.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/AxieFigure.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/AxieFigure.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Bird.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Bird.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Obstacle.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Obstacle.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Spawner.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Scripts/Spawner.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/frame-mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/frame-mask.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/frame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/frame.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/ground-base.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/ground-base.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/ground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/ground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/obstacle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/obstacle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/wood-background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/AxieInfinity/AxieMixerUnity/Demo/2. Flappy Axie/Sprites/wood-background.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/Gesture/PinchGesture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/Gesture/PinchGesture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/.objs/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Button.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/SlotAxie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/SlotAxie.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +29,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Common/DragGesture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" root0="FORCE_HIGHLIGHTING" />
@@ -75,6 +39,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/cb/9926270f/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/3c/b479bf93/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/61/a8c30b0a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/7e/7663695c/Bounds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -154,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="25496000" />
+      <workItem from="1711435991709" duration="35596000" />
     </task>
     <servers />
   </component>
