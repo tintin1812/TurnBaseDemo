@@ -2,6 +2,7 @@ using Data;
 using FairyGUI;
 using Plugins.PathFinding;
 using UnityEngine;
+using Utility;
 
 namespace Gui
 {
@@ -22,11 +23,44 @@ namespace Gui
             GRoot.inst.AddChild(_homeScreen);
 
             InitZoom();
+            MapDataUtil.ApplyRenderMapData(_homeScreen.Map.Content.ListSlot, MapDataUtil.GenExMap(), gameData);
+        }
+
+        private void InitZoom()
+        {
+            // new DragGesture(_homeScreen.Map.Content);
+            _homeScreen.Map.Content.draggable = true;
+            _homeScreen.SliderZoom.value = 50;
+            SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
+            _homeScreen.SliderZoom.onChanged.Add(() =>
+            {
+                SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //   
+            });
+
+            var gesture = new PinchGesture(_homeScreen.Map.Content);
+            gesture.onAction.Add(() =>
+            {
+                var vTo = (float)_homeScreen.SliderZoom.value + gesture.delta;
+                _homeScreen.SliderZoom.value = Mathf.Clamp(vTo, 0.0f, 1.0f);
+                SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
+            });
+        }
+
+        private static void SetZoom(GObject map, float percent)
+        {
+            const float min = 0.5f;
+            const float max = 1.4f;
+            var scaleTo = min + percent * (max - min) * 0.01f;
+            map.scale = new Vector2(scaleTo, scaleTo);
+        }
+
+        private void TestAStar(GameData gameData)
+        {
             var tileGrid = new TileGrid(20, 15);
-            var start = tileGrid.GetTile(9, 2);
-            var end = tileGrid.GetTile(7, 14);
             tileGrid.CreateExpensiveArea(3, 3, 9, 1);
             tileGrid.CreateExpensiveArea(3, 11, 1, 9);
+            var start = tileGrid.GetTile(9, 2);
+            var end = tileGrid.GetTile(7, 14);
             tileGrid.FindPath(start, end, PathFinder.FindPath_AStar);
             var listSlot = _homeScreen.Map.Content.ListSlot;
             listSlot.columnCount = tileGrid.Cols;
@@ -78,34 +112,6 @@ namespace Gui
                     break;
                 }
             }
-        }
-
-        private void InitZoom()
-        {
-            // new DragGesture(_homeScreen.Map.Content);
-            _homeScreen.Map.Content.draggable = true;
-            _homeScreen.SliderZoom.value = 50;
-            SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
-            _homeScreen.SliderZoom.onChanged.Add(() =>
-            {
-                SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //   
-            });
-
-            var gesture = new PinchGesture(_homeScreen.Map.Content);
-            gesture.onAction.Add(() =>
-            {
-                var vTo = (float)_homeScreen.SliderZoom.value + gesture.delta;
-                _homeScreen.SliderZoom.value = Mathf.Clamp(vTo, 0.0f, 1.0f);
-                SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
-            });
-        }
-
-        private static void SetZoom(Map map, float percent)
-        {
-            const float min = 0.4f;
-            const float max = 1.5f;
-            var scaleTo = min + percent * (max - min) * 0.01f;
-            map.scale = new Vector2(scaleTo, scaleTo);
         }
     }
 }

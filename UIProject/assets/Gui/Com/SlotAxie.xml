@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="80,80" extention="Button">
-  <controller name="button" pages="0,up,1,down" selected="1"/>
+  <controller name="button" pages="0,up,1,down" selected="0"/>
   <displayList>
     <graph id="n47_hqs5" name="Hightlight" xy="5,5" pivot="0.5,0.5" size="70,70" type="rect" lineSize="4" lineColor="#ff00ff99" fillColor="#00000000" corner="10">
       <gearDisplay controller="button" pages="1"/>
@@ -12,7 +12,7 @@
     <graph id="n48_imzn" name="Image" xy="15,15" pivot="0.5,1" size="50,50" type="rect">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <text id="n49_tsj8" name="Number" xy="29,26" pivot="0.5,0.5" size="22,29" fontSize="20" color="#111111" align="center" vAlign="middle" text="99">
+    <text id="n49_tsj8" name="Number" xy="29,26" pivot="0.5,0.5" size="22,29" fontSize="20" color="#111111" align="center" vAlign="middle" autoClearText="true" text="99">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>

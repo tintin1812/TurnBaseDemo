@@ -6,21 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/Gesture/PinchGesture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/Gesture/PinchGesture.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/.objs/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Button.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/SlotAxie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/SlotAxie.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,13 +22,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.2.0/Editor/PlasticSCM/UI/Tree/DrawTreeViewEmptyState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee2cc7230114b45adc30072a0c46d872d400/c5/ab21a631/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/12/c97e9b46/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/cb/9926270f/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ce7e10897d5428fb852b5675f9d53d016c00/95/5ff8a1da/TerrainData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/3c/b479bf93/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/61/a8c30b0a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/7e/7663695c/Bounds.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -99,10 +91,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27946">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="27946" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -119,7 +111,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="35596000" />
+      <workItem from="1711435991709" duration="43817000" />
     </task>
     <servers />
   </component>
