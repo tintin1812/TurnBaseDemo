@@ -32,6 +32,16 @@ namespace Plugins.PathFinding
             ResetGrid();
         }
 
+        public void SetExpensiveArea(int row, int col)
+        {
+            GetTile(row, col).Weight = TileWeightExpensive;
+        }
+
+        public void ResetWeight(int row, int col)
+        {
+            GetTile(row, col).Weight = TileWeightDefault;
+        }
+
         public void CreateExpensiveArea(int row, int col, int width, int height)
         {
             CreateExpensiveArea(row, col, width, height, TileWeightExpensive);
@@ -73,6 +83,14 @@ namespace Plugins.PathFinding
             //     step.Execute();
             //     // yield return new WaitForFixedUpdate();
             // }
+        }
+
+        public (List<IVisualStep>, List<Tile> paths) FindPathMultiEnd(Tile start, List<Tile> endsList, Func<TileGrid, Tile, List<Tile>, List<IVisualStep>, List<Tile>> pathFindingFunc)
+        {
+            ResetGrid();
+            var steps = new List<IVisualStep>();
+            var paths = pathFindingFunc(this, start, endsList, steps);
+            return (steps, paths);
         }
 
         public Tile GetTile(int row, int col)

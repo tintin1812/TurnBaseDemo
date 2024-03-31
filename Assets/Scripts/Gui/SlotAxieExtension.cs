@@ -8,13 +8,7 @@ namespace Gui
 {
     public static class SlotAxieExtension
     {
-        public static void ReloadData(this SlotAxie slot, AxieData axieData)
-        {
-            slot.Image.visible = true;
-            ReloadData(slot.Image, axieData);
-        }
-
-        private static void ReloadData(this GGraph image, AxieData axieData)
+        public static void ReloadData(this GGraph image, AxieData axieData)
         {
             const float scale = 0.08f;
             var go = new GameObject($"pet_{axieData.AxieId}");
@@ -29,5 +23,22 @@ namespace Gui
             GoWrapper wrapper = new GoWrapper(go);
             image.SetNativeObject(wrapper);
         }
+    }
+
+    public class AxieAni
+    {
+        public static AxieAni Create(GComponent parent, Vector2 pos, AxieData axieData)
+        {
+            var com = AxieCom.CreateInstance();
+            com.Image.ReloadData(axieData);
+            parent.AddChild(com);
+            com.xy = pos;
+            return new AxieAni()
+            {
+                AxieCom = com, //
+            };
+        }
+
+        public AxieCom AxieCom { get; set; }
     }
 }

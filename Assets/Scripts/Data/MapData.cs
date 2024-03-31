@@ -42,5 +42,10 @@ namespace Data
         {
             return (TitleType)Map[GetTileIndex(row, col)];
         }
+
+        public void SetTile(int row, int col, TitleType type)
+        {
+            Map[GetTileIndex(row, col)] = (int)type;
+        }
     }
 }

@@ -10,7 +10,8 @@ namespace Gui
         public Map Map;
         public GLoader Bar;
         public GSlider SliderZoom;
-        public Button BtTest;
+        public Button BtPreview;
+        public Button BtNext;
         public const string URL = "ui://rbw1tvvvlrn42z";
 
         public static HomeScreen CreateInstance()
@@ -25,7 +26,8 @@ namespace Gui
             Map = (Map)GetChildAt(0);
             Bar = (GLoader)GetChildAt(1);
             SliderZoom = (GSlider)GetChildAt(2);
-            BtTest = (Button)GetChildAt(3);
+            BtPreview = (Button)GetChildAt(3);
+            BtNext = (Button)GetChildAt(4);
         }
     }
 }

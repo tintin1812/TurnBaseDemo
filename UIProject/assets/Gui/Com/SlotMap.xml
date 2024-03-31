@@ -6,7 +6,7 @@
       <gearDisplay controller="button" pages="1"/>
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <graph id="n50_prmn" name="Bg" xy="15,15" pivot="0.5,1" size="50,50" visible="false" type="rect">
+    <graph id="n50_prmn" name="Bg" xy="15,15" pivot="0.5,1" size="50,50" visible="false" type="rect" lineSize="3" lineColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <graph id="n48_imzn" name="Image" xy="15,15" pivot="0.5,1" size="50,50" type="rect">

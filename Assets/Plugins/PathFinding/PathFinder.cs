@@ -151,6 +151,113 @@ namespace Plugins.PathFinding
             return path;
         }
 
+        public static List<Tile> FindPath_Dijkstra_MultiEnd(TileGrid grid, Tile start, List<Tile> endsAble, List<IVisualStep> outSteps)
+        {
+            // Visual stuff
+            outSteps.Add(new MarkStartTileStep(start));
+            // outSteps.Add(new MarkEndTileStep(end));
+            // ~Visual stuff
+
+            foreach (var tile in grid.Tiles)
+            {
+                tile.Cost = int.MaxValue;
+            }
+
+            var costEndDefine = grid.Tiles.Length + 1;
+            foreach (var tile in endsAble)
+            {
+                tile.Cost = costEndDefine;
+            }
+
+            start.Cost = 0;
+
+            var visited = new HashSet<Tile>();
+            visited.Add(start);
+
+            var frontier = new MinHeap<Tile>((lhs, rhs) => lhs.Cost.CompareTo(rhs.Cost));
+            frontier.Add(start);
+
+            start.PrevTile = null;
+
+            Tile end = null;
+
+            while (frontier.Count > 0 && end == null)
+            {
+                var current = frontier.Remove();
+
+                // ~Visual stuff
+
+                if (current.Cost == costEndDefine)
+                {
+                    end = current;
+                    break;
+                }
+
+                // Visual stuff
+                if (current != start && current.Cost != costEndDefine)
+                {
+                    outSteps.Add(new VisitTileStep(current));
+                }
+
+                foreach (var neighbor in grid.GetNeighbors(current))
+                {
+                    if (neighbor.Weight == grid.TileWeightExpensive)
+                    {
+                        continue;
+                    }
+
+                    if (neighbor.Cost == costEndDefine)
+                    {
+                        neighbor.Cost = current.Cost + neighbor.Weight;
+                        neighbor.PrevTile = current;
+                        end = neighbor;
+                        break;
+                    }
+
+                    var newNeighborCost = current.Cost + neighbor.Weight;
+                    if (newNeighborCost < neighbor.Cost)
+                    {
+                        neighbor.Cost = newNeighborCost;
+                        neighbor.PrevTile = current;
+                    }
+
+                    if (!visited.Contains(neighbor))
+                    {
+                        visited.Add(neighbor);
+                        frontier.Add(neighbor);
+
+                        // Visual stuff
+                        if (neighbor.Cost != costEndDefine)
+                        {
+                            outSteps.Add(new PushTileInFrontierStep(neighbor, neighbor.Cost));
+                        }
+                        // ~Visual stuff
+                    }
+                }
+            }
+
+            if (end == null)
+            {
+                return new List<Tile>();
+            }
+
+            var path = BacktrackToPath(end);
+
+            // Visual stuff
+            foreach (var tile in path)
+            {
+                if (tile == start || tile == end)
+                {
+                    continue;
+                }
+
+                outSteps.Add(new MarkPathTileStep(tile));
+            }
+            // ~Visual stuff
+
+            return path;
+        }
+
         public static List<Tile> FindPath_AStar(TileGrid grid, Tile start, Tile end, List<IVisualStep> outSteps)
         {
             // Visual stuff

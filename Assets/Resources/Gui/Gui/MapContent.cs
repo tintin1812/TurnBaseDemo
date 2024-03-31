@@ -9,6 +9,7 @@ namespace Gui
     {
         public GLoader Bg;
         public GList ListSlot;
+        public GComponent Character;
         public const string URL = "ui://rbw1tvvvtsj8r1";
 
         public static MapContent CreateInstance()
@@ -22,6 +23,7 @@ namespace Gui
 
             Bg = (GLoader)GetChildAt(0);
             ListSlot = (GList)GetChildAt(1);
+            Character = (GComponent)GetChildAt(2);
         }
     }
 }

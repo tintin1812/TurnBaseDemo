@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using Data;
 using FairyGUI;
 using Plugins.PathFinding;
 using UnityEngine;
 using Utility;
 
+// ReSharper disable All
 namespace Gui
 {
     public class HomeScreenExtension
@@ -21,9 +23,49 @@ namespace Gui
             _homeScreen = HomeScreen.CreateInstance();
             _homeScreen.MakeFullScreen();
             GRoot.inst.AddChild(_homeScreen);
-
             InitZoom();
-            MapDataUtil.ApplyRenderMapData(_homeScreen.Map.Content.ListSlot, MapDataUtil.GenExMap(), gameData);
+            // TestAStar(gameData);
+            var mapdata = MapDataUtil.GenExMap();
+            var listSlot = _homeScreen.Map.Content.ListSlot;
+            MapDataUtil.RenderMapData(listSlot, mapdata);
+            var charCom = _homeScreen.Map.Content.Character;
+            charCom.size = listSlot.size;
+            charCom.xy = listSlot.xy;
+            var pos = mapdata.GetPosStarEnd();
+            List<AxieAni> attackers = new List<AxieAni>();
+            Dictionary<int, AxieAni> axieAniAttack = new Dictionary<int, AxieAni>();
+            Dictionary<int, AxieAni> axieAniDefend = new Dictionary<int, AxieAni>();
+            foreach (var p in pos.starts)
+            {
+                var axieAni = AxieAni.Create(charCom, MapDataUtil.GetPosByTile(listSlot, mapdata, p.y, p.x), gameData.MatchData.Attacker);
+                axieAniAttack[mapdata.GetTileIndex(p.y, p.x)] = axieAni;
+            }
+
+            foreach (var p in pos.ends)
+            {
+                var axieAni = AxieAni.Create(charCom, MapDataUtil.GetPosByTile(listSlot, mapdata, p.y, p.x), gameData.MatchData.Defender);
+                axieAniDefend[mapdata.GetTileIndex(p.y, p.x)] = axieAni;
+            }
+
+            var movesNext = MapDataUtil.FindPathingAttacker(mapdata);
+
+            _homeScreen.BtNext.setOnClick(() =>
+            {
+                // Move
+                foreach (var move in movesNext)
+                {
+                    if (move.Next == move.Start) continue;
+                    if (move.Next == null) continue;
+                    mapdata.DoMove(move);
+                    // var ani = axieAniAll[];
+                    axieAniAttack.Remove(mapdata.GetTileIndex(move.Start.Row, move.Start.Col), out AxieAni ani);
+                    axieAniAttack[mapdata.GetTileIndex(move.Next.Row, move.Next.Col)] = ani;
+                    ani.AxieCom.TweenMove(MapDataUtil.GetPosByTile(listSlot, mapdata, move.Next.Row, move.Next.Col), 0.5f);
+                }
+
+                // MapDataUtil.RenderMapData(_homeScreen.Map.Content.ListSlot, mapdata);
+                movesNext = MapDataUtil.FindPathingAttacker(mapdata);
+            });
         }
 
         private void InitZoom()
@@ -60,8 +102,13 @@ namespace Gui
             tileGrid.CreateExpensiveArea(3, 3, 9, 1);
             tileGrid.CreateExpensiveArea(3, 11, 1, 9);
             var start = tileGrid.GetTile(9, 2);
-            var end = tileGrid.GetTile(7, 14);
-            tileGrid.FindPath(start, end, PathFinder.FindPath_AStar);
+            var endList = new List<Tile>();
+            endList.Add(tileGrid.GetTile(7, 14));
+            endList.Add(tileGrid.GetTile(9, 15));
+            endList.Add(tileGrid.GetTile(10, 14));
+            // tileGrid.FindPath(start, end, PathFinder.FindPath_AStar);
+            var r = tileGrid.FindPathMultiEnd(start, endList, PathFinder.FindPath_Dijkstra_MultiEnd);
+            var paths = r.paths;
             var listSlot = _homeScreen.Map.Content.ListSlot;
             listSlot.columnCount = tileGrid.Cols;
             listSlot.numItems = tileGrid.Tiles.Length;
@@ -75,42 +122,36 @@ namespace Gui
                 for (var row = 0; row < tileGrid.Rows; row++)
                 {
                     var tile = tileGrid.GetTile(row, col);
-                    var slot = (SlotAxie)listSlot.GetChildAt(tileGrid.GetTileIndex(row, col));
+                    var slot = (SlotMap)listSlot.GetChildAt(tileGrid.GetTileIndex(row, col));
                     slot.Number.text = tile.Cost < tileGrid.TileWeightExpensive ? tile.Cost.ToString() : "";
-                    if (tile.Cost >= tileGrid.TileWeightExpensive)
+                    slot.Bg.visible = true;
+                    slot.Image.visible = false;
+                    if (start == tile)
+                    {
+                        slot.Image.ReloadData(gameData.MatchData.Attacker);
+                    }
+                    else if (endList.Find(it => it == tile) != null)
+                    {
+                        slot.Image.ReloadData(gameData.MatchData.Defender);
+                    }
+                    else if (tile.Weight == tileGrid.TileWeightExpensive)
                     {
                         // wall
-                        slot.Bg.visible = true;
                         slot.Bg.color = Color.gray;
                         slot.Image.visible = false;
                     }
-                    else if (start == tile)
-                    {
-                        slot.ReloadData(gameData.MatchData.Attacker);
-                    }
-                    else if (end == tile)
-                    {
-                        slot.ReloadData(gameData.MatchData.Defender);
-                    }
                     else
                     {
-                        // slot.Image.visible = false;
+                        slot.Bg.color = Color.white;
                     }
                 }
             }
 
-            var tileRender = end.PrevTile;
-            while (tileRender != null)
+            foreach (var tile in paths)
             {
-                var slot = (SlotAxie)listSlot.GetChildAt(tileGrid.GetTileIndex(tileRender.Row, tileRender.Col));
+                var slot = (SlotMap)listSlot.GetChildAt(tileGrid.GetTileIndex(tile.Row, tile.Col));
                 slot.Bg.visible = true;
                 slot.Bg.color = Color.green;
-                tileRender = tileRender.PrevTile;
-                slot.Image.visible = false;
-                if (tileRender == start)
-                {
-                    break;
-                }
             }
         }
     }

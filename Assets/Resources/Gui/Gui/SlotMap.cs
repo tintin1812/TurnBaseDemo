@@ -5,7 +5,7 @@ using FairyGUI.Utils;
 
 namespace Gui
 {
-    public partial class SlotAxie : GButton
+    public partial class SlotMap : GButton
     {
         public GGraph Hightlight;
         public GGraph Bg;
@@ -13,9 +13,9 @@ namespace Gui
         public GTextField Number;
         public const string URL = "ui://rbw1tvvvimznqs";
 
-        public static SlotAxie CreateInstance()
+        public static SlotMap CreateInstance()
         {
-            return (SlotAxie)UIPackage.CreateObject("Gui", "SlotAxie");
+            return (SlotMap)UIPackage.CreateObject("Gui", "SlotMap");
         }
 
         public override void ConstructFromXML(XML xml)
