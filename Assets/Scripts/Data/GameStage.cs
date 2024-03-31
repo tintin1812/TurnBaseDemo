@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
+using FairyGUI;
 using Utility;
 using Gui;
+using Plugins.PathFinding;
 
 namespace Data
 {
     public class GameStage
     {
-        private Dictionary<int, AxieAni> _axieAniAttack;
-        private Dictionary<int, AxieAni> _axieAniDefend;
+        private Dictionary<int, AxieAni> _axieAniAll;
         private List<MapDataUtil.MoveToPos> _moveNext;
         private MapData _mapData;
         private IHomeScreenExtension _homeScreen;
-        // private void 
+        private Stack<MetaRevert> _revertAble;
 
         public void Init(MapData mapData, IHomeScreenExtension homeScreen, GameResource gameResource)
         {
@@ -20,45 +21,97 @@ namespace Data
             _homeScreen = homeScreen;
             var charCom = homeScreen.MapContent.Character;
             var pos = mapData.GetPosStarEnd();
-            _axieAniAttack = new Dictionary<int, AxieAni>();
-            _axieAniDefend = new Dictionary<int, AxieAni>();
+            _axieAniAll = new Dictionary<int, AxieAni>();
             foreach (var p in pos.starts)
             {
                 var axieAni = AxieAni.Create(charCom, homeScreen.GetPos(p.y, p.x), gameResource.MatchResource.Attacker);
-                _axieAniAttack[mapData.GetTileIndex(p.y, p.x)] = axieAni;
+                _axieAniAll[mapData.GetTileIndex(p.y, p.x)] = axieAni;
+                axieAni.FaceTo(true);
             }
 
             foreach (var p in pos.ends)
             {
                 var axieAni = AxieAni.Create(charCom, homeScreen.GetPos(p.y, p.x), gameResource.MatchResource.Defender);
-                _axieAniDefend[mapData.GetTileIndex(p.y, p.x)] = axieAni;
+                _axieAniAll[mapData.GetTileIndex(p.y, p.x)] = axieAni;
             }
 
             // ReProcessMove
             _moveNext = MapDataUtil.FindPathingAttacker(mapData);
+
+            _revertAble = new Stack<MetaRevert>();
         }
 
-        public void DoPreviewStep()
+        private GTweener AxieAniMove(Tile start, Tile next)
         {
+            _axieAniAll.Remove(_mapData.GetTileIndex(start.Row, start.Col), out var ani);
+            _axieAniAll[_mapData.GetTileIndex(next.Row, next.Col)] = ani;
+            return ani.AxieCom.TweenMove(_homeScreen.GetPos(next.Row, next.Col), 0.5f);
         }
 
-        public void DoNextStep()
+        public bool CanRevertAble => _revertAble.Count > 0;
+
+        public void DoPreviewStep(GTweenCallback onComplete)
         {
-            // Move
+            if (_revertAble.Count <= 0)
+            {
+                return;
+            }
+
+            _revertAble.Pop().Do(onComplete);
+        }
+
+        public void DoNextStep(GTweenCallback onComplete)
+        {
+            GTweener lastTweener = null;
+            var doRevert = new List<Func<GTweener>>();
             foreach (var move in _moveNext)
             {
                 if (move.Next == move.Start) continue;
                 if (move.Next == null) continue;
                 var mapData = _mapData;
-                mapData.DoMove(move);
-                // var ani = axieAniAll[];
-                _axieAniAttack.Remove(mapData.GetTileIndex(move.Start.Row, move.Start.Col), out AxieAni ani);
-                _axieAniAttack[mapData.GetTileIndex(move.Next.Row, move.Next.Col)] = ani;
-                ani.AxieCom.TweenMove(_homeScreen.GetPos(move.Next.Row, move.Next.Col), 0.5f);
+                mapData.DoMove(move.Start, move.Next);
+                lastTweener = AxieAniMove(move.Start, move.Next);
+                doRevert.Add(() =>
+                {
+                    mapData.DoMove(move.Next, move.Start);
+                    return AxieAniMove(move.Next, move.Start);
+                });
             }
 
-            // MapDataUtil.RenderMapData(_homeScreen.Map.Content.ListSlot, mapdata);
+            doRevert.Reverse();
+            doRevert.Add(() =>
+            {
+                _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
+                return null;
+            });
+            _revertAble.Push(new MetaRevert(doRevert));
             _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
+            lastTweener?.OnComplete(onComplete);
+        }
+
+        private class MetaRevert
+        {
+            private readonly List<Func<GTweener>> _wait;
+
+            public MetaRevert(List<Func<GTweener>> wait)
+            {
+                _wait = wait;
+            }
+
+            public void Do(GTweenCallback onComplete)
+            {
+                GTweener lastTweener = null;
+                foreach (var d in _wait)
+                {
+                    var t = d();
+                    if (t != null)
+                    {
+                        lastTweener = t;
+                    }
+                }
+
+                lastTweener?.OnComplete(onComplete);
+            }
         }
     }
 }

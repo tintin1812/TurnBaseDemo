@@ -282,25 +282,25 @@ namespace Utility
             }
         }
 
-        public static void DoMove(this MapData mapData, MoveToPos moveToPos)
+        public static void DoMove(this MapData mapData, Tile from, Tile to)
         {
-            if (moveToPos.Next == moveToPos.Start) return;
-            if (moveToPos.Next == null) return;
-            if (mapData.GetTile(moveToPos.Next.Row, moveToPos.Next.Col) != MapData.TitleType.Empty)
+            if (to == from) return;
+            if (to == null) return;
+            if (mapData.GetTile(to.Row, to.Col) != MapData.TitleType.Empty)
             {
                 Debug.LogWarning("Tile move next is not Empty!");
                 return;
             }
 
-            var typeCurrent = mapData.GetTile(moveToPos.Start.Row, moveToPos.Start.Col);
+            var typeCurrent = mapData.GetTile(from.Row, from.Col);
             if (typeCurrent != MapData.TitleType.Attacker)
             {
                 Debug.LogWarning("Tile move start is not Attacker!");
                 return;
             }
 
-            mapData.SetTile(moveToPos.Start.Row, moveToPos.Start.Col, MapData.TitleType.Empty);
-            mapData.SetTile(moveToPos.Next.Row, moveToPos.Next.Col, typeCurrent);
+            mapData.SetTile(from.Row, from.Col, MapData.TitleType.Empty);
+            mapData.SetTile(to.Row, to.Col, typeCurrent);
         }
     }
 }

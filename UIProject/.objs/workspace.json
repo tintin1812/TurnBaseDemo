@@ -3,20 +3,24 @@
   "libview.iconScale": 0,
   "doc.openedDocs": [
     "ui://rbw1tvvvlrn42z",
-    "ui://rbw1tvvvx1hkqv",
     "ui://rbw1tvvvtsj8r1",
-    "ui://rbw1tvvvx1hkqt"
+    "ui://rbw1tvvvimznqs",
+    "ui://rbw1tvvvprmnr4"
   ],
   "test.device": "1080p Phone",
   "canvasColor": 10066329,
   "auxline2": true,
-  "doc.activeDoc": "ui://rbw1tvvvtsj8r1",
+  "doc.activeDoc": "ui://rbw1tvvvlrn42z",
   "libview.twoColumn": false,
   "libview.expandedNodes": [
     "rbw1tvvv",
     "/",
     "rbw1tvvv",
-    "/Com/"
+    "/Com/",
+    "rbw1tvvv",
+    "/Images/",
+    "rbw1tvvv",
+    "/Images/9Path/"
   ],
   "auxline1": true,
   "snapToGrid": true,

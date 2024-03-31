@@ -4,20 +4,19 @@
     <component id="n48_imzn" name="Map" src="x1hkqv" fileName="Com/Map.xml" xy="0,0" pivot="0.5,0.5" size="640,960">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <loader id="n44_v6gh" name="Bar" xy="25,840" pivot="0.5,0.5" size="590,60" visible="false" url="ui://rbw1tvvvhqs5qq" align="center" vAlign="middle" fill="scaleFree">
-      <relation target="" sidePair="width-width,center-center,bottom-bottom"/>
-    </loader>
-    <component id="n49_tsj8" name="SliderZoom" src="kvjqqw" fileName="Com/SliderZoom.xml" xy="430,883" scale="0.7,0.7">
+    <component id="n49_tsj8" name="SliderZoom" src="kvjqqw" fileName="Com/SliderZoom.xml" xy="620,747" scale="0.7,0.7" rotation="90">
       <relation target="" sidePair="right-right,bottom-bottom"/>
       <Slider value="50" max="100"/>
     </component>
-    <component id="n50_tsj8" name="BtPreview" src="x1hkqt" fileName="Com/Button.xml" xy="33,867" size="120,50">
-      <relation target="" sidePair="left-left,bottom-bottom"/>
+    <image id="n44_v6gh" name="Bar" src="jluwr6" fileName="Images/9Path/frame_4.png" xy="11,849" pivot="0.5,0.5" size="332,90" group="n52_jluw"/>
+    <component id="n50_tsj8" name="BtPreview" src="x1hkqt" fileName="Com/Button.xml" xy="48,870" size="120,50" group="n52_jluw">
       <Button title="Previous"/>
     </component>
-    <component id="n51_prmn" name="BtNext" src="x1hkqt" fileName="Com/Button.xml" xy="176,867" size="130,50">
-      <relation target="" sidePair="left-left,bottom-bottom"/>
+    <component id="n51_prmn" name="BtNext" src="x1hkqt" fileName="Com/Button.xml" xy="186,870" size="130,50" group="n52_jluw">
       <Button title="Next"/>
     </component>
+    <group id="n52_jluw" name="GuiCtrl" xy="11,849" size="332,90" advanced="true">
+      <relation target="" sidePair="left-left,bottom-bottom"/>
+    </group>
   </displayList>
 </component>
