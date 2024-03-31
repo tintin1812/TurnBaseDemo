@@ -9,13 +9,13 @@ namespace Utility
 {
     public static class GameDataUtil
     {
-        public static async Task<bool> FetchAxieGenes(AxieData axieData)
+        public static async Task<bool> FetchAxieGenes(AxieResource axieResource)
         {
-            if (axieData.AxieId.IsNullOrEmpty()) return false;
-            var result = await FetchAxieGenes(axieData.AxieId);
+            if (axieResource.AxieId.IsNullOrEmpty()) return false;
+            var result = await FetchAxieGenes(axieResource.AxieId);
             if (result.IsNullOrEmpty())
             {
-                Debug.Log($"Fetch Axie Genes Error, AxieId: ${axieData.AxieId}");
+                Debug.Log($"Fetch Axie Genes Error, AxieId: ${axieResource.AxieId}");
                 return false;
             }
 
@@ -23,7 +23,7 @@ namespace Utility
             {
                 var jResult = JObject.Parse(result);
                 var genesStr = (string)jResult["data"]?["axie"]?["newGenes"];
-                axieData.Genes = genesStr;
+                axieResource.Genes = genesStr;
                 return true;
             }
             catch (Exception e)

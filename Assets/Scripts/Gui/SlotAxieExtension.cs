@@ -8,12 +8,12 @@ namespace Gui
 {
     public static class SlotAxieExtension
     {
-        public static void ReloadData(this GGraph image, AxieData axieData)
+        public static void ReloadData(this GGraph image, AxieResource axieResource)
         {
             const float scale = 0.08f;
-            var go = new GameObject($"pet_{axieData.AxieId}");
+            var go = new GameObject($"pet_{axieResource.AxieId}");
             var runtimeSkeletonAnimation = SkeletonAnimation.NewSkeletonAnimationGameObject(null);
-            Mixer.SpawnSkeletonAnimation(runtimeSkeletonAnimation, axieData.AxieId, axieData.Genes, scale);
+            Mixer.SpawnSkeletonAnimation(runtimeSkeletonAnimation, axieResource.AxieId, axieResource.Genes, scale);
             runtimeSkeletonAnimation.gameObject.layer = LayerMask.NameToLayer("Player");
             runtimeSkeletonAnimation.transform.SetParent(go.transform, false);
             runtimeSkeletonAnimation.GetComponent<MeshRenderer>();
@@ -27,10 +27,10 @@ namespace Gui
 
     public class AxieAni
     {
-        public static AxieAni Create(GComponent parent, Vector2 pos, AxieData axieData)
+        public static AxieAni Create(GComponent parent, Vector2 pos, AxieResource axieResource)
         {
             var com = AxieCom.CreateInstance();
-            com.Image.ReloadData(axieData);
+            com.Image.ReloadData(axieResource);
             parent.AddChild(com);
             com.xy = pos;
             return new AxieAni()

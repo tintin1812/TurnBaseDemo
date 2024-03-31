@@ -8,12 +8,24 @@ using Utility;
 // ReSharper disable All
 namespace Gui
 {
-    public class HomeScreenExtension
+    public interface IHomeScreenExtension
+    {
+        void Init(GameResource gameResource);
+        void LoadMap(MapData mapData);
+        Vector2 GetPos(int row, int col);
+        HomeScreen HomeScreen { get; }
+        MapContent MapContent { get; }
+    }
+
+    public class HomeScreenExtension : IHomeScreenExtension
     {
         private const string PathPackAge = "Gui/Gui";
         private HomeScreen _homeScreen;
+        public HomeScreen HomeScreen => _homeScreen;
+        public MapContent MapContent => _homeScreen.Map.Content;
+        private MapData _mapData;
 
-        public void Init(GameData gameData)
+        public void Init(GameResource gameResource)
         {
             FontManager.RegisterFont(FontManager.GetFont("m6x11"), "");
             UIPackage.AddPackage(PathPackAge);
@@ -24,48 +36,29 @@ namespace Gui
             _homeScreen.MakeFullScreen();
             GRoot.inst.AddChild(_homeScreen);
             InitZoom();
-            // TestAStar(gameData);
-            var mapdata = MapDataUtil.GenExMap();
-            var listSlot = _homeScreen.Map.Content.ListSlot;
-            MapDataUtil.RenderMapData(listSlot, mapdata);
-            var charCom = _homeScreen.Map.Content.Character;
+            // TestAStar(MapDataUtil.GenExMap());
+        }
+
+        public void LoadMap(MapData mapData)
+        {
+            var mapContent = MapContent;
+            var listSlot = mapContent.ListSlot;
+            MapDataUtil.RenderMapData(listSlot, mapData);
+            var charCom = mapContent.Character;
             charCom.size = listSlot.size;
             charCom.xy = listSlot.xy;
-            var pos = mapdata.GetPosStarEnd();
-            List<AxieAni> attackers = new List<AxieAni>();
-            Dictionary<int, AxieAni> axieAniAttack = new Dictionary<int, AxieAni>();
-            Dictionary<int, AxieAni> axieAniDefend = new Dictionary<int, AxieAni>();
-            foreach (var p in pos.starts)
+            _mapData = mapData;
+        }
+
+        public Vector2 GetPos(int row, int col)
+        {
+            if (_mapData == null)
             {
-                var axieAni = AxieAni.Create(charCom, MapDataUtil.GetPosByTile(listSlot, mapdata, p.y, p.x), gameData.MatchData.Attacker);
-                axieAniAttack[mapdata.GetTileIndex(p.y, p.x)] = axieAni;
+                Debug.LogWarning("MapData is Empty");
+                return Vector2.zero;
             }
 
-            foreach (var p in pos.ends)
-            {
-                var axieAni = AxieAni.Create(charCom, MapDataUtil.GetPosByTile(listSlot, mapdata, p.y, p.x), gameData.MatchData.Defender);
-                axieAniDefend[mapdata.GetTileIndex(p.y, p.x)] = axieAni;
-            }
-
-            var movesNext = MapDataUtil.FindPathingAttacker(mapdata);
-
-            _homeScreen.BtNext.setOnClick(() =>
-            {
-                // Move
-                foreach (var move in movesNext)
-                {
-                    if (move.Next == move.Start) continue;
-                    if (move.Next == null) continue;
-                    mapdata.DoMove(move);
-                    // var ani = axieAniAll[];
-                    axieAniAttack.Remove(mapdata.GetTileIndex(move.Start.Row, move.Start.Col), out AxieAni ani);
-                    axieAniAttack[mapdata.GetTileIndex(move.Next.Row, move.Next.Col)] = ani;
-                    ani.AxieCom.TweenMove(MapDataUtil.GetPosByTile(listSlot, mapdata, move.Next.Row, move.Next.Col), 0.5f);
-                }
-
-                // MapDataUtil.RenderMapData(_homeScreen.Map.Content.ListSlot, mapdata);
-                movesNext = MapDataUtil.FindPathingAttacker(mapdata);
-            });
+            return _homeScreen.Map.Content.ListSlot.GetChildAt(_mapData.GetTileIndex(row, col)).xy;
         }
 
         private void InitZoom()
@@ -96,7 +89,7 @@ namespace Gui
             map.scale = new Vector2(scaleTo, scaleTo);
         }
 
-        private void TestAStar(GameData gameData)
+        private void TestAStar(GameResource gameResource)
         {
             var tileGrid = new TileGrid(20, 15);
             tileGrid.CreateExpensiveArea(3, 3, 9, 1);
@@ -128,11 +121,11 @@ namespace Gui
                     slot.Image.visible = false;
                     if (start == tile)
                     {
-                        slot.Image.ReloadData(gameData.MatchData.Attacker);
+                        slot.Image.ReloadData(gameResource.MatchResource.Attacker);
                     }
                     else if (endList.Find(it => it == tile) != null)
                     {
-                        slot.Image.ReloadData(gameData.MatchData.Defender);
+                        slot.Image.ReloadData(gameResource.MatchResource.Defender);
                     }
                     else if (tile.Weight == tileGrid.TileWeightExpensive)
                     {

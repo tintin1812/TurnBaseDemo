@@ -6,24 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/PathFinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/TileGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/HomeScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/HomeScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/MapContent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/MapContent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotAxie.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/SlotMap.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/GameData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/GameData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameResource.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/imznqs.info" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/imznqs.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/lrn42z.info" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/lrn42z.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/MapContent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/SlotAxie.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/HomeScreen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/GameDataUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/GameDataUtil.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.2.0/Editor/PlasticSCM/UI/Tree/DrawTreeViewEmptyState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee2cc7230114b45adc30072a0c46d872d400/c5/ab21a631/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/0a/7b99e5d0/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/12/c97e9b46/IEnumerator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/cb/9926270f/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ce7e10897d5428fb852b5675f9d53d016c00/95/5ff8a1da/TerrainData.cs" root0="SKIP_HIGHLIGHTING" />
@@ -126,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="73343000" />
+      <workItem from="1711435991709" duration="77513000" />
     </task>
     <servers />
   </component>
