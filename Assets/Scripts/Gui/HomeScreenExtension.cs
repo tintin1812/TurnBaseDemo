@@ -41,7 +41,7 @@ namespace Gui
             _homeScreen.MakeFullScreen();
             GRoot.inst.AddChildAt(_homeScreen, 0);
             InitZoom();
-            // TestAStar(MapDataUtil.GenExMap());
+            // TestAStar(gameResource);
         }
 
         public void LoadMap(MapData mapData)
@@ -100,6 +100,7 @@ namespace Gui
 
         private void TestAStar(GameResource gameResource)
         {
+            _loadingScreen.visible = false;
             var tileGrid = new TileGrid(20, 15);
             tileGrid.CreateExpensiveArea(3, 3, 9, 1);
             tileGrid.CreateExpensiveArea(3, 11, 1, 9);
@@ -127,7 +128,7 @@ namespace Gui
                     var slot = (SlotMap)listSlot.GetChildAt(tileGrid.GetTileIndex(row, col));
                     slot.Number.text = tile.Cost < tileGrid.TileWeightExpensive ? tile.Cost.ToString() : "";
                     slot.Bg.visible = true;
-                    slot.Image.visible = false;
+                    slot.Image.visible = true;
                     if (start == tile)
                     {
                         slot.Image.ReloadData(gameResource.MatchResource.Attacker);

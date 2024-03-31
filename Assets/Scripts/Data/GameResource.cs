@@ -21,7 +21,7 @@ namespace Data
         [JsonProperty] public AxieResource Defender;
     }
 
-    [CreateAssetMenu(fileName = "GameResource", menuName = "RPG/GameData")]
+    [CreateAssetMenu(fileName = "GameResource", menuName = "TurnBase/GameResource")]
     public class GameResource : ScriptableObject
     {
         [SerializeField] public MatchResource MatchResource;

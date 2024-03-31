@@ -30,7 +30,6 @@ namespace Data
                 axieAni.FaceTo(true);
             }
 
-            AxieAni.Create(homeScreen.HomeScreen, new Vector2(0, 0), gameResource.MatchResource.Attacker);
 
             foreach (var p in pos.ends)
             {

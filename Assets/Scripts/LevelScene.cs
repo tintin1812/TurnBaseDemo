@@ -1,4 +1,3 @@
-using System;
 using AxieMixer.Unity;
 using Data;
 using FairyGUI;
@@ -8,14 +7,14 @@ using Utility;
 
 public class LevelScene : MonoBehaviour
 {
-    [SerializeField] private GameResource gameResource;
+    [SerializeField] private GameResource resource;
     private IHomeScreenExtension _homeScreenEx;
 
     private void Start()
     {
         Mixer.Init();
         _homeScreenEx = new HomeScreenExtension();
-        _homeScreenEx.Init(gameResource);
+        _homeScreenEx.Init(resource);
         Timers.inst.CallLater(LoadGame);
     }
 
@@ -25,7 +24,7 @@ public class LevelScene : MonoBehaviour
         _homeScreenEx.LoadMap(mapData);
 
         var gameStage = new GameStage();
-        gameStage.Init(mapData, _homeScreenEx, gameResource);
+        gameStage.Init(mapData, _homeScreenEx, resource);
 
         GTweenCallback refreshGui = () =>
         {
