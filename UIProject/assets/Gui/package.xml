@@ -20,6 +20,7 @@
     <component id="prmnr4" name="AxieCom.xml" path="/Com/" exported="true"/>
     <component id="prmnr5" name="EmptyCom.xml" path="/Com/"/>
     <image id="jluwr6" name="frame_4.png" path="/Images/9Path/" scale="9grid" scale9grid="20,20,42,42" smoothing="false"/>
+    <component id="jluwr7" name="LoadingScreen.xml" path="/" exported="true"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

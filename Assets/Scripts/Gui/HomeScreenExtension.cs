@@ -20,6 +20,7 @@ namespace Gui
     public class HomeScreenExtension : IHomeScreenExtension
     {
         private const string PathPackAge = "Gui/Gui";
+        private LoadingScreen _loadingScreen;
         private HomeScreen _homeScreen;
         public HomeScreen HomeScreen => _homeScreen;
         public MapContent MapContent => _homeScreen.Map.Content;
@@ -30,11 +31,15 @@ namespace Gui
             FontManager.RegisterFont(FontManager.GetFont("m6x11"), "");
             UIPackage.AddPackage(PathPackAge);
             GuiBinder.BindAll();
+            //
+            _loadingScreen = LoadingScreen.CreateInstance();
+            GRoot.inst.AddChild(_loadingScreen);
+            _loadingScreen.MakeFullScreen();
             // Map Sound
-            UIConfig.buttonSound = (NAudioClip)UIPackage.GetItemAsset("Gui", "sfx_pop");
+            // UIConfig.buttonSound = (NAudioClip)UIPackage.GetItemAsset("Gui", "sfx_pop");
             _homeScreen = HomeScreen.CreateInstance();
             _homeScreen.MakeFullScreen();
-            GRoot.inst.AddChild(_homeScreen);
+            GRoot.inst.AddChildAt(_homeScreen, 0);
             InitZoom();
             // TestAStar(MapDataUtil.GenExMap());
         }
@@ -48,6 +53,10 @@ namespace Gui
             charCom.size = listSlot.size;
             charCom.xy = listSlot.xy;
             _mapData = mapData;
+            _loadingScreen.TextLoading.FadeOut(() =>
+            {
+                _loadingScreen.visible = false; //
+            });
         }
 
         public Vector2 GetPos(int row, int col)

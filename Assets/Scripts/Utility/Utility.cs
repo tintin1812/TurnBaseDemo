@@ -39,5 +39,17 @@ namespace Utility
             bt.onClick.Clear();
             bt.onClick.Add(callback);
         }
+
+        public static void FadeOut(this GObject obj, GTweenCallback callback)
+        {
+            obj.TweenFade(0, 0.5f).OnComplete(callback);
+        }
+
+        public static void FadeOutDelay(this GObject obj, float delay)
+        {
+            obj.visible = true;
+            obj.alpha = 1;
+            obj.TweenFade(1, 0.25f).SetDelay(delay).OnComplete(() => { obj.visible = false; });
+        }
     }
 }

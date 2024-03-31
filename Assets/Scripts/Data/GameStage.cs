@@ -4,6 +4,7 @@ using FairyGUI;
 using Utility;
 using Gui;
 using Plugins.PathFinding;
+using UnityEngine;
 
 namespace Data
 {
@@ -28,6 +29,8 @@ namespace Data
                 _axieAniAll[mapData.GetTileIndex(p.y, p.x)] = axieAni;
                 axieAni.FaceTo(true);
             }
+
+            AxieAni.Create(homeScreen.HomeScreen, new Vector2(0, 0), gameResource.MatchResource.Attacker);
 
             foreach (var p in pos.ends)
             {

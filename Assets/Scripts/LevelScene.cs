@@ -16,8 +16,14 @@ public class LevelScene : MonoBehaviour
         Mixer.Init();
         _homeScreenEx = new HomeScreenExtension();
         _homeScreenEx.Init(gameResource);
+        Timers.inst.CallLater(LoadGame);
+    }
+
+    private void LoadGame(object param)
+    {
         var mapData = MapDataUtil.GenExMap();
         _homeScreenEx.LoadMap(mapData);
+
         var gameStage = new GameStage();
         gameStage.Init(mapData, _homeScreenEx, gameResource);
 

@@ -9,6 +9,7 @@ namespace Gui
         public static void BindAll()
         {
             UIObjectFactory.SetPackageItemExtension(SlotMap.URL, typeof(SlotMap));
+            UIObjectFactory.SetPackageItemExtension(LoadingScreen.URL, typeof(LoadingScreen));
             UIObjectFactory.SetPackageItemExtension(HomeScreen.URL, typeof(HomeScreen));
             UIObjectFactory.SetPackageItemExtension(AxieCom.URL, typeof(AxieCom));
             UIObjectFactory.SetPackageItemExtension(SliderGrip.URL, typeof(SliderGrip));
