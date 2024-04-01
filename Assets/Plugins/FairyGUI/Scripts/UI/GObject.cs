@@ -2106,7 +2106,7 @@ namespace FairyGUI
 
         #region Drag support
 
-        private int _touchIdDrag = -1;
+        private int _touchIdDrag = -99;
         private Vector2 _dragTouchStartPos;
         private bool _dragTesting;
         private static Vector2 sGlobalDragStart = new Vector2();
@@ -2131,6 +2131,7 @@ namespace FairyGUI
 
         private void DragBegin(int touchId)
         {
+            if (_touchIdDrag != touchId) return;
             if (DispatchEvent("onDragStart", touchId))
             {
                 return;
@@ -2166,7 +2167,7 @@ namespace FairyGUI
 
         private void __touchBegin(EventContext context)
         {
-            if (_touchIdDrag != -1)
+            if (_touchIdDrag != -99)
             {
                 return;
             }
@@ -2268,7 +2269,7 @@ namespace FairyGUI
                 DispatchEvent("onDragEnd", null);
             }
 
-            _touchIdDrag = -1;
+            _touchIdDrag = -99;
         }
 
         #endregion

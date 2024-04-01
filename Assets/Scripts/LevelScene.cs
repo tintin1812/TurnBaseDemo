@@ -50,8 +50,4 @@ public class LevelScene : MonoBehaviour
             _homeScreenEx.HomeScreen.BtNext.enabled = false;
         }
     }
-
-    private void Update()
-    {
-    }
 }

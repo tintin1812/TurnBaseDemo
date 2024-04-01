@@ -21,5 +21,7 @@ namespace Plugins.PathFinding
         {
             return new Vector2(Col, Row);
         }
+
+        public Vector2Int Pos => new Vector2Int(Col, Row);
     }
 }

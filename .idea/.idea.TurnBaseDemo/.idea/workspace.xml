@@ -6,14 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/GameResource.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Data/GameResource.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FairyGUI/Scripts/UI/GObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PathFinding/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/AxieCom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/AxieCom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/settings/Common.json" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/settings/Common.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/lrn42z.info" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/metas/rbw1tvvv/lrn42z.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/.objs/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/.objs/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/Map.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +33,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data/MapData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/GameStageUtil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MetaRevert.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.2.0/Editor/PlasticSCM/UI/Tree/DrawTreeViewEmptyState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ee2cc7230114b45adc30072a0c46d872d400/c5/ab21a631/GUIUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/0a/7b99e5d0/Void.cs" root0="SKIP_HIGHLIGHTING" />
@@ -36,6 +45,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/3c/b479bf93/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/61/a8c30b0a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/7e/7663695c/Bounds.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/aa/45e6ad2f/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5995835e2565222bd845851833bf32626f8a8e23753c86c8cc54d6f22587cd6a/System.Globalization.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
@@ -118,7 +128,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="84240000" />
+      <workItem from="1711435991709" duration="92011000" />
     </task>
     <servers />
   </component>
@@ -129,24 +139,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs</url>
-          <line>209</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" initialLine="196" containingFunctionPresentation="Method 'DoFindMultiPosToPosSub'">
-            <startOffsets>
-              <option value="8251" />
-            </startOffsets>
-            <endOffsets>
-              <option value="8278" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

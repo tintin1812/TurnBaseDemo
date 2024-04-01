@@ -28,6 +28,22 @@ namespace Gui
 
     public class AxieAni
     {
+        public enum AxieTeam
+        {
+            Non,
+            Attack,
+            Defend
+        }
+
+        public enum AxieStatus
+        {
+            Non,
+            MarkFind,
+            MarkMove,
+            MarkAttack,
+            MarkIdle,
+        }
+
         public static AxieAni Create(GComponent parent, Vector2 pos, AxieResource axieResource)
         {
             var com = AxieCom.CreateInstance();
@@ -36,17 +52,45 @@ namespace Gui
             com.xy = pos;
             return new AxieAni()
             {
-                AxieCom = com, //
                 Ani = ani, //
+                AxieCom = com, //
             };
         }
 
-        public AxieCom AxieCom { get; private set; }
+        public void Init(AxieTeam team, int hp)
+        {
+            Status = AxieStatus.Non;
+            Team = team;
+            HpMax = hp;
+            Hp = hp;
+            UpdateHpBar();
+        }
+
+        private void UpdateHpBar()
+        {
+            AxieCom.BarHp.value = 100.0f * Hp / HpMax;
+            AxieCom.BarHp.TitleSub.text = $"{Hp}/{HpMax}";
+        }
+
         private SkeletonAnimation Ani { get; set; }
+        public AxieCom AxieCom { get; private set; }
+        public AxieTeam Team { get; set; }
+        public int HpMax { get; set; }
+        public int Hp { get; set; }
+        public bool IsAlive => Hp > 0;
+        public AxieStatus Status { get; set; }
+        public Vector2Int TilePos { get; set; }
 
         public void FaceTo(bool isFaceToRight)
         {
             Ani.skeleton.ScaleX = isFaceToRight ? -1.0f : 1.0f;
+        }
+
+        public void BeAttack(int hpLost)
+        {
+            Hp -= hpLost;
+            if (Hp < 0) Hp = 0;
+            UpdateHpBar();
         }
     }
 }

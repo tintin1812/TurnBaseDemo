@@ -1,0 +1,13 @@
+info size=35 resizable=true colored=false
+common xadvance=24
+char id=48 img=nblsrj xoffset=0 yoffset=0 xadvance=0
+char id=49 img=nblsri xoffset=0 yoffset=0 xadvance=0
+char id=50 img=nblsrg xoffset=0 yoffset=0 xadvance=0
+char id=51 img=nblsrh xoffset=0 yoffset=0 xadvance=0
+char id=52 img=nblsrc xoffset=0 yoffset=0 xadvance=0
+char id=53 img=nblsrd xoffset=0 yoffset=0 xadvance=0
+char id=54 img=nblsrf xoffset=0 yoffset=0 xadvance=0
+char id=55 img=nblsre xoffset=0 yoffset=0 xadvance=0
+char id=56 img=nblsra xoffset=0 yoffset=0 xadvance=0
+char id=57 img=nblsrb xoffset=0 yoffset=0 xadvance=0
+char id=45 img=nblsr9 xoffset=0 yoffset=0 xadvance=0
