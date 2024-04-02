@@ -21,12 +21,12 @@ namespace Utility
             {
                 { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 1
                 { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 2
-                { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 3
-                { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 4
-                { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 2, 0 }, // 5
+                { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 3
+                { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 4
+                { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 5
                 { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 3, 0 }, // 6
                 { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 7
-                { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 8
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0 }, // 8
                 { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 9
                 { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 10
             };
@@ -301,6 +301,17 @@ namespace Utility
 
             mapData.SetTile(from.Row, from.Col, MapData.TitleType.Empty);
             mapData.SetTile(to.Row, to.Col, typeCurrent);
+        }
+
+        public static void RemoveTile(this MapData mapData, int row, int col)
+        {
+            if (mapData.GetTile(row, col) == MapData.TitleType.Empty)
+            {
+                Debug.LogWarning("Tile request Remove is  Empty!");
+                return;
+            }
+
+            mapData.SetTile(row, col, MapData.TitleType.Empty);
         }
     }
 }

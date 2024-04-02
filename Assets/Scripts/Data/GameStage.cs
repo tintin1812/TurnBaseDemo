@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FairyGUI;
 using Utility;
 using Gui;
@@ -53,7 +54,22 @@ namespace Data
             _axieAniAll[_mapData.GetTileIndex(next.Row, next.Col)] = ani;
             ani.TilePos = next.Pos;
             ani.Status = AxieAni.AxieStatus.MarkMove;
-            return ani.AxieCom.TweenMove(_homeScreen.GetPos(next.Row, next.Col), 0.5f);
+            var timeMove = ani.DoAniMove();
+            return ani.AxieCom.TweenMove(_homeScreen.GetPos(next.Row, next.Col), timeMove);
+        }
+
+        private void RemoveAxieAni(AxieAni axie)
+        {
+            _axieAniAll.Remove(_mapData.GetTileIndex(axie.TilePos.y, axie.TilePos.x), out var ani);
+            if (axie != ani)
+            {
+                Debug.LogWarning("RemoveAxieAni not Same Cache");
+            }
+        }
+
+        private void ReviverAxiAni(AxieAni axie)
+        {
+            _axieAniAll[_mapData.GetTileIndex(axie.TilePos.y, axie.TilePos.x)] = axie;
         }
 
         public bool CanRevertAble => _revertAble.Count > 0;
@@ -70,13 +86,76 @@ namespace Data
 
         public void DoNextStep(GTweenCallback onComplete)
         {
+            TaskUtil.CallAwait(async () =>
+            {
+                var doRevert = new List<Func<GTweener>>();
+                // Move
+                await DoMoveStep(doRevert);
+                if (doRevert.Count > 0)
+                {
+                    await TaskUtil.Delay(0.5f);
+                }
+
+                // Attack
+                var doRevertAtt = new List<GTweenCallback>();
+                await DoAttack(doRevertAtt);
+                if (doRevertAtt.Count > 0)
+                {
+                    doRevert.Insert(0, () =>
+                    {
+                        foreach (var call in doRevertAtt)
+                        {
+                            call();
+                        }
+
+                        return null;
+                    });
+                    await TaskUtil.Delay(0.5f);
+                }
+
+                // CheckDie
+                var doRevertDie = new List<GTweenCallback>();
+                await CheckDie(doRevertDie);
+                if (doRevertDie.Count > 0)
+                {
+                    doRevert.Insert(0, () =>
+                    {
+                        foreach (var call in doRevertDie)
+                        {
+                            call();
+                        }
+
+                        return null;
+                    });
+                    await TaskUtil.Delay(0.5f);
+                }
+
+                // Update FindPathing
+                _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
+                doRevert.Add(() =>
+                {
+                    _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
+                    return null;
+                });
+
+                if (doRevert.Count > 0)
+                {
+                    _revertAble.Push(new MetaRevert(doRevert));
+                }
+
+                onComplete();
+            });
+        }
+
+        private Task DoMoveStep(List<Func<GTweener>> doRevert)
+        {
             foreach (var axie in _axieAniAll.Values)
             {
                 axie.Status = AxieAni.AxieStatus.MarkFind;
             }
 
             GTweener lastTweener = null;
-            var doRevert = new List<Func<GTweener>>();
+
             foreach (var move in _moveNext)
             {
                 if (move.Next == null) continue;
@@ -91,8 +170,22 @@ namespace Data
                 });
             }
 
+            doRevert.Reverse();
+
+            if (lastTweener != null)
+            {
+                var task = new TaskCompletionSource<bool>();
+                lastTweener.OnComplete(() => { task.SetResult(true); });
+            }
+
+            return Task.CompletedTask;
+        }
+
+        private async Task DoAttack(List<GTweenCallback> doRevert)
+        {
             foreach (var axie in _axieAniAll.Values)
             {
+                if (axie.Team != AxieAni.AxieTeam.Attack) continue;
                 if (axie.Status != AxieAni.AxieStatus.MarkFind) continue;
                 var attackAble = axie.FindAttackAble(_axieAniAll);
                 if (attackAble.Count == 0)
@@ -102,21 +195,63 @@ namespace Data
                 }
 
                 axie.Status = AxieAni.AxieStatus.MarkAttack;
+
                 foreach (var beAttack in attackAble)
                 {
+                    if (!beAttack.IsAlive) continue;
+                    if (!axie.IsAlive) continue;
+                    var timeA = axie.DoAniAttack();
+                    var timeB = beAttack.DoAniAttack();
+                    await TaskUtil.Delay(Mathf.Max(timeA, timeB));
+                    var hpLastAxie = axie.Hp;
+                    var hpLastBeAtt = beAttack.Hp;
                     beAttack.BeAttack(5);
+                    axie.BeAttack(5);
+                    doRevert.Add(() =>
+                    {
+                        axie.DoRevertHp(hpLastAxie);
+                        beAttack.DoRevertHp(hpLastBeAtt);
+                    });
                 }
+
+                doRevert.Reverse();
+            }
+        }
+
+        private async Task CheckDie(List<GTweenCallback> doRevert)
+        {
+            var axieDie = new List<AxieAni>();
+            var all = _axieAniAll.Values;
+            foreach (var axie in all)
+            {
+                if (axie.IsAlive) continue;
+                axieDie.Add(axie);
+            }
+
+            if (axieDie.Count <= 0) return;
+            var timeAni = 0.0f;
+            foreach (var _ in axieDie)
+            {
+                var axie = _;
+                timeAni = Mathf.Max(axie.DoAniDie(), timeAni);
+                RemoveAxieAni(axie);
+                var lastTile = _mapData.GetTile(axie.TilePos.y, axie.TilePos.x);
+                _mapData.RemoveTile(axie.TilePos.y, axie.TilePos.x);
+                doRevert.Add(() =>
+                {
+                    ReviverAxiAni(axie);
+                    _mapData.SetTile(axie.TilePos.y, axie.TilePos.x, lastTile);
+                });
+            }
+
+            await TaskUtil.Delay(timeAni);
+            foreach (var axie in axieDie)
+            {
+                axie.AxieCom.visible = false;
+                doRevert.Add(() => { axie.AxieCom.visible = true; });
             }
 
             doRevert.Reverse();
-            doRevert.Add(() =>
-            {
-                _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
-                return null;
-            });
-            _revertAble.Push(new MetaRevert(doRevert));
-            _moveNext = MapDataUtil.FindPathingAttacker(_mapData);
-            lastTweener?.OnComplete(onComplete);
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Threading.Tasks;
 using FairyGUI;
 using UnityEngine;
@@ -50,6 +52,49 @@ namespace Utility
             obj.visible = true;
             obj.alpha = 1;
             obj.TweenFade(1, 0.25f).SetDelay(delay).OnComplete(() => { obj.visible = false; });
+        }
+    }
+
+    public static class TaskUtil
+    {
+        public static async void CallAwait(Func<Task> callable)
+        {
+            if (Application.isEditor)
+            {
+                var task = callable();
+                await task;
+                return;
+            }
+
+            try
+            {
+                var task = callable();
+                await task;
+            }
+            catch (Exception ex)
+            {
+                if (Application.isEditor)
+                {
+                    Debug.LogError(ex);
+                }
+                else
+                {
+                    Debug.LogWarning(ex);
+                }
+            }
+        }
+
+        public static async Task Delay(float seconds)
+        {
+            var task = new TaskCompletionSource<object>();
+            Timers.inst.StartCoroutine(DelayImpl(seconds, task));
+            await task.Task;
+        }
+
+        private static IEnumerator DelayImpl(float seconds, TaskCompletionSource<object> task)
+        {
+            yield return new WaitForSeconds(seconds);
+            task.SetResult(null);
         }
     }
 }

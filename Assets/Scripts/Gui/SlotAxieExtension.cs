@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using AxieMixer.Unity;
 using Data;
 using FairyGUI;
@@ -91,6 +92,61 @@ namespace Gui
             Hp -= hpLost;
             if (Hp < 0) Hp = 0;
             UpdateHpBar();
+        }
+
+        public void DoRevertHp(int hp)
+        {
+            Hp = hp;
+            UpdateHpBar();
+        }
+
+        public float DoAniMove()
+        {
+            return DoAni("action/move-forward");
+        }
+
+        public float DoAniAttack()
+        {
+            return DoAni("attack/melee/normal-attack");
+        }
+
+        public float DoAniDie()
+        {
+            return DoAni("defense/hit-by-normal");
+        }
+
+        public float DoAniAttackAndHit()
+        {
+            Ani.state.ClearTrack(0);
+            var trackAtt = Ani.state.AddAnimation(0, "attack/melee/normal-attack", false, 0.0f);
+            var trackHit = Ani.state.AddAnimation(0, "defense/hit-by-normal", false, 0.0f);
+            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
+            return trackAtt.Animation.Duration + trackHit.Animation.Duration;
+        }
+
+        public async Task DoAniAttackAsync()
+        {
+            await DoAniAsync("attack/melee/normal-attack");
+        }
+
+        private float DoAni(string animationName)
+        {
+            Ani.state.ClearTrack(0);
+            var trackEntry = Ani.state.AddAnimation(0, animationName, false, 0.0f);
+            var duration = trackEntry.Animation.Duration;
+            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
+            return duration;
+        }
+
+        private async Task DoAniAsync(string animationName)
+        {
+            var task = new TaskCompletionSource<bool>();
+            Ani.state.ClearTrack(0);
+            var trackEntry = Ani.state.AddAnimation(0, animationName, false, 0.0f);
+            var timeMove = trackEntry.Animation.Duration;
+            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
+            await Task.Delay((int)timeMove * 1000);
+            await task.Task;
         }
     }
 }
