@@ -86,6 +86,13 @@ namespace Gui
 
         private void UpdateHpBar()
         {
+            if (Hp == HpMax)
+            {
+                AxieCom.BarHp.visible = false;
+                return;
+            }
+
+            AxieCom.BarHp.visible = true;
             AxieCom.BarHp.value = 100.0f * Hp / HpMax;
             AxieCom.BarHp.TitleSub.text = $"{Hp}/{HpMax}";
         }
@@ -95,11 +102,25 @@ namespace Gui
             Ani.skeleton.ScaleX = isFaceToRight ? -1.0f : 1.0f;
         }
 
+        public void FaceToPos(int tileX)
+        {
+            if (tileX == TilePos.x) return;
+            Ani.skeleton.ScaleX = tileX > TilePos.x ? -1.0f : 1.0f;
+        }
+
         public void BeAttack(int hpLost)
         {
             Hp -= hpLost;
             if (Hp < 0) Hp = 0;
             UpdateHpBar();
+            // Effect Damage
+            var textDamage = TextDamage.CreateInstance();
+            AxieCom.parent.AddChild(textDamage);
+            textDamage.xy = AxieCom.xy + AxieCom.size * 0.5f;
+            textDamage.y -= 30;
+            textDamage.alpha = 1;
+            textDamage.text.text = $"-{hpLost}";
+            textDamage.TweenMoveY(textDamage.y - 16, 0.35f).OnComplete(() => { textDamage.Dispose(); });
         }
 
         public void DoRevertHp(int hp)

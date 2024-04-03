@@ -34,12 +34,7 @@ namespace Data
                 if (_battleStage.Attackers.Count <= 0) return false;
                 if (_battleStage.Defenders.Count <= 0) return false;
                 if (_preMove == null) return false;
-                foreach (var move in _preMove)
-                {
-                    if (move.Next != move.Start) return true;
-                }
-
-                return false;
+                return _preMove.Count > 0;
             }
         }
 
@@ -172,6 +167,8 @@ namespace Data
                 {
                     if (!beAttack.IsAlive) continue;
                     if (!axie.IsAlive) continue;
+                    axie.FaceToPos(beAttack.TilePos.x);
+                    beAttack.FaceToPos(axie.TilePos.x);
                     var timeA = axie.DoAniAttack();
                     var timeB = beAttack.DoAniAttack();
                     await TaskUtil.Delay(Mathf.Max(timeA, timeB));

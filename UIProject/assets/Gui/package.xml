@@ -21,7 +21,7 @@
     <component id="prmnr5" name="EmptyCom.xml" path="/Com/"/>
     <image id="jluwr6" name="frame_4.png" path="/Images/9Path/" scale="9grid" scale9grid="20,20,42,42" smoothing="false"/>
     <component id="jluwr7" name="LoadingScreen.xml" path="/" exported="true"/>
-    <font id="nblsr8" name="number.fnt" path="/Images/Number/"/>
+    <font id="nblsr8" name="number.fnt" path="/Images/Number/" exported="true"/>
     <image id="nblsr9" name="m.png" path="/Images/Number/"/>
     <image id="nblsra" name="8.png" path="/Images/Number/"/>
     <image id="nblsrb" name="9.png" path="/Images/Number/"/>
@@ -34,7 +34,7 @@
     <image id="nblsri" name="1.png" path="/Images/Number/"/>
     <image id="nblsrj" name="0.png" path="/Images/Number/"/>
     <component id="nblsrk" name="BarHp.xml" path="/Com/"/>
-    <component id="nblsrl" name="TextDamage.xml" path="/Com/"/>
+    <component id="nblsrl" name="TextDamage.xml" path="/Com/" exported="true"/>
     <image id="tk87rm" name="bar_inside.png" path="/Images/HpBar/" scale="9grid" scale9grid="3,3,37,0" smoothing="false"/>
     <image id="tk87rn" name="bar_outside.png" path="/Images/HpBar/" scale="9grid" scale9grid="3,3,111,2" smoothing="false"/>
     <image id="tk87ro" name="tile_w.png" path="/Images/Title/" smoothing="false" atlas="alone"/>

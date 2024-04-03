@@ -50,6 +50,7 @@ namespace Data
             // Update index tile cache
             AxieAll.Remove(_mapData.GetTileIndex(start.Row, start.Col), out var ani);
             AxieAll[_mapData.GetTileIndex(next.Row, next.Col)] = ani;
+            ani.FaceToPos(next.Pos.x);
             ani.TilePos = next.Pos;
             ani.Status = AxieHolder.AxieStatus.MarkMove;
             if (!isRevert)
