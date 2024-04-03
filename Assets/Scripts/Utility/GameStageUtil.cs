@@ -6,9 +6,9 @@ namespace Utility
 {
     public static class GameStageUtil
     {
-        public static List<AxieAni> FindAttackAble(this AxieAni target, Dictionary<int, AxieAni> axieAniAll)
+        public static List<AxieHolder> FindAttackAble(this AxieHolder target, Dictionary<int, AxieHolder> axieAniAll)
         {
-            var result = new List<AxieAni>();
+            var result = new List<AxieHolder>();
             foreach (var axieCheck in axieAniAll.Values)
             {
                 if (!axieCheck.IsAlive) continue;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="640,640">
   <displayList>
-    <loader id="n49_x1hk" name="Bg" xy="121,120" pivot="0.5,0.5" size="400,400" url="ui://rbw1tvvvx1hkqu" align="center" vAlign="middle" fill="scaleFree">
+    <loader id="n49_x1hk" name="Bg" xy="313,312" pivot="0.5,0.5" size="16,16" scale="4.5,4.5" visible="false" url="ui://rbw1tvvvx1hkqu" align="center" vAlign="middle" fill="scaleFree">
       <relation target="n48_imzn" sidePair="width-width%,height-height%,center-center%,middle-middle%"/>
     </loader>
     <list id="n48_imzn" name="ListSlot" xy="120,120" pivot="0.5,0.5" size="400,400" layout="flow_hz" scroll="both" defaultItem="ui://rbw1tvvvimznqs" autoClearItems="true">

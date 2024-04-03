@@ -24,10 +24,10 @@ namespace Utility
                 { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 3
                 { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 4
                 { 0, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 5
-                { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 3, 0 }, // 6
+                { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 6
                 { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 }, // 7
-                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0 }, // 8
-                { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 9
+                { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0 }, // 8
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, // 9
                 { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 }, // 10
             };
             return new MapData(tiles);
@@ -39,7 +39,7 @@ namespace Utility
             return p;
         }
 
-        public static void RenderMapData(GList listSlot, MapData mapData)
+        public static void RenderMap(GList listSlot, MapData mapData)
         {
             listSlot.columnCount = mapData.Cols;
             listSlot.numItems = mapData.Cols * mapData.Rows;
@@ -48,7 +48,6 @@ namespace Utility
             listSlot.size = containerSize;
             listSlot.Center();
             listSlot.EnsureBoundsCorrect();
-            // _homeScreen.Map.Content.Bg.size = containerSize;
             for (var col = 0; col < mapData.Cols; col++)
             {
                 for (var row = 0; row < mapData.Rows; row++)
@@ -56,33 +55,18 @@ namespace Utility
                     var tile = mapData.GetTile(row, col);
                     var slot = (SlotMap)listSlot.GetChildAt(mapData.GetTileIndex(row, col));
                     slot.Image.visible = false;
-                    slot.Bg.visible = false;
                     slot.Number.text = "";
+                    slot.BgWall.visible = false;
                     switch (tile)
                     {
                         case MapData.TitleType.Empty:
-                            slot.Bg.visible = true;
-                            slot.Bg.color = Color.white;
                             break;
                         case MapData.TitleType.Wall:
-                            // wall
-                            slot.Bg.visible = true;
-                            slot.Bg.color = Color.gray;
-                            slot.Number.text = "W";
+                            slot.BgWall.visible = true;
                             break;
                         case MapData.TitleType.Attacker:
-                            slot.Bg.visible = true;
-                            slot.Bg.color = Color.white;
-                            // slot.Image.visible = true;
-                            // slot.ReloadData(gameData.MatchData.Attacker);
-                            // slot.Number.text = "A";
                             break;
                         case MapData.TitleType.Defender:
-                            slot.Bg.visible = true;
-                            slot.Bg.color = Color.white;
-                            // slot.Image.visible = true;
-                            // slot.ReloadData(gameData.MatchData.Defender);
-                            // slot.Number.text = "D";
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -177,24 +161,22 @@ namespace Utility
 
         private static void DoFindMultiPosToPosSub(List<MoveToPos> result, List<MoveToPos> moveCheck, List<Tile> starts, List<Tile> ends, TileGrid tileGrid, MapData mapData)
         {
-            var preFind = new List<MetaFindMultiPosToPos>();
+            var preFind = new List<MetaFindPos>();
             foreach (var find in moveCheck)
             {
                 if (find.Finish) continue;
                 // FindPaths
                 tileGrid.ResetGridWall(mapData);
 
-                foreach (var f in moveCheck)
+                foreach (var f in result)
                 {
                     if (f == find) continue;
-                    if (f.Next != null)
-                    {
-                        tileGrid.SetExpensiveArea(f.Next.Row, f.Next.Col);
-                    }
+                    if (f.Next != null) tileGrid.SetExpensiveArea(f.Next.Row, f.Next.Col);
+                    if (f.Des != null) tileGrid.SetExpensiveArea(f.Des.Row, f.Des.Col);
                 }
 
                 var r = tileGrid.FindPathMultiEnd(find.Start, ends, PathFinder.FindPath_Dijkstra_MultiEnd);
-                preFind.Add(new MetaFindMultiPosToPos()
+                preFind.Add(new MetaFindPos()
                 {
                     Ref = find, //
                     Paths = r.paths, //
@@ -208,7 +190,7 @@ namespace Utility
 
             preFind = preFind.OrderBy(it => it.Paths.Count == 0 ? tileGrid.TileWeightExpensive : it.Paths.Count).ToList();
             var pMin = preFind.First();
-            if (pMin.Paths.Count <= 2)
+            if (pMin.Paths.Count <= 4)
             {
                 // no moveAble
                 pMin.UpdateFound();
@@ -218,32 +200,23 @@ namespace Utility
             }
             else
             {
-                for (var idx = 0; idx < preFind.Count; idx++)
+                foreach (var pCheck in preFind)
                 {
-                    var pCheck = preFind[idx];
                     if (pCheck.Paths == null || pCheck.Paths.Count <= 2)
                     {
                         break;
                     }
 
-                    // Check can move to
-                    var posMoveTo = pCheck.Paths[1];
+                    // Check Paths Can Move
                     var isCanMove = true;
-                    foreach (var m in moveCheck)
+                    var posNextStep = pCheck.Paths[1];
+                    foreach (var r in moveCheck)
                     {
-                        if (m == pCheck.Ref) continue;
-                        if (m.Next != null)
-                        {
-                            if (m.Next != posMoveTo) continue;
-                            isCanMove = false;
-                            break;
-                        }
-                        else
-                        {
-                            if (m.Start != posMoveTo) continue;
-                            isCanMove = false;
-                            break;
-                        }
+                        if (r == pCheck.Ref) continue;
+                        var posStand = r.Next ?? r.Start;
+                        if (posStand != posNextStep) continue;
+                        isCanMove = false;
+                        break;
                     }
 
                     if (!isCanMove) continue;
@@ -260,16 +233,18 @@ namespace Utility
         {
             public Tile Start;
             public Tile Next;
+            public Tile Des;
             public bool Finish;
         }
 
-        private class MetaFindMultiPosToPos
+        private class MetaFindPos
         {
             public MoveToPos Ref;
             public List<Tile> Paths;
 
             public void UpdateFound()
             {
+                Debug.Assert(Ref.Finish == false);
                 Ref.Finish = true;
                 if (Paths == null || Paths.Count <= 2)
                 {
@@ -278,6 +253,10 @@ namespace Utility
                 else
                 {
                     Ref.Next = Paths[1];
+                    if (Paths.Count is > 3 and <= 4)
+                    {
+                        Ref.Des = Paths[^2];
+                    }
                 }
             }
         }

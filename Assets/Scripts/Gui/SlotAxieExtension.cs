@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using AxieMixer.Unity;
 using Data;
 using FairyGUI;
@@ -11,7 +11,7 @@ namespace Gui
     {
         public static SkeletonAnimation ReloadData(this GGraph image, AxieResource axieResource)
         {
-            const float scale = 0.08f;
+            const float scale = 0.12f;
             var go = new GameObject($"pet_{axieResource.AxieId}");
             var animation = SkeletonAnimation.NewSkeletonAnimationGameObject(null);
             Mixer.SpawnSkeletonAnimation(animation, axieResource.AxieId, axieResource.Genes, scale);
@@ -19,15 +19,13 @@ namespace Gui
             animation.transform.SetParent(go.transform, false);
             animation.GetComponent<MeshRenderer>();
             animation.gameObject.AddComponent<AutoBlendAnimController>();
-            animation.state.SetAnimation(0, "action/idle/normal", true);
-            animation.state.TimeScale = 0.5f;
             GoWrapper wrapper = new GoWrapper(go);
             image.SetNativeObject(wrapper);
             return animation;
         }
     }
 
-    public class AxieAni
+    public class AxieHolder
     {
         public enum AxieTeam
         {
@@ -45,32 +43,22 @@ namespace Gui
             MarkIdle,
         }
 
-        public static AxieAni Create(GComponent parent, Vector2 pos, AxieResource axieResource)
+        private const string AniNameIdle = "action/idle/normal";
+        private const string AniNameMove = "action/move-forward";
+        private const string AniNameAttack = "attack/melee/normal-attack";
+        private const string AniNameHit = "defense/hit-by-normal";
+
+        public static AxieHolder Create(GComponent parent, Vector2 pos, AxieResource axieResource)
         {
             var com = AxieCom.CreateInstance();
             var ani = com.Image.ReloadData(axieResource);
             parent.AddChild(com);
             com.xy = pos;
-            return new AxieAni()
+            return new AxieHolder()
             {
                 Ani = ani, //
                 AxieCom = com, //
             };
-        }
-
-        public void Init(AxieTeam team, int hp)
-        {
-            Status = AxieStatus.Non;
-            Team = team;
-            HpMax = hp;
-            Hp = hp;
-            UpdateHpBar();
-        }
-
-        private void UpdateHpBar()
-        {
-            AxieCom.BarHp.value = 100.0f * Hp / HpMax;
-            AxieCom.BarHp.TitleSub.text = $"{Hp}/{HpMax}";
         }
 
         private SkeletonAnimation Ani { get; set; }
@@ -82,7 +70,27 @@ namespace Gui
         public AxieStatus Status { get; set; }
         public Vector2Int TilePos { get; set; }
 
-        public void FaceTo(bool isFaceToRight)
+        public void Init(AxieTeam team, int hp)
+        {
+            Status = AxieStatus.Non;
+            Team = team;
+            HpMax = hp;
+            Hp = hp;
+            UpdateHpBar();
+            ReloadAni(AniNameMove);
+            ReloadAni(AniNameAttack);
+            ReloadAni(AniNameHit);
+            Ani.state.ClearTracks();
+            Ani.state.SetAnimation(0, AniNameIdle, true);
+        }
+
+        private void UpdateHpBar()
+        {
+            AxieCom.BarHp.value = 100.0f * Hp / HpMax;
+            AxieCom.BarHp.TitleSub.text = $"{Hp}/{HpMax}";
+        }
+
+        public void FaceToRight(bool isFaceToRight)
         {
             Ani.skeleton.ScaleX = isFaceToRight ? -1.0f : 1.0f;
         }
@@ -102,51 +110,30 @@ namespace Gui
 
         public float DoAniMove()
         {
-            return DoAni("action/move-forward");
+            return DoAni(AniNameMove);
         }
 
         public float DoAniAttack()
         {
-            return DoAni("attack/melee/normal-attack");
+            return DoAni(AniNameAttack);
         }
 
         public float DoAniDie()
         {
-            return DoAni("defense/hit-by-normal");
-        }
-
-        public float DoAniAttackAndHit()
-        {
-            Ani.state.ClearTrack(0);
-            var trackAtt = Ani.state.AddAnimation(0, "attack/melee/normal-attack", false, 0.0f);
-            var trackHit = Ani.state.AddAnimation(0, "defense/hit-by-normal", false, 0.0f);
-            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
-            return trackAtt.Animation.Duration + trackHit.Animation.Duration;
-        }
-
-        public async Task DoAniAttackAsync()
-        {
-            await DoAniAsync("attack/melee/normal-attack");
+            return DoAni(AniNameHit);
         }
 
         private float DoAni(string animationName)
         {
-            Ani.state.ClearTrack(0);
-            var trackEntry = Ani.state.AddAnimation(0, animationName, false, 0.0f);
+            var trackEntry = Ani.state.SetAnimation(1, animationName, false);
             var duration = trackEntry.Animation.Duration;
-            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
             return duration;
         }
 
-        private async Task DoAniAsync(string animationName)
+        private void ReloadAni(string animationName)
         {
-            var task = new TaskCompletionSource<bool>();
-            Ani.state.ClearTrack(0);
-            var trackEntry = Ani.state.AddAnimation(0, animationName, false, 0.0f);
-            var timeMove = trackEntry.Animation.Duration;
-            Ani.state.AddAnimation(0, "action/idle/normal", true, 0.0f);
-            await Task.Delay((int)timeMove * 1000);
-            await task.Task;
+            Ani.state.AddAnimation(1, animationName, false, 0.0f);
+            Ani.state.Update(0);
         }
     }
 }

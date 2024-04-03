@@ -37,6 +37,9 @@
     <component id="nblsrl" name="TextDamage.xml" path="/Com/"/>
     <image id="tk87rm" name="bar_inside.png" path="/Images/HpBar/" scale="9grid" scale9grid="3,3,37,0" smoothing="false"/>
     <image id="tk87rn" name="bar_outside.png" path="/Images/HpBar/" scale="9grid" scale9grid="3,3,111,2" smoothing="false"/>
+    <image id="tk87ro" name="tile_w.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
+    <image id="tk87rp" name="tile_e.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
+    <image id="tk87rq" name="tile_hard.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

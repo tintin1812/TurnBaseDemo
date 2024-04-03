@@ -28,8 +28,8 @@ public class LevelScene : MonoBehaviour
 
         GTweenCallback refreshGui = () =>
         {
+            _homeScreenEx.HomeScreen.BtNext.enabled = gameStage.CanNextStep;
             _homeScreenEx.HomeScreen.BtPreview.enabled = gameStage.CanRevertAble;
-            _homeScreenEx.HomeScreen.BtNext.enabled = true;
         };
         refreshGui();
         _homeScreenEx.HomeScreen.BtPreview.setOnClick(() =>

@@ -7,10 +7,11 @@ namespace Gui
 {
     public partial class SlotMap : GButton
     {
-        public GGraph Hightlight;
-        public GGraph Bg;
+        public GImage Bg;
+        public GImage BgWall;
         public GGraph Image;
         public GTextField Number;
+        public GGraph Hightlight;
         public const string URL = "ui://rbw1tvvvimznqs";
 
         public static SlotMap CreateInstance()
@@ -22,10 +23,11 @@ namespace Gui
         {
             base.ConstructFromXML(xml);
 
-            Hightlight = (GGraph)GetChildAt(0);
-            Bg = (GGraph)GetChildAt(1);
+            Bg = (GImage)GetChildAt(0);
+            BgWall = (GImage)GetChildAt(1);
             Image = (GGraph)GetChildAt(2);
             Number = (GTextField)GetChildAt(3);
+            Hightlight = (GGraph)GetChildAt(4);
         }
     }
 }

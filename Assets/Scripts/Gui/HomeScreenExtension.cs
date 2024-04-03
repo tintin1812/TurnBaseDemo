@@ -48,7 +48,7 @@ namespace Gui
         {
             var mapContent = MapContent;
             var listSlot = mapContent.ListSlot;
-            MapDataUtil.RenderMapData(listSlot, mapData);
+            MapDataUtil.RenderMap(listSlot, mapData);
             var charCom = mapContent.Character;
             charCom.size = listSlot.size;
             charCom.xy = listSlot.xy;
@@ -92,8 +92,8 @@ namespace Gui
 
         private static void SetZoom(GObject map, float percent)
         {
-            const float min = 0.5f;
-            const float max = 1.4f;
+            const float min = 0.3f;
+            const float max = 1.0f;
             var scaleTo = min + percent * (max - min) * 0.01f;
             map.scale = new Vector2(scaleTo, scaleTo);
         }

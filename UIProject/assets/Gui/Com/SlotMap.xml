@@ -2,19 +2,18 @@
 <component size="80,80" extention="Button">
   <controller name="button" pages="0,up,1,down" selected="0"/>
   <displayList>
-    <graph id="n47_hqs5" name="Hightlight" xy="5,5" pivot="0.5,0.5" size="70,70" type="rect" lineSize="4" lineColor="#ff00ff99" fillColor="#00000000" corner="10">
-      <gearDisplay controller="button" pages="1"/>
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <graph id="n50_prmn" name="Bg" xy="15,15" pivot="0.5,1" size="50,50" visible="false" type="rect" lineSize="3" lineColor="#ff333333">
-      <relation target="" sidePair="width-width,height-height"/>
-    </graph>
-    <graph id="n48_imzn" name="Image" xy="15,15" pivot="0.5,1" size="50,50" type="rect">
+    <image id="n50_prmn" name="Bg" src="tk87rp" fileName="Images/Title/tile_e.png" xy="0,0" pivot="0.5,0.5" size="80,80"/>
+    <image id="n51_tk87" name="BgWall" src="tk87rq" fileName="Images/Title/tile_hard.png" xy="0,0" pivot="0.5,0.5" size="80,80" visible="false"/>
+    <graph id="n48_imzn" name="Image" xy="15,15" pivot="0.5,1" size="50,50" visible="false" type="rect">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <text id="n49_tsj8" name="Number" xy="29,26" pivot="0.5,0.5" size="22,29" fontSize="20" color="#111111" align="center" vAlign="middle" autoClearText="true" text="99">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
+    <graph id="n47_hqs5" name="Hightlight" xy="0,0" pivot="0.5,0.5" size="80,80" type="rect" lineSize="4" lineColor="#ff00ff99" fillColor="#00000000" corner="10">
+      <gearDisplay controller="button" pages="1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
   </displayList>
   <Button/>
 </component>

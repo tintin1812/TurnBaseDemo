@@ -5,7 +5,7 @@
     <graph id="n48_imzn" name="Image" xy="15,8" pivot="0.5,1" size="50,50" type="rect">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
-    <component id="n49_tk87" name="BarHp" src="nblsrk" fileName="Com/BarHp.xml" xy="40,71">
+    <component id="n49_tk87" name="BarHp" src="nblsrk" fileName="Com/BarHp.xml" xy="40,72">
       <ProgressBar value="50" max="100"/>
     </component>
   </displayList>
