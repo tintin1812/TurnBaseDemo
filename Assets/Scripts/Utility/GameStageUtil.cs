@@ -6,15 +6,15 @@ namespace Utility
 {
     public static class GameStageUtil
     {
-        public static List<AxieHolder> FindAttackAble(this AxieHolder target, Dictionary<int, AxieHolder> axieAniAll)
+        public static List<AxieHolder> FindAttackAble(this AxieHolder attacker, List<AxieHolder> defenders)
         {
             var result = new List<AxieHolder>();
-            foreach (var axieCheck in axieAniAll.Values)
+            foreach (var axieCheck in defenders)
             {
                 if (!axieCheck.IsAlive) continue;
-                if (target == axieCheck) continue;
-                if (target.Team == axieCheck.Team) continue;
-                var v = target.TilePos - axieCheck.TilePos;
+                if (attacker == axieCheck) continue;
+                if (attacker.Team == axieCheck.Team) continue;
+                var v = attacker.TilePos - axieCheck.TilePos;
                 var d = Mathf.Abs(v.x) + Mathf.Abs(v.y);
                 if (d == 1)
                 {

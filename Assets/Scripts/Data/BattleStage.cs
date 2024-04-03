@@ -12,6 +12,7 @@ namespace Data
     {
         private MapData _mapData;
         private IHomeScreenExtension _homeScreen;
+        public MapData MapData => _mapData;
         public List<AxieHolder> Attackers { get; private set; }
         public List<AxieHolder> Defenders { get; private set; }
         public Dictionary<int, AxieHolder> AxieAll { get; private set; }

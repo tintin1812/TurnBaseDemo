@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FairyGUI;
 using Utility;
@@ -22,7 +23,7 @@ namespace Data
             _battleStage.Init(mapData, homeScreen, gameResource);
 
             // ReProcessMove
-            _preMove = MapDataUtil.FindPathingAttacker(mapData);
+            _preMove = _battleStage.FindPathingAttacker();
 
             _revertAble = new Stack<MetaRevert>();
         }
@@ -97,11 +98,12 @@ namespace Data
                     });
                 }
 
+                await TaskUtil.Delay(0.1f);
                 // Update FindPathing
-                _preMove = MapDataUtil.FindPathingAttacker(_mapData);
+                _preMove = _battleStage.FindPathingAttacker();
                 doRevert.Add(() =>
                 {
-                    _preMove = MapDataUtil.FindPathingAttacker(_mapData);
+                    _preMove = _battleStage.FindPathingAttacker();
                     return null;
                 });
 
@@ -110,7 +112,6 @@ namespace Data
                     _revertAble.Push(new MetaRevert(doRevert));
                 }
 
-                await TaskUtil.Delay(0.1f);
                 onComplete();
             });
         }
@@ -150,11 +151,13 @@ namespace Data
 
         private async Task DoAttack(List<GTweenCallback> doRevert)
         {
-            foreach (var axie in _battleStage.AxieAll.Values)
+            var attacker = _battleStage.Attackers.OrderBy(it => it.Hp).ToList();
+            var defenders = _battleStage.Defenders.OrderBy(it => it.Hp).ToList();
+            foreach (var axie in attacker)
             {
                 if (axie.Team != AxieHolder.AxieTeam.Attack) continue;
                 if (axie.Status != AxieHolder.AxieStatus.MarkFind) continue;
-                var attackAble = axie.FindAttackAble(_battleStage.AxieAll);
+                var attackAble = axie.FindAttackAble(defenders);
                 if (attackAble.Count == 0)
                 {
                     axie.Status = AxieHolder.AxieStatus.MarkIdle;

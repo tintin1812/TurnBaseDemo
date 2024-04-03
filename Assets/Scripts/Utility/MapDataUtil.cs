@@ -20,13 +20,13 @@ namespace Utility
             var tiles = new short[,]
             {
                 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, // 1
-                { 1, 3, 0, 0, 0, 0, 0, 3, 3, 0, 0, 1 }, // 2
+                { 1, 0, 0, 0, 0, 0, 0, 3, 3, 0, 0, 1 }, // 2
                 { 1, 2, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 }, // 3
                 { 1, 2, 0, 0, 1, 2, 1, 0, 0, 0, 3, 1 }, // 4
                 { 1, 2, 0, 0, 1, 2, 1, 0, 0, 0, 0, 1 }, // 5
                 { 1, 0, 0, 0, 1, 3, 1, 0, 0, 3, 0, 1 }, // 6
                 { 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 }, // 7
-                { 1, 3, 0, 0, 0, 0, 1, 0, 0, 3, 0, 1 }, // 8
+                { 1, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 1 }, // 8
                 { 1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1 }, // 9
                 { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, // 10
             };
@@ -105,10 +105,31 @@ namespace Utility
             return (starts, ends);
         }
 
-        public static List<MoveToPos> FindPathingAttacker(MapData mapData)
+        private static (List<Vector2Int> starts, List<Vector2Int> ends) GetPosWithPriorityHpLow(this BattleStage battleStage)
         {
+            var attacker = battleStage.Attackers.OrderBy(it => it.Hp).ToList();
+            var starts = new List<Vector2Int>();
+            foreach (var axieHolder in attacker)
+            {
+                starts.Add(axieHolder.TilePos);
+            }
+
+            var defenders = battleStage.Defenders.OrderBy(it => it.Hp).ToList();
+            var ends = new List<Vector2Int>();
+
+            foreach (var axieHolder in defenders)
+            {
+                ends.Add(axieHolder.TilePos);
+            }
+
+            return (starts, ends);
+        }
+
+        public static List<MoveToPos> FindPathingAttacker(this BattleStage battleStage)
+        {
+            var mapData = battleStage.MapData;
             var tileGrid = new TileGrid(mapData.Cols, mapData.Rows);
-            var pos = mapData.GetPosStarEnd();
+            var pos = battleStage.GetPosWithPriorityHpLow();
             var starts = pos.starts.Select(p => tileGrid.GetTile(p.y, p.x)).ToList();
             var ends = pos.ends.Select(p => tileGrid.GetTile(p.y, p.x)).ToList();
             var moves = DoFindMultiPosToPos(starts, ends, tileGrid, mapData);
@@ -123,7 +144,6 @@ namespace Utility
                 slotStart.Number.text = $"{x};{y}";
             }
             */
-
             return moves;
         }
 
@@ -155,11 +175,31 @@ namespace Utility
             }
 
             var result = new List<MoveToPos>();
-            DoFindMultiPosToPosSub(result, map, starts, ends, tileGrid, mapData);
+            DoFindMultiPosToPosSub(result, map, ends, tileGrid, mapData);
+            // Check SubMove when can't move 
+            foreach (var r1 in result)
+            {
+                if (r1.Opponent != null) continue;
+                if (r1.Start != r1.Next) continue;
+                if (r1.SubNext == null) continue;
+                var isCanMove = true;
+                foreach (var r2 in result)
+                {
+                    if (r1 == r2) continue;
+                    if (r1.SubNext != r2.Next) continue;
+                    isCanMove = false;
+                    break;
+                }
+
+                if (!isCanMove) continue;
+                // Set NextSub is Next
+                r1.Next = r1.SubNext;
+            }
+
             return result;
         }
 
-        private static void DoFindMultiPosToPosSub(List<MoveToPos> result, List<MoveToPos> moveCheck, List<Tile> starts, List<Tile> ends, TileGrid tileGrid, MapData mapData)
+        private static void DoFindMultiPosToPosSub(List<MoveToPos> result, List<MoveToPos> moveCheck, List<Tile> ends, TileGrid tileGrid, MapData mapData)
         {
             var preFind = new List<MetaFindPos>();
             foreach (var find in moveCheck)
@@ -181,6 +221,10 @@ namespace Utility
                     Ref = find, //
                     Paths = r.paths, //
                 });
+                if (result.Count <= 0 && r.paths.Count >= 3)
+                {
+                    find.SubNext = r.paths[1];
+                }
             }
 
             if (preFind.Count <= 0)
@@ -196,7 +240,7 @@ namespace Utility
                 pMin.UpdateFound();
                 result.Add(pMin.Ref);
                 // Check other path can move 
-                DoFindMultiPosToPosSub(result, moveCheck, starts, ends, tileGrid, mapData);
+                DoFindMultiPosToPosSub(result, moveCheck, ends, tileGrid, mapData);
             }
             else
             {
@@ -225,7 +269,7 @@ namespace Utility
                 }
 
                 // Check other path can move 
-                DoFindMultiPosToPosSub(result, moveCheck, starts, ends, tileGrid, mapData);
+                DoFindMultiPosToPosSub(result, moveCheck, ends, tileGrid, mapData);
             }
         }
 
@@ -234,7 +278,11 @@ namespace Utility
             public Tile Start;
             public Tile Next;
             public Tile Des;
+            public Tile Opponent;
             public bool Finish;
+
+            // option sub when can't move
+            public Tile SubNext;
         }
 
         private class MetaFindPos
@@ -246,6 +294,11 @@ namespace Utility
             {
                 Debug.Assert(Ref.Finish == false);
                 Ref.Finish = true;
+                if (Paths != null && Paths.Count == 2)
+                {
+                    Ref.Opponent = Paths.Last();
+                }
+
                 if (Paths == null || Paths.Count <= 2)
                 {
                     Ref.Next = Ref.Start;
