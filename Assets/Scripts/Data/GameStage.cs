@@ -24,7 +24,6 @@ namespace Data
 
             // ReProcessMove
             _preMove = _battleStage.FindPathingAttacker();
-
             _revertAble = new Stack<MetaRevert>();
         }
 
