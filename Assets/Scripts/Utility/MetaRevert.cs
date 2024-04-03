@@ -25,7 +25,14 @@ namespace Utility
                 }
             }
 
-            lastTweener?.OnComplete(onComplete);
+            if (lastTweener != null)
+            {
+                lastTweener.OnComplete(onComplete);
+            }
+            else
+            {
+                onComplete();
+            }
         }
     }
 }

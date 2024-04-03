@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/AxieMixerPlayground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/AxieMixerPlayground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/DemoMixer.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/DemoMixer.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/FakeAxie512.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/FakeAxie512.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/GenesLite.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/1. Basic/GenesLite.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/BattleStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/BattleStage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/TextDamage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/TextDamage.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/MetaRevert.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MetaRevert.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="124640000" />
+      <workItem from="1711435991709" duration="125560000" />
     </task>
     <servers />
   </component>
