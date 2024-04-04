@@ -40,6 +40,10 @@
     <image id="tk87ro" name="tile_w.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
     <image id="tk87rp" name="tile_e.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
     <image id="tk87rq" name="tile_hard.png" path="/Images/Title/" smoothing="false" atlas="alone"/>
+    <component id="tk87rr" name="ButtonZoom.xml" path="/Com/"/>
+    <image id="tk87rs" name="icon_zoom.png" path="/Images/Icon/" smoothing="false"/>
+    <image id="tk87rt" name="icon_arrow.png" path="/Images/Icon/" smoothing="false"/>
+    <component id="tk87ru" name="IndicatorMove.xml" path="/Com/"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

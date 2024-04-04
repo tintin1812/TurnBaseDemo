@@ -14,6 +14,8 @@ namespace Gui
             UIObjectFactory.SetPackageItemExtension(BarHp.URL, typeof(BarHp));
             UIObjectFactory.SetPackageItemExtension(TextDamage.URL, typeof(TextDamage));
             UIObjectFactory.SetPackageItemExtension(AxieCom.URL, typeof(AxieCom));
+            UIObjectFactory.SetPackageItemExtension(ButtonZoom.URL, typeof(ButtonZoom));
+            UIObjectFactory.SetPackageItemExtension(IndicatorMove.URL, typeof(IndicatorMove));
             UIObjectFactory.SetPackageItemExtension(SliderGrip.URL, typeof(SliderGrip));
             UIObjectFactory.SetPackageItemExtension(MapContent.URL, typeof(MapContent));
             UIObjectFactory.SetPackageItemExtension(Button.URL, typeof(Button));

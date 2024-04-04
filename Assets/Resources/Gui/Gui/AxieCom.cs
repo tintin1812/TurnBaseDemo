@@ -7,6 +7,7 @@ namespace Gui
 {
     public partial class AxieCom : GButton
     {
+        public IndicatorMove IndicatorMove;
         public GGraph Image;
         public BarHp BarHp;
         public const string URL = "ui://rbw1tvvvprmnr4";
@@ -20,8 +21,9 @@ namespace Gui
         {
             base.ConstructFromXML(xml);
 
-            Image = (GGraph)GetChildAt(0);
-            BarHp = (BarHp)GetChildAt(1);
+            IndicatorMove = (IndicatorMove)GetChildAt(0);
+            Image = (GGraph)GetChildAt(1);
+            BarHp = (BarHp)GetChildAt(2);
         }
     }
 }

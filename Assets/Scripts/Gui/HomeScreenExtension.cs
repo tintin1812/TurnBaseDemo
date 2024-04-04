@@ -74,7 +74,9 @@ namespace Gui
         {
             // new DragGesture(_homeScreen.Map.Content);
             _homeScreen.Map.Content.draggable = true;
-            _homeScreen.SliderZoom.value = 50;
+            float zoomDefault = 25.0f;
+            var posDefault = _homeScreen.Map.Content.xy;
+            _homeScreen.SliderZoom.value = zoomDefault;
             SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
             _homeScreen.SliderZoom.onChanged.Add(() =>
             {
@@ -88,6 +90,21 @@ namespace Gui
                 _homeScreen.SliderZoom.value = Mathf.Clamp(vTo, 0.0f, 1.0f);
                 SetZoom(_homeScreen.Map, (float)_homeScreen.SliderZoom.value); //
             });
+
+
+            _homeScreen.BtZoom.setOnClick(() =>
+            {
+                GTween.To((float)_homeScreen.SliderZoom.value, zoomDefault, 0.3f).SetTarget(this, TweenPropType.None).OnUpdate((tweener =>
+                {
+                    _homeScreen.SliderZoom.value = tweener.value.x; //
+                }));
+                SetZoom(_homeScreen.Map, zoomDefault);
+                _homeScreen.SliderZoom.touchable = false;
+                _homeScreen.Map.Content.TweenMove(posDefault, 0.3f).OnComplete(() =>
+                {
+                    _homeScreen.SliderZoom.touchable = true; //
+                });
+            });
         }
 
         private static void SetZoom(GObject map, float percent)
@@ -95,7 +112,7 @@ namespace Gui
             const float min = 0.3f;
             const float max = 1.0f;
             var scaleTo = min + percent * (max - min) * 0.01f;
-            map.scale = new Vector2(scaleTo, scaleTo);
+            map.TweenScale(new Vector2(scaleTo, scaleTo), 0.3f);
         }
 
         private void TestAStar(GameResource gameResource)
