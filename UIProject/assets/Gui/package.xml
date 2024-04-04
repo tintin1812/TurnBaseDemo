@@ -22,17 +22,17 @@
     <image id="jluwr6" name="frame_4.png" path="/Images/9Path/" scale="9grid" scale9grid="20,20,42,42" smoothing="false"/>
     <component id="jluwr7" name="LoadingScreen.xml" path="/" exported="true"/>
     <font id="nblsr8" name="number.fnt" path="/Images/Number/" exported="true"/>
-    <image id="nblsr9" name="m.png" path="/Images/Number/"/>
-    <image id="nblsra" name="8.png" path="/Images/Number/"/>
-    <image id="nblsrb" name="9.png" path="/Images/Number/"/>
-    <image id="nblsrc" name="4.png" path="/Images/Number/"/>
-    <image id="nblsrd" name="5.png" path="/Images/Number/"/>
-    <image id="nblsre" name="7.png" path="/Images/Number/"/>
-    <image id="nblsrf" name="6.png" path="/Images/Number/"/>
-    <image id="nblsrg" name="2.png" path="/Images/Number/"/>
-    <image id="nblsrh" name="3.png" path="/Images/Number/"/>
-    <image id="nblsri" name="1.png" path="/Images/Number/"/>
-    <image id="nblsrj" name="0.png" path="/Images/Number/"/>
+    <image id="nblsr9" name="m.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsra" name="8.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrb" name="9.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrc" name="4.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrd" name="5.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsre" name="7.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrf" name="6.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrg" name="2.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrh" name="3.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsri" name="1.png" path="/Images/Number/" smoothing="false"/>
+    <image id="nblsrj" name="0.png" path="/Images/Number/" smoothing="false"/>
     <component id="nblsrk" name="BarHp.xml" path="/Com/"/>
     <component id="nblsrl" name="TextDamage.xml" path="/Com/" exported="true"/>
     <image id="tk87rm" name="bar_inside.png" path="/Images/HpBar/" scale="9grid" scale9grid="3,3,37,0" smoothing="false"/>
@@ -44,6 +44,7 @@
     <image id="tk87rs" name="icon_zoom.png" path="/Images/Icon/" smoothing="false"/>
     <image id="tk87rt" name="icon_arrow.png" path="/Images/Icon/" smoothing="false"/>
     <component id="tk87ru" name="IndicatorMove.xml" path="/Com/"/>
+    <image id="tk87rv" name="icon_attack.png" path="/Images/Icon/" smoothing="false"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>

@@ -47,6 +47,7 @@ namespace Data
                 return;
             }
 
+            _battleStage.HideAllAxieIndicator();
             _revertAble.Pop().Do(onComplete);
         }
 
@@ -54,6 +55,7 @@ namespace Data
         {
             TaskUtil.CallAwait(async () =>
             {
+                _battleStage.HideAllAxieIndicator();
                 var doRevert = new List<Func<GTweener>>();
                 // Move
                 await DoMoveStep(doRevert);

@@ -10,6 +10,7 @@ namespace Gui
         public IndicatorMove IndicatorMove;
         public GGraph Image;
         public BarHp BarHp;
+        public GImage IconAttack;
         public const string URL = "ui://rbw1tvvvprmnr4";
 
         public static AxieCom CreateInstance()
@@ -24,6 +25,7 @@ namespace Gui
             IndicatorMove = (IndicatorMove)GetChildAt(0);
             Image = (GGraph)GetChildAt(1);
             BarHp = (BarHp)GetChildAt(2);
+            IconAttack = (GImage)GetChildAt(3);
         }
     }
 }

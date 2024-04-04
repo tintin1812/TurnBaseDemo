@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="40,41" pivot="0.5,0.5">
   <displayList>
-    <image id="n51_tk87" name="move_01" src="tk87rt" fileName="Images/Icon/icon_arrow.png" xy="2,-62" pivot="0.5,0.5" size="36,41"/>
+    <image id="n51_tk87" name="move_01" src="tk87rt" fileName="Images/Icon/icon_arrow.png" xy="-5,-70" pivot="0.5,0.5" size="50,50" aspect="true"/>
   </displayList>
 </component>

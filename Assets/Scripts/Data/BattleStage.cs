@@ -26,15 +26,6 @@ namespace Data
             Defenders = new List<AxieHolder>();
             var charCom = homeScreen.MapContent.Character;
             var pos = mapData.GetPosStarEnd();
-            foreach (var p in pos.starts)
-            {
-                var axieAni = AxieHolder.Create(charCom, homeScreen.GetPos(p.y, p.x), gameResource.MatchResource.Attacker);
-                AxieAll[mapData.GetTileIndex(p.y, p.x)] = axieAni;
-                axieAni.FaceToRight(true);
-                axieAni.Init(AxieHolder.AxieTeam.Attack, 32);
-                axieAni.TilePos = p;
-                Attackers.Add(axieAni);
-            }
 
             foreach (var p in pos.ends)
             {
@@ -44,6 +35,16 @@ namespace Data
                 axieAni.Init(AxieHolder.AxieTeam.Defend, 16);
                 Defenders.Add(axieAni);
             }
+
+            foreach (var p in pos.starts)
+            {
+                var axieAni = AxieHolder.Create(charCom, homeScreen.GetPos(p.y, p.x), gameResource.MatchResource.Attacker);
+                AxieAll[mapData.GetTileIndex(p.y, p.x)] = axieAni;
+                axieAni.FaceToRight(true);
+                axieAni.Init(AxieHolder.AxieTeam.Attack, 32);
+                axieAni.TilePos = p;
+                Attackers.Add(axieAni);
+            }
         }
 
         public GTweener AxieAniMove(Tile start, Tile next, bool isRevert)
@@ -51,7 +52,7 @@ namespace Data
             // Update index tile cache
             AxieAll.Remove(_mapData.GetTileIndex(start.Row, start.Col), out var ani);
             AxieAll[_mapData.GetTileIndex(next.Row, next.Col)] = ani;
-            ani.FaceToPos(next.Pos.x);
+            if (!isRevert) ani.FaceToPos(next.Pos.x);
             ani.TilePos = next.Pos;
             ani.Status = AxieHolder.AxieStatus.MarkMove;
             if (!isRevert)
@@ -103,6 +104,21 @@ namespace Data
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public AxieHolder GetAxieAt(int row, int col)
+        {
+            var axie = AxieAll[_mapData.GetTileIndex(row, col)];
+            Debug.Assert(axie.TilePos.y == row && axie.TilePos.x == col);
+            return axie;
+        }
+
+        public void HideAllAxieIndicator()
+        {
+            foreach (var axie in AxieAll.Values)
+            {
+                axie.HideIndicator();
             }
         }
     }

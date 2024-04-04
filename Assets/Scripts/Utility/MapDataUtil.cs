@@ -132,19 +132,28 @@ namespace Utility
             var pos = battleStage.GetPosWithPriorityHpLow();
             var starts = pos.starts.Select(p => tileGrid.GetTile(p.y, p.x)).ToList();
             var ends = pos.ends.Select(p => tileGrid.GetTile(p.y, p.x)).ToList();
-            var moves = DoFindMultiPosToPos(starts, ends, tileGrid, mapData);
-            // Debug render
-            /*
-            for (var index = 0; index < moves.Count; index++)
+            var steps = DoFindMultiPosToPos(starts, ends, tileGrid, mapData);
+
+            // Show Indicator
+            for (var index = 0; index < steps.Count; index++)
             {
-                var move = moves[index];
-                var slotStart = (SlotMap)listSlot.GetChildAt(tileGrid.GetTileIndex(move.Start.Row, move.Start.Col));
-                var x = move.Next.Col - move.Start.Col;
-                var y = move.Next.Row - move.Start.Row;
-                slotStart.Number.text = $"{x};{y}";
+                var step = steps[index];
+                var axie = battleStage.GetAxieAt(step.Start.Row, step.Start.Col);
+                if (step.Opponent != null)
+                {
+                    axie.ShowIndicatorAttack(step.Opponent.Col - step.Start.Col, step.Opponent.Row - step.Start.Row);
+                }
+                else if (step.Next != step.Start)
+                {
+                    axie.ShowIndicatorMove(step.Next.Col - step.Start.Col, step.Next.Row - step.Start.Row);
+                }
+                else
+                {
+                    axie.HideIndicator();
+                }
             }
-            */
-            return moves;
+
+            return steps;
         }
 
         private static void ResetGridWall(this TileGrid tileGrid, MapData mapData)
@@ -294,12 +303,12 @@ namespace Utility
             {
                 Debug.Assert(Ref.Finish == false);
                 Ref.Finish = true;
-                if (Paths != null && Paths.Count == 2)
+                if (Paths is { Count: 2 })
                 {
                     Ref.Opponent = Paths.Last();
                 }
 
-                if (Paths == null || Paths.Count <= 2)
+                if (Paths is not { Count: > 2 })
                 {
                     Ref.Next = Ref.Start;
                 }

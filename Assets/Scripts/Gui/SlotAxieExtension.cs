@@ -4,6 +4,7 @@ using Data;
 using FairyGUI;
 using Spine.Unity;
 using UnityEngine;
+using Utility;
 
 namespace Gui
 {
@@ -142,6 +143,25 @@ namespace Gui
         public float DoAniDie()
         {
             return DoAni(AniNameHit);
+        }
+
+        public void HideIndicator()
+        {
+            AxieCom.IndicatorMove.visible = false;
+            AxieCom.IconAttack.visible = false;
+        }
+
+        public void ShowIndicatorMove(int x, int y)
+        {
+            AxieCom.IndicatorMove.visible = true;
+            AxieCom.IndicatorMove.rotation = Util.VToAngle(x, y);
+        }
+
+        public void ShowIndicatorAttack(int x, int y)
+        {
+            AxieCom.IconAttack.visible = true;
+            // AxieCom.IconAttack.Center();
+            // AxieCom.IconAttack.xy += new Vector2(x, y) * 10;
         }
 
         private float DoAni(string animationName)

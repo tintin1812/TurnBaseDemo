@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace Utility
 {
-    public static class Utility
+    public static class Util
     {
         public static bool IsNullOrEmpty(this string str)
         {
@@ -52,6 +52,21 @@ namespace Utility
             obj.visible = true;
             obj.alpha = 1;
             obj.TweenFade(1, 0.25f).SetDelay(delay).OnComplete(() => { obj.visible = false; });
+        }
+
+        public static int VToAngle(int x, int y)
+        {
+            return x switch
+            {
+                > 0 => 90,
+                < 0 => 270,
+                _ => y switch
+                {
+                    > 0 => 180,
+                    < 0 => 0,
+                    _ => 0
+                }
+            };
         }
     }
 
