@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/HomeScreenExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/day5/Build/day5.data.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/day5/Build/day5.data.unityweb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/day5/Build/day5.framework.js.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/day5/Build/day5.framework.js.unityweb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/day5/Build/day5.wasm.unityweb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/day5/Build/day5.wasm.unityweb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="150545000" />
+      <workItem from="1711435991709" duration="151385000" />
     </task>
     <servers />
   </component>
