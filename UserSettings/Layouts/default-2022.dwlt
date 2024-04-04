@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 39
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 40
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 19
+  controlID: 41
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 293
     height: 666
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -242,8 +242,8 @@ MonoBehaviour:
     y: 666
     width: 1000
     height: 281
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 12}
@@ -322,7 +322,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Plugins/AxieInfinity/AxieMixerUnity/Resources/Spines/starter-axies/01-buba-beast
+    - Assets/Plugins/FairyGUI/Scripts/Gesture
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -330,16 +330,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Plugins/AxieInfinity/AxieMixerUnity/Resources/Spines/starter-axies/01-buba-beast
+  - Assets/Plugins/FairyGUI/Scripts/Gesture
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/ducho/Documents/GitHub/TurnBaseDemo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 48}
-    m_SelectedIDs: 3c540000
-    m_LastClickedID: 21564
-    m_ExpandedIDs: 00000000625100006451000066510000685100006a5100006c5100006e5100007251000074510000805100004252000000ca9a3b
+    m_SelectedIDs: 7e5f0000
+    m_LastClickedID: 24446
+    m_ExpandedIDs: 00000000f8500000fc500000fe50000000510000025100000451000096520000d0520000705f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -367,7 +367,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000625100006451000066510000685100006a5100006c5100006e510000705100007251000074510000
+    m_ExpandedIDs: 00000000f8500000fa500000fc500000fe5000000051000002510000045100000651000008510000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,21 +392,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 444c0000
+    m_LastClickedInstanceID: 19524
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000c0a800000cd000002ef1000088b1000074b20000e495000050af0000be5301001cc6000042c6000034cb000096c10000eeb70000d0b70000dac10000e4ca000038ad000042ad000092620000d8530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: TileGrid
-      m_OriginalName: TileGrid
+      m_Name: PinchGesture
+      m_OriginalName: PinchGesture
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 21076
+      m_UserData: 19524
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -461,9 +461,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fe500000
-      m_LastClickedID: 20734
-      m_ExpandedIDs: 1cfbfffff4ffffff16510000
+      m_SelectedIDs: 805c0000
+      m_LastClickedID: 23680
+      m_ExpandedIDs: 841cf9ff0e42f9ff3242f9ff3842f9ff3e42f9ff8042f9ff9642f9ffbaa0fdfff2a0fdffbca2fdffb81effff0c1fffffe03fffff0440ffff0a40ffff1040ffff5240ffff6840ffffbcb5fffff8b5ffff12d6ffff36d6ffff3cd6ffff42d6ffff7cd6ffff92d6ffff28fbfffff4ffffff565c00006e5c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -870,9 +870,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 6.2300925, y: -1.8845406, z: 0}
+    m_Target: {x: 10.12188, y: -5.5755897, z: -99.903786}
     speed: 2
-    m_Value: {x: 6.2300925, y: -1.8845406, z: 0}
+    m_Value: {x: 10.12188, y: -5.5755897, z: -99.903786}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -922,9 +922,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.0124631
+    m_Target: 2.4978418
     speed: 2
-    m_Value: 1.0124631
+    m_Value: 2.4978418
   m_Ortho:
     m_Target: 1
     speed: 2

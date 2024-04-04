@@ -5,7 +5,6 @@ using FairyGUI;
 using Spine.Unity;
 using UnityEngine;
 using Utility;
-using Random = UnityEngine.Random;
 
 namespace Gui
 {
@@ -79,7 +78,7 @@ namespace Gui
             Team = team;
             HpMax = hp;
             Hp = hp;
-            AttackerNumber = Random.Range(0, 2);
+            AttackerNumber = Ran.RandomRanger(0, 2);
             UpdateHpBar();
             ReloadAni(AniNameMove);
             ReloadAni(AniNameAttack);
@@ -140,7 +139,7 @@ namespace Gui
             textDamage.y -= 30;
             textDamage.alpha = 1;
             textDamage.Label.text = $"-{hpLost}";
-            textDamage.TweenMoveY(textDamage.y - 16, 0.35f).OnComplete(() => { textDamage.Dispose(); });
+            textDamage.TweenMoveY(textDamage.y - 14, 0.5f).OnComplete(() => { textDamage.Dispose(); });
         }
 
         public void DoRevertHp(int hp)

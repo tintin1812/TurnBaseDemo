@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Common;
 using Data;
 using FairyGUI;
 using Plugins.PathFinding;
@@ -72,8 +73,9 @@ namespace Gui
 
         private void InitZoom()
         {
-            // new DragGesture(_homeScreen.Map.Content);
-            _homeScreen.Map.Content.draggable = true;
+            new DragGesture(_homeScreen.Map.Content);
+            // _homeScreen.Map.Content.draggable = true;
+            // new SwipeGesture(_homeScreen.Map.Content);
             float zoomDefault = 25.0f;
             var posDefault = _homeScreen.Map.Content.xy;
             _homeScreen.SliderZoom.value = zoomDefault;

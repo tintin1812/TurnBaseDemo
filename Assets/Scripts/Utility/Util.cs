@@ -5,6 +5,7 @@ using FairyGUI;
 using Gui;
 using UnityEngine;
 using UnityEngine.Networking;
+using Random = System.Random;
 
 namespace Utility
 {
@@ -17,8 +18,8 @@ namespace Utility
             textNotification.scale = new Vector2(0.7f, 0.7f);
             textNotification.Label.text = content;
             textNotification.Center();
-            textNotification.y -= GRoot.inst.size.y * 0.3f;
-            textNotification.TweenMoveY(textNotification.y - GRoot.inst.size.y * 0.1f, 1.0f);
+            textNotification.y -= GRoot.inst.size.y * 0.35f;
+            textNotification.TweenMoveY(textNotification.y - GRoot.inst.size.y * 0.05f, 1.0f);
             textNotification.FadeOutAndDispose(1.0f, 1.0f);
         }
 
@@ -130,6 +131,18 @@ namespace Utility
         {
             yield return new WaitForSeconds(seconds);
             task.SetResult(null);
+        }
+    }
+
+    public static class Ran
+    {
+        private static Random _rnd;
+
+        public static int RandomRanger(int min, int max)
+        {
+            _rnd ??= new Random(new DateTime().Millisecond);
+
+            return min + _rnd.Next() % (max - min + 1);
         }
     }
 }

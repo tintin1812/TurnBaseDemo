@@ -181,7 +181,7 @@ namespace Data
 
                     var damageAtt = GameStageUtil.GenHpLost(attacker, beAttack);
                     var damageDefend = GameStageUtil.GenHpLost(beAttack, attacker);
-                    Util.ShowNotiText($"Attacker deal {damageAtt} dmg, Defend deal {damageAtt} dmg");
+                    Util.ShowNotiText($"Attacker deal {damageAtt} dmg, Defender deal {damageAtt} dmg");
                     beAttack.BeAttack(damageAtt);
                     attacker.BeAttack(damageDefend);
                     var attack = beAttack;
