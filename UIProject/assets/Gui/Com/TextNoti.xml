@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="0,0" pivot="0.5,0.5">
+  <displayList>
+    <image id="n21_tk87" name="BG" src="jluwr6" fileName="Images/9Path/frame_4.png" xy="-351,-33" pivot="0.5,0.5" size="703,69" scale="0.7,0.7"/>
+    <text id="n20_xwx2" name="Label" xy="-32,-20" pivot="0.5,0.5" size="66,39" scale="1,0.9" filter="color" filterData="0,0,0,0" fontSize="28" color="#ffffff" align="center" vAlign="middle" leading="0" strokeColor="#000000" strokeSize="2" shadowColor="#000000" shadowOffset="2,2" text="-----"/>
+  </displayList>
+</component>

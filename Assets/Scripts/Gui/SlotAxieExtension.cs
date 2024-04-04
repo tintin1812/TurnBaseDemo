@@ -1,10 +1,11 @@
-using System.Collections.Generic;
+using System;
 using AxieMixer.Unity;
 using Data;
 using FairyGUI;
 using Spine.Unity;
 using UnityEngine;
 using Utility;
+using Random = UnityEngine.Random;
 
 namespace Gui
 {
@@ -70,6 +71,7 @@ namespace Gui
         public bool IsAlive => Hp > 0;
         public AxieStatus Status { get; set; }
         public Vector2Int TilePos { get; set; }
+        public int AttackerNumber { get; private set; }
 
         public void Init(AxieTeam team, int hp)
         {
@@ -77,12 +79,29 @@ namespace Gui
             Team = team;
             HpMax = hp;
             Hp = hp;
+            AttackerNumber = Random.Range(0, 2);
             UpdateHpBar();
             ReloadAni(AniNameMove);
             ReloadAni(AniNameAttack);
             ReloadAni(AniNameHit);
             Ani.state.ClearTracks();
             Ani.state.SetAnimation(0, AniNameIdle, true);
+            AxieCom.setOnClick(() =>
+            {
+                switch (Team)
+                {
+                    case AxieTeam.Attack:
+                        Util.ShowNotiText($"Attacker Number is {AttackerNumber}");
+                        break;
+                    case AxieTeam.Defend:
+                        Util.ShowNotiText($"Target Number is {AttackerNumber}");
+                        break;
+                    case AxieTeam.Non:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            });
         }
 
         private void UpdateHpBar()
@@ -120,7 +139,7 @@ namespace Gui
             textDamage.xy = AxieCom.xy + AxieCom.size * 0.5f;
             textDamage.y -= 30;
             textDamage.alpha = 1;
-            textDamage.text.text = $"-{hpLost}";
+            textDamage.Label.text = $"-{hpLost}";
             textDamage.TweenMoveY(textDamage.y - 16, 0.35f).OnComplete(() => { textDamage.Dispose(); });
         }
 

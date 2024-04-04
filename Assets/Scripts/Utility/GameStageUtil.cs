@@ -24,5 +24,21 @@ namespace Utility
 
             return result;
         }
+
+        public static int GenHpLost(AxieHolder attacker, AxieHolder target)
+        {
+            return GenHpLost(attacker.AttackerNumber, target.AttackerNumber);
+        }
+
+        private static int GenHpLost(int attackerNumber, int targetNumber)
+        {
+            var seek = (3 + attackerNumber - targetNumber) % 3;
+            return seek switch
+            {
+                0 => 4,
+                1 => 5,
+                _ => 3
+            };
+        }
     }
 }

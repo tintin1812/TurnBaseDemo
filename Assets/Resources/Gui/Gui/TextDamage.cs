@@ -5,11 +5,9 @@ using FairyGUI.Utils;
 
 namespace Gui
 {
-    public partial class TextDamage : GLabel
+    public partial class TextDamage : GComponent
     {
-        public Controller button;
-        public GTextField text;
-        public Transition Ani;
+        public GTextField Label;
         public const string URL = "ui://rbw1tvvvnblsrl";
 
         public static TextDamage CreateInstance()
@@ -21,9 +19,7 @@ namespace Gui
         {
             base.ConstructFromXML(xml);
 
-            button = GetControllerAt(0);
-            text = (GTextField)GetChildAt(0);
-            Ani = GetTransitionAt(0);
+            Label = (GTextField)GetChildAt(0);
         }
     }
 }

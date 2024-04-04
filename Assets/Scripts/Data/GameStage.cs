@@ -152,38 +152,43 @@ namespace Data
 
         private async Task DoAttack(List<GTweenCallback> doRevert)
         {
-            var attacker = _battleStage.Attackers.OrderBy(it => it.Hp).ToList();
+            var attackers = _battleStage.Attackers.OrderBy(it => it.Hp).ToList();
             var defenders = _battleStage.Defenders.OrderBy(it => it.Hp).ToList();
-            foreach (var axie in attacker)
+            foreach (var attacker in attackers)
             {
-                if (axie.Team != AxieHolder.AxieTeam.Attack) continue;
-                if (axie.Status != AxieHolder.AxieStatus.MarkFind) continue;
-                var attackAble = axie.FindAttackAble(defenders);
+                if (attacker.Team != AxieHolder.AxieTeam.Attack) continue;
+                if (attacker.Status != AxieHolder.AxieStatus.MarkFind) continue;
+                var attackAble = attacker.FindAttackAble(defenders);
                 if (attackAble.Count == 0)
                 {
-                    axie.Status = AxieHolder.AxieStatus.MarkIdle;
+                    attacker.Status = AxieHolder.AxieStatus.MarkIdle;
                     continue;
                 }
 
-                axie.Status = AxieHolder.AxieStatus.MarkAttack;
+                attacker.Status = AxieHolder.AxieStatus.MarkAttack;
 
                 foreach (var beAttack in attackAble)
                 {
                     if (!beAttack.IsAlive) continue;
-                    if (!axie.IsAlive) continue;
-                    axie.FaceToPos(beAttack.TilePos.x);
-                    beAttack.FaceToPos(axie.TilePos.x);
-                    var timeA = axie.DoAniAttack();
+                    if (!attacker.IsAlive) continue;
+                    attacker.FaceToPos(beAttack.TilePos.x);
+                    beAttack.FaceToPos(attacker.TilePos.x);
+                    var timeA = attacker.DoAniAttack();
                     var timeB = beAttack.DoAniAttack();
                     await TaskUtil.Delay(Mathf.Max(timeA, timeB));
-                    var hpLastAxie = axie.Hp;
+                    var hpLastAxie = attacker.Hp;
                     var hpLastBeAtt = beAttack.Hp;
-                    beAttack.BeAttack(5);
-                    axie.BeAttack(5);
+
+                    var damageAtt = GameStageUtil.GenHpLost(attacker, beAttack);
+                    var damageDefend = GameStageUtil.GenHpLost(beAttack, attacker);
+                    Util.ShowNotiText($"Attacker deal {damageAtt} dmg, Defend deal {damageAtt} dmg");
+                    beAttack.BeAttack(damageAtt);
+                    attacker.BeAttack(damageDefend);
+                    var attack = beAttack;
                     doRevert.Add(() =>
                     {
-                        axie.DoRevertHp(hpLastAxie);
-                        beAttack.DoRevertHp(hpLastBeAtt);
+                        attacker.DoRevertHp(hpLastAxie);
+                        attack.DoRevertHp(hpLastBeAtt);
                     });
                 }
 

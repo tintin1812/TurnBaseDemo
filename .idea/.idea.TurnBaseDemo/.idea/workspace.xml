@@ -6,17 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="43d7cffd-1bd3-4b46-8d71-c178f5f78ea8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBaseDemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/AxieCom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/AxieCom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_atlas0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/GuiBinder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/TextDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui/TextDamage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Gui/Gui_fui.bytes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/BattleStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/BattleStage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/GameStage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gui/SlotAxieExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/MapDataUtil.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Utility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Utility.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/GameStageUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/GameStageUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Util.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/AxieCom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/IndicatorMove.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/IndicatorMove.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/Com/TextDamage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/Com/TextDamage.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UIProject/assets/Gui/package.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +44,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/61/a8c30b0a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/7e/7663695c/Bounds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/aa/45e6ad2f/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/df/55e8ee2d/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a19d22dcf90a4588a1b2c49c248263ed174000/ef/4fecbb98/Time.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5995835e2565222bd845851833bf32626f8a8e23753c86c8cc54d6f22587cd6a/System.Globalization.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711435868681</updated>
       <workItem from="1711435872035" duration="85000" />
-      <workItem from="1711435991709" duration="142573000" />
+      <workItem from="1711435991709" duration="148069000" />
     </task>
     <servers />
   </component>

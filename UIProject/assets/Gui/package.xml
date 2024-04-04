@@ -45,6 +45,8 @@
     <image id="tk87rt" name="icon_arrow.png" path="/Images/Icon/" smoothing="false"/>
     <component id="tk87ru" name="IndicatorMove.xml" path="/Com/"/>
     <image id="tk87rv" name="icon_attack.png" path="/Images/Icon/" smoothing="false"/>
+    <component id="tk87rw" name="TextNoti.xml" path="/Com/" exported="true"/>
+    <image id="tk87rx" name="layout_black.png" path="/Images/9Path/" scale="9grid" scale9grid="188,31,1,2" smoothing="false"/>
   </resources>
   <publish name="Gui" path="../Assets/Resources/Gui" packageCount="2" genCode="true" codePath="../Assets/Resources/Gui">
     <atlas name="默认" index="0"/>
